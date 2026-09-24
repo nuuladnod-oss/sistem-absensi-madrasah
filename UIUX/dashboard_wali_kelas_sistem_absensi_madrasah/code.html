@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+
+<html lang="id"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-tertiary":"#ffffff","surface":"#f8f9ff","on-secondary-fixed-variant":"#004c6c","surface-container-low":"#eff4ff","primary":"#005e45","background":"#f8f9ff","on-primary":"#ffffff","secondary-fixed":"#c7e7ff","error-container":"#ffdad6","tertiary-container":"#ae4f03","secondary-container":"#8ed1fe","surface-tint":"#006c50","secondary-fixed-dim":"#8bcefb","on-primary-fixed":"#002116","on-surface-variant":"#3e4944","outline-variant":"#bec9c2","inverse-surface":"#27313f","on-tertiary-fixed-variant":"#763300","on-error":"#ffffff","on-tertiary-fixed":"#331200","surface-container-highest":"#d9e3f6","primary-fixed":"#9af4cf","surface-container-lowest":"#ffffff","on-secondary-fixed":"#001e2e","inverse-on-surface":"#eaf1ff","tertiary-fixed":"#ffdbca","surface-bright":"#f8f9ff","on-background":"#121c2a","on-error-container":"#93000a","inverse-primary":"#7ed8b4","on-surface":"#121c2a","tertiary":"#893c00","error":"#ba1a1a","on-primary-fixed-variant":"#00513b","surface-dim":"#d0dbed","surface-variant":"#d9e3f6","primary-fixed-dim":"#7ed8b4","on-primary-container":"#a4fed9","on-secondary-container":"#005a80","primary-container":"#13795b","tertiary-fixed-dim":"#ffb68e","on-secondary":"#ffffff","outline":"#6e7a73","on-tertiary-container":"#ffe8dd","surface-container-high":"#dee9fc","secondary":"#0e658c","surface-container":"#e6eeff"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"margin-desktop":"2rem","gutter-desktop":"1.5rem",gutter:"1rem","space-xs":"0.25rem","space-xl":"2rem","space-sm":"0.5rem","space-lg":"1.5rem","space-md":"1rem",margin:"1rem"},fontFamily:{"headline-md":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"title-md":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"caption-tabular":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"]},fontSize:{"headline-md":["20px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"600"}],"display-lg-mobile":["24px",{lineHeight:"32px",letterSpacing:"-0.015em",fontWeight:"700"}],"label-sm":["12px",{lineHeight:"16px",letterSpacing:"0.02em",fontWeight:"600"}],"title-md":["16px",{lineHeight:"24px",letterSpacing:"0em",fontWeight:"600"}],"display-lg":["30px",{lineHeight:"38px",letterSpacing:"-0.02em",fontWeight:"700"}],"body-sm":["13px",{lineHeight:"20px",letterSpacing:"0.005em",fontWeight:"400"}],"headline-sm":["18px",{lineHeight:"26px",letterSpacing:"-0.005em",fontWeight:"600"}],"caption-tabular":["12px",{lineHeight:"16px",letterSpacing:"0.02em",fontWeight:"500"}],"headline-lg":["24px",{lineHeight:"32px",letterSpacing:"-0.015em",fontWeight:"600"}],"body-lg":["16px",{lineHeight:"24px",letterSpacing:"0em",fontWeight:"400"}],"body-md":["14px",{lineHeight:"22px",letterSpacing:"0em",fontWeight:"400"}],"label-lg":["14px",{lineHeight:"20px",letterSpacing:"0.01em",fontWeight:"600"}],"label-md":["13px",{lineHeight:"18px",letterSpacing:"0.01em",fontWeight:"500"}],"headline-lg-mobile":["20px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"600"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest z-50 flex flex-col shadow-[0_1px_8px_rgba(0,0,0,0.04)] overflow-y-auto"><div class="h-16 px-space-md flex items-center gap-space-sm bg-surface-container-lowest"><div class="w-9 h-9 rounded-lg bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[20px]">mosque</span></div><div class="flex flex-col"><span class="font-label-lg text-label-lg text-primary leading-tight">Madrasah Al-Hikmah</span><span class="font-label-sm text-label-sm text-on-surface-variant leading-tight">Presensi Terpadu</span></div></div><div class="px-space-md py-space-sm"><div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-space-xs"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Lembaga Aktif</span><span class="font-title-md text-title-md text-on-surface font-semibold truncate">MI &amp; MTs Al-Hikmah</span><span class="font-caption-tabular text-caption-tabular text-secondary font-medium">NSM: 111232710045</span></div></div><nav class="flex-1 px-space-sm py-space-xs flex flex-col gap-space-md" data-active-classes="bg-primary-container text-on-primary font-label-md"><div class="flex flex-col gap-space-xs"><span class="px-space-sm py-space-xs font-label-sm text-label-sm text-outline uppercase tracking-wider font-semibold">Dashboard Peran</span><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="dashboard-admin" href="#"><span class="material-symbols-outlined text-[20px]">admin_panel_settings</span><span>Dashboard Admin</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="dashboard-guru" href="#"><span class="material-symbols-outlined text-[20px]">badge</span><span>Dashboard Guru</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg transition-colors bg-primary-container text-on-primary font-label-md" data-path="dashboard-wali-kelas" href="#"><span class="material-symbols-outlined text-[20px]">groups</span><span>Dashboard Wali Kelas</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="dashboard-siswa" href="#"><span class="material-symbols-outlined text-[20px]">school</span><span>Dashboard Siswa</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="dashboard-kepala-madrasah" href="#"><span class="material-symbols-outlined text-[20px]">account_balance</span><span>Dashboard Kepala Madrasah</span></a></div><div class="flex flex-col gap-space-xs"><span class="px-space-sm py-space-xs font-label-sm text-label-sm text-outline uppercase tracking-wider font-semibold">Operasional &amp; Presensi</span><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="presensi-mandiri" href="#"><span class="material-symbols-outlined text-[20px]">touch_app</span><span>Presensi Mandiri</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="scanner-qr-siswa" href="#"><span class="material-symbols-outlined text-[20px]">qr_code_scanner</span><span>Scanner QR Siswa</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="perizinan-approval" href="#"><span class="material-symbols-outlined text-[20px]">verified</span><span>Perizinan &amp; Approval</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="koreksi-audit" href="#"><span class="material-symbols-outlined text-[20px]">manage_history</span><span>Koreksi &amp; Audit</span></a></div><div class="flex flex-col gap-space-xs"><span class="px-space-sm py-space-xs font-label-sm text-label-sm text-outline uppercase tracking-wider font-semibold">Laporan &amp; Rekap</span><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="laporan-harian" href="#"><span class="material-symbols-outlined text-[20px]">calendar_today</span><span>Laporan Harian</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="rekap-mingguan" href="#"><span class="material-symbols-outlined text-[20px]">date_range</span><span>Rekap Mingguan</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="rekap-bulanan" href="#"><span class="material-symbols-outlined text-[20px]">calendar_month</span><span>Rekap Bulanan</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="export-rekapitulasi" href="#"><span class="material-symbols-outlined text-[20px]">file_download</span><span>Export Rekapitulasi</span></a></div><div class="flex flex-col gap-space-xs"><span class="px-space-sm py-space-xs font-label-sm text-label-sm text-outline uppercase tracking-wider font-semibold">Pengaturan</span><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="periode-akademik" href="#"><span class="material-symbols-outlined text-[20px]">event_available</span><span>Periode Akademik</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="jadwal-kehadiran" href="#"><span class="material-symbols-outlined text-[20px]">schedule</span><span>Jadwal Kehadiran</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="master-data-madrasah" href="#"><span class="material-symbols-outlined text-[20px]">database</span><span>Master Data Madrasah</span></a></div></nav><div class="p-space-md bg-surface-container-lowest"><div class="flex items-center justify-between text-on-surface-variant"><span class="font-label-sm text-label-sm">Status Server EMIS</span><span class="flex items-center gap-space-xs font-caption-tabular text-caption-tabular text-primary font-semibold"><span class="w-2 h-2 rounded-full bg-primary-container inline-block"></span>Sinkron</span></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-gutter-desktop"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg bg-surface-container text-on-surface font-caption-tabular text-caption-tabular"><span class="material-symbols-outlined text-primary text-[18px]">event</span><span>Kamis, 24 Sep 2026</span></div><div class="flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg bg-primary-container text-on-primary font-label-sm text-label-sm"><span class="material-symbols-outlined text-[16px]">school</span><span>T.A. 2026/2027 Ganjil (Aktif)</span></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm"><span class="text-outline">Peran:</span><span class="font-semibold text-primary">Super Admin Madrasah</span><span class="material-symbols-outlined text-[16px] text-outline">expand_more</span></div><div class="flex items-center gap-space-sm pl-space-sm"><div class="flex flex-col text-right"><span class="font-label-md text-label-md text-on-surface font-semibold">Ust. Ahmad Fauzan, S.Pd.I</span><span class="font-caption-tabular text-caption-tabular text-outline">NIP. 198405122008011003</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 px-gutter-desktop bg-surface"><div class="flex flex-col w-full pb-margin-desktop">
+<!-- Top Breadcrumb & Institutional Header -->
+<div class="flex flex-col gap-space-xs mb-space-lg pt-space-sm">
+<nav class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<a class="hover:text-primary transition-colors flex items-center gap-space-xs" href="#">
+<span class="material-symbols-outlined text-[16px]">home</span>
+<span>Beranda</span>
+</a>
+<span class="text-outline">/</span>
+<span class="text-primary font-semibold">Dashboard Wali Kelas</span>
+</nav>
+<div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-space-md mt-space-xs">
+<div>
+<h1 class="font-display-lg text-display-lg text-on-surface tracking-tight font-bold">
+          Dashboard Wali Kelas <span class="text-primary">— Kelas IX-A</span>
+</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5">
+          Pemantauan presensi siswa binaan, rekap harian kelas, dan persetujuan surat izin/sakit siswa.
+        </p>
+</div>
+<!-- Class Meta Pill Box -->
+<div class="flex flex-wrap items-center gap-space-sm bg-surface-container-lowest p-space-sm rounded-xl shadow-sm">
+<div class="flex items-center gap-space-xs px-space-sm py-1 rounded-lg bg-surface-container-low text-on-surface">
+<span class="material-symbols-outlined text-primary text-[18px]">person_outline</span>
+<span class="font-label-md text-label-md font-semibold">Ustadz Ahmad Fauzi, S.Pd</span>
+</div>
+<div class="flex items-center gap-space-xs px-space-sm py-1 rounded-lg bg-surface-container-low text-on-surface">
+<span class="material-symbols-outlined text-secondary text-[18px]">meeting_room</span>
+<span class="font-label-md text-label-md">Rombel: <strong class="text-on-surface font-semibold">IX-A (32 Siswa)</strong></span>
+</div>
+<div class="flex items-center gap-space-xs px-space-sm py-1 rounded-lg bg-surface-container-low text-on-surface">
+<span class="material-symbols-outlined text-outline text-[18px]">location_on</span>
+<span class="font-label-md text-label-md">Ruang: Gedung Umar Lt. 2</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Ringkasan Presensi Kelas Hari Ini -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-space-md mb-space-xl">
+<!-- Stat 1: Total Siswa -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold uppercase tracking-wider">Total Siswa</span>
+<span class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">group</span>
+</span>
+</div>
+<div class="mt-space-md">
+<div class="font-display-lg text-display-lg font-bold text-on-surface">32</div>
+<span class="font-label-sm text-label-sm text-outline">Anak Terdaftar Aktif</span>
+</div>
+</div>
+<!-- Stat 2: Hadir Hari Ini -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold uppercase tracking-wider">Hadir Hari Ini</span>
+<span class="w-8 h-8 rounded-lg bg-primary-fixed flex items-center justify-center text-on-primary-fixed-variant">
+<span class="material-symbols-outlined text-[20px]">how_to_reg</span>
+</span>
+</div>
+<div class="mt-space-md">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-lg text-display-lg font-bold text-primary">29</span>
+<span class="font-label-md text-label-md text-primary font-semibold">Siswa</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-semibold">Tingkat Kehadiran: 90.6%</span>
+</div>
+</div>
+<!-- Stat 3: Terlambat -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold uppercase tracking-wider">Terlambat</span>
+<span class="w-8 h-8 rounded-lg bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed-variant">
+<span class="material-symbols-outlined text-[20px]">running_with_errors</span>
+</span>
+</div>
+<div class="mt-space-md">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-lg text-display-lg font-bold text-tertiary">1</span>
+<span class="font-label-md text-label-md text-tertiary font-semibold">Siswa</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline-variant text-on-surface-variant">Tercatat dispensasi BK</span>
+</div>
+</div>
+<!-- Stat 4: Izin / Sakit -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold uppercase tracking-wider">Izin / Sakit</span>
+<span class="w-8 h-8 rounded-lg bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed-variant">
+<span class="material-symbols-outlined text-[20px]">medical_services</span>
+</span>
+</div>
+<div class="mt-space-md">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-lg text-display-lg font-bold text-secondary">2</span>
+<span class="font-label-md text-label-md text-secondary font-semibold">Siswa</span>
+</div>
+<div class="font-caption-tabular text-caption-tabular text-on-surface-variant truncate">
+          Faiz (Sakit), Naila (Izin)
+        </div>
+</div>
+</div>
+<!-- Stat 5: Alpa -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold uppercase tracking-wider">Alpa (Tanpa Ket.)</span>
+<span class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-outline">
+<span class="material-symbols-outlined text-[20px]">person_cancel</span>
+</span>
+</div>
+<div class="mt-space-md">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-lg text-display-lg font-bold text-on-surface">0</span>
+<span class="font-label-md text-label-md text-outline font-semibold">Siswa</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-semibold">Nihil Pelanggaran</span>
+</div>
+</div>
+</div>
+<!-- Seksi Persetujuan Izin Siswa Menunggu Tindakan -->
+<div class="mb-space-xl">
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-2.5 h-6 bg-tertiary rounded-full"></div>
+<div>
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface flex items-center gap-space-xs">
+            Persetujuan Izin Siswa Menunggu Tindakan
+            <span class="bg-tertiary text-on-tertiary font-label-sm text-label-sm px-2 py-0.5 rounded-full">2 Tertunda</span>
+</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Daftar permohonan dispensasi resmi yang membutuhkan verifikasi dan otorisasi Wali Kelas.</p>
+</div>
+</div>
+<span class="font-caption-tabular text-caption-tabular text-outline hidden sm:inline-block">Status EMIS Sinkron</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Card 1: Ahmad Faiz Al-Habsyi -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between" id="approval-card-1">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-secondary font-bold text-headline-sm">
+                AF
+              </div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md font-bold text-on-surface">Ahmad Faiz Al-Habsyi</span>
+<span class="font-caption-tabular text-caption-tabular text-on-surface-variant">NISN: 0087612341 • Absen 03</span>
+</div>
+</div>
+<span class="px-space-sm py-0.5 bg-secondary-fixed text-on-secondary-fixed-variant rounded-md font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">local_hospital</span> Sakit Demam
+            </span>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col gap-1">
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface">
+<span class="text-on-surface-variant">Rentang Waktu:</span>
+<strong class="font-caption-tabular text-caption-tabular">24 - 25 Sep 2026 (2 Hari)</strong>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface">
+<span class="text-on-surface-variant">Bukti Lampiran:</span>
+<a class="text-secondary hover:underline flex items-center gap-1 font-semibold" href="#">
+<span class="material-symbols-outlined text-[16px]">attachment</span>
+<span>Surat Dokter Klinik Asy-Syifa.pdf</span>
+</a>
+</div>
+</div>
+</div>
+<div class="mt-space-lg pt-space-sm flex items-center justify-end gap-space-sm">
+<button class="px-space-md py-2 rounded-lg bg-surface-container-high hover:bg-error-container text-on-surface-variant hover:text-on-error-container font-label-md text-label-md font-semibold transition-colors flex items-center gap-1" onclick="handleAction('approval-card-1', 'Ditolak')">
+<span class="material-symbols-outlined text-[18px]">close</span>
+<span>Tolak</span>
+</button>
+<button class="px-space-md py-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md font-semibold shadow-sm transition-colors flex items-center gap-1" onclick="handleAction('approval-card-1', 'Disetujui')">
+<span class="material-symbols-outlined text-[18px]">check</span>
+<span>Setujui Izin</span>
+</button>
+</div>
+</div>
+<!-- Card 2: Naila Zahra Khairunnisa -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between" id="approval-card-2">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed flex items-center justify-center text-tertiary font-bold text-headline-sm">
+                NZ
+              </div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md font-bold text-on-surface">Naila Zahra Khairunnisa</span>
+<span class="font-caption-tabular text-caption-tabular text-on-surface-variant">NISN: 0089234812 • Absen 24</span>
+</div>
+</div>
+<span class="px-space-sm py-0.5 bg-tertiary-fixed text-on-tertiary-fixed-variant rounded-md font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">family_restroom</span> Izin Keluarga
+            </span>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col gap-1">
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface">
+<span class="text-on-surface-variant">Rentang Waktu:</span>
+<strong class="font-caption-tabular text-caption-tabular">25 Sep 2026 (1 Hari)</strong>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface">
+<span class="text-on-surface-variant">Bukti Lampiran:</span>
+<span class="text-outline italic">Tanpa Lampiran (Konfirmasi Ortu via WA)</span>
+</div>
+</div>
+</div>
+<div class="mt-space-lg pt-space-sm flex items-center justify-end gap-space-sm">
+<button class="px-space-md py-2 rounded-lg bg-surface-container-high hover:bg-error-container text-on-surface-variant hover:text-on-error-container font-label-md text-label-md font-semibold transition-colors flex items-center gap-1" onclick="handleAction('approval-card-2', 'Ditolak')">
+<span class="material-symbols-outlined text-[18px]">close</span>
+<span>Tolak</span>
+</button>
+<button class="px-space-md py-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md font-semibold shadow-sm transition-colors flex items-center gap-1" onclick="handleAction('approval-card-2', 'Disetujui')">
+<span class="material-symbols-outlined text-[18px]">check</span>
+<span>Setujui Izin</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Tabel Presensi Seluruh Siswa Kelas IX-A Hari Ini -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col gap-space-md">
+<!-- Header Tabel & Filter Bar -->
+<div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-space-md">
+<div>
+<h2 class="font-headline-md text-headline-md font-bold text-on-surface">
+          Tabel Presensi Seluruh Siswa Kelas IX-A
+        </h2>
+<p class="font-caption-tabular text-caption-tabular text-on-surface-variant">
+          Pembaruan Terakhir: Hari ini pukul 07:45 WIB • Sesi Masuk Selesai
+        </p>
+</div>
+<!-- Action Buttons (Export) -->
+<div class="flex items-center gap-space-xs">
+<button class="px-space-sm py-2 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md font-semibold flex items-center gap-1.5 transition-colors" onclick="alert('Mengekspor data ke Excel (.xlsx)...')">
+<span class="material-symbols-outlined text-[18px] text-primary">table_chart</span>
+<span>Unduh .xlsx</span>
+</button>
+<button class="px-space-sm py-2 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md font-semibold flex items-center gap-1.5 transition-colors" onclick="alert('Menghasilkan cetakan Dokumen Laporan Rekap .pdf...')">
+<span class="material-symbols-outlined text-[18px] text-error">picture_as_pdf</span>
+<span>Unduh .pdf</span>
+</button>
+</div>
+</div>
+<!-- Quick Status Filters -->
+<div class="flex flex-wrap items-center gap-space-xs pt-space-xs pb-space-xs">
+<button class="status-filter-btn px-space-sm py-1.5 rounded-lg font-label-sm text-label-sm font-semibold bg-primary text-on-primary" id="filter-all" onclick="filterStatus('all')">
+        Semua (32)
+      </button>
+<button class="status-filter-btn px-space-sm py-1.5 rounded-lg font-label-sm text-label-sm font-semibold bg-surface-container text-on-surface hover:bg-surface-container-high" id="filter-hadir" onclick="filterStatus('Hadir')">
+        Hadir (29)
+      </button>
+<button class="status-filter-btn px-space-sm py-1.5 rounded-lg font-label-sm text-label-sm font-semibold bg-surface-container text-on-surface hover:bg-surface-container-high" id="filter-terlambat" onclick="filterStatus('Terlambat')">
+        Terlambat (1)
+      </button>
+<button class="status-filter-btn px-space-sm py-1.5 rounded-lg font-label-sm text-label-sm font-semibold bg-surface-container text-on-surface hover:bg-surface-container-high" id="filter-izinsakit" onclick="filterStatus('IzinSakit')">
+        Izin / Sakit (2)
+      </button>
+<button class="status-filter-btn px-space-sm py-1.5 rounded-lg font-label-sm text-label-sm font-semibold bg-surface-container text-on-surface hover:bg-surface-container-high" id="filter-alpa" onclick="filterStatus('Alpa')">
+        Alpa (0)
+      </button>
+</div>
+<!-- Table Container -->
+<div class="overflow-x-auto rounded-xl">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="px-space-md py-3 font-semibold text-center w-12">No</th>
+<th class="px-space-md py-3 font-semibold">NISN</th>
+<th class="px-space-md py-3 font-semibold">Nama Siswa</th>
+<th class="px-space-md py-3 font-semibold">Jam Scan Datang</th>
+<th class="px-space-md py-3 font-semibold">Pemindai (Guru Piket)</th>
+<th class="px-space-md py-3 font-semibold">Jam Scan Pulang</th>
+<th class="px-space-md py-3 font-semibold text-center">Status Kehadiran</th>
+<th class="px-space-md py-3 font-semibold text-right">Aksi Cepat</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md text-on-surface" id="student-table-body">
+<!-- Row 1: Normal Hadir -->
+<tr class="student-row hover:bg-surface-container-low transition-colors" data-status="Hadir">
+<td class="px-space-md py-3 font-caption-tabular text-caption-tabular text-center text-outline">01</td>
+<td class="px-space-md py-3 font-caption-tabular text-caption-tabular text-on-surface-variant">0084512901</td>
+<td class="px-space-md py-3 font-semibold">Abdullah Zaki Mubarok</td>
+<td class="px-space-md py-3 font-caption-tabular text-caption-tabular text-primary font-semibold">06:42:15 WIB</td>
+<td class="px-space-md py-3 text-on-surface-variant font-body-sm text-body-sm">Ust. Ridwan (Gerbang Utama)</td>
+<td class="px-space-md py-3 font-caption-tabular text-caption-tabular text-outline">—</td>
+<td class="px-space-md py-3 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md font-label-sm text-label-sm bg-primary-fixed text-on-primary-fixed font-semibold">
+                Hadir
+              </span>
+</td>
+<td class="px-space-md py-3 text-right">
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant" onclick="openDetail('Abdullah Zaki Mubarok', 'Hadir', '06:42:15 WIB')" title="Lihat Riwayat Lengkap">
+<span class="material-symbols-outlined text-[18px]">info</span>
+</button>
+</td>
+</tr>
+<!-- Row 2: Normal Hadir -->
+<tr class="student-row hover:bg-surface-container-low transition-colors" data-status="Hadir">
+<td class="px-space-md py-3 font-caption-tabular text-caption-tabular text-center text-outline">02</td>
+<td class="px-space-md py-3 font-caption-tabular text-caption-tabular text-on-surface-variant">0085123982</td>
+<td class="px-space-md py-3 font-semibold">Aisyah Putri Maharani</td>
+<td class="px-space-md py-3 font-caption-tabular text-caption-tabular text-primary font-semibold">06:48:02 WIB</td>
+<td class="px-space-md py-3 text-on-surface-variant font-body-sm text-body-sm">Usth. Maryam (Lobi Putri)</td>
+<td class="px-space-md py-3 font-caption-tabular text-caption-tabular text-outline">—</td>
+<td class="px-space-md py-3 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md font-label-sm text-label-sm bg-primary-fixed text-on-primary-fixed font-semibold">
+                Hadir
+              </span>
+</td>
+<td class="px-space-md py-3 text-right">
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant" onclick="openDetail('Aisyah Putri Maharani', 'Hadir', '06:48:02 WIB')" title="Lihat Riwayat Lengkap">
+<span class="material-symbols-outlined text-[18px]">info</span>
+</button>
+</td>
+</tr>
+<!-- Row 3: Sakit -->
+<tr class="student-row hover:bg-surface-container-low transition-colors" data-status="Sakit">
+<td class="px-space-md py-3 font-caption-tabular text-caption-tabular text-center text-outline">03</td>
+<td class="px-space-md py-3 font-caption-tabular text-caption-tabular text-on-surface-variant">0087612341</td>
+<td class="px-space-md py-3 font-semibold text-secondary">Ahmad Faiz Al-Habsyi</td>
+<td class="px-space-md py-3 font-caption-tabular text-caption-tabular text-outline">Dispensasi Sakit</td>
+<td class="px-space-md py-3 text-on-surface-variant font-body-sm text-body-sm">Sistem Surat (Online)</td>
+<td class="px-space-md py-3 font-caption-tabular text-caption-tabular text-outline">—</td>
+<td class="px-space-md py-3 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md font-label-sm text-label-sm bg-secondary-fixed text-on-secondary-fixed-variant font-semibold">
+                Sakit (Surat Dokter)
+              </span>
+</td>
+<td class="px-space-md py-3 text-right">
+<button class="p-1 rounded hover:bg-surface-container text-secondary" onclick="alert('Membuka detail berkas sakit Ahmad Faiz Al-Habsyi')" title="Cek Dokumen Sakit">
+<span class="material-symbols-outlined text-[18px]">description</span>
+</button>
+</td>
+</tr>
+<!-- Row 4: Terlambat -->
+<tr class="student-row hover:bg-surface-container-low transition-colors" data-status="Terlambat">
+<td class="px-space-md py-3 font-caption-tabular text-caption-tabular text-center text-outline">04</td>
+<td class="px-space-md py-3 font-caption-tabular text-caption-tabular text-on-surface-variant">0086392019</td>
+<td class="px-space-md py-3 font-semibold text-tertiary">Bilal Habibi Ramadhan</td>
+<td class="px-space-md py-3 font-caption-tabular text-caption-tabular text-tertiary font-semibold">07:18:40 WIB (+18m)</td>
+<td class="px-space-md py-3 text-on-surface-variant font-body-sm text-body-sm">Ust. Ridwan (Pos BK)</td>
+<td class="px-space-md py-3 font-caption-tabular text-caption-tabular text-outline">—</td>
+<td class="px-space-md py-3 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md font-label-sm text-label-sm bg-tertiary-fixed text-on-tertiary-fixed-variant font-semibold">
+                Terlambat
+              </span>
+</td>
+<td class="px-space-md py-3 text-right">
+<button class="p-1 rounded hover:bg-surface-container text-tertiary" onclick="alert('Kirim peringatan/catatan pembinaan untuk Bilal Habibi')" title="Catat Konseling BK">
+<span class="material-symbols-outlined text-[18px]">edit_note</span>
+</button>
+</td>
+</tr>
+<!-- Row 5: Normal Hadir -->
+<tr class="student-row hover:bg-surface-container-low transition-colors" data-status="Hadir">
+<td class="px-space-md py-3 font-caption-tabular text-caption-tabular text-center text-outline">05</td>
+<td class="px-space-md py-3 font-caption-tabular text-caption-tabular text-on-surface-variant">0081029384</td>
+<td class="px-space-md py-3 font-semibold">Fathimah Azzahra</td>
+<td class="px-space-md py-3 font-caption-tabular text-caption-tabular text-primary font-semibold">06:35:10 WIB</td>
+<td class="px-space-md py-3 text-on-surface-variant font-body-sm text-body-sm">Usth. Maryam (Lobi Putri)</td>
+<td class="px-space-md py-3 font-caption-tabular text-caption-tabular text-outline">—</td>
+<td class="px-space-md py-3 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md font-label-sm text-label-sm bg-primary-fixed text-on-primary-fixed font-semibold">
+                Hadir
+              </span>
+</td>
+<td class="px-space-md py-3 text-right">
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant" onclick="openDetail('Fathimah Azzahra', 'Hadir', '06:35:10 WIB')" title="Lihat Riwayat Lengkap">
+<span class="material-symbols-outlined text-[18px]">info</span>
+</button>
+</td>
+</tr>
+<!-- Row 6: Normal Hadir -->
+<tr class="student-row hover:bg-surface-container-low transition-colors" data-status="Hadir">
+<td class="px-space-md py-3 font-caption-tabular text-caption-tabular text-center text-outline">06</td>
+<td class="px-space-md py-3 font-caption-tabular text-caption-tabular text-on-surface-variant">0082910395</td>
+<td class="px-space-md py-3 font-semibold">Muhammad Rayhan Dwi</td>
+<td class="px-space-md py-3 font-caption-tabular text-caption-tabular text-primary font-semibold">06:51:30 WIB</td>
+<td class="px-space-md py-3 text-on-surface-variant font-body-sm text-body-sm">Ust. Ridwan (Gerbang Utama)</td>
+<td class="px-space-md py-3 font-caption-tabular text-caption-tabular text-outline">—</td>
+<td class="px-space-md py-3 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md font-label-sm text-label-sm bg-primary-fixed text-on-primary-fixed font-semibold">
+                Hadir
+              </span>
+</td>
+<td class="px-space-md py-3 text-right">
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant" onclick="openDetail('Muhammad Rayhan Dwi', 'Hadir', '06:51:30 WIB')" title="Lihat Riwayat Lengkap">
+<span class="material-symbols-outlined text-[18px]">info</span>
+</button>
+</td>
+</tr>
+<!-- Row 7: Izin -->
+<tr class="student-row hover:bg-surface-container-low transition-colors" data-status="Izin">
+<td class="px-space-md py-3 font-caption-tabular text-caption-tabular text-center text-outline">07</td>
+<td class="px-space-md py-3 font-caption-tabular text-caption-tabular text-on-surface-variant">0089234812</td>
+<td class="px-space-md py-3 font-semibold text-tertiary">Naila Zahra Khairunnisa</td>
+<td class="px-space-md py-3 font-caption-tabular text-caption-tabular text-outline">Izin Acara Keluarga</td>
+<td class="px-space-md py-3 text-on-surface-variant font-body-sm text-body-sm">Aplikasi Wali Santri</td>
+<td class="px-space-md py-3 font-caption-tabular text-caption-tabular text-outline">—</td>
+<td class="px-space-md py-3 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md font-label-sm text-label-sm bg-tertiary-fixed text-on-tertiary-fixed-variant font-semibold">
+                Izin
+              </span>
+</td>
+<td class="px-space-md py-3 text-right">
+<button class="p-1 rounded hover:bg-surface-container text-tertiary" onclick="alert('Membuka permohonan izin Naila Zahra Khairunnisa')" title="Cek Permohonan Izin">
+<span class="material-symbols-outlined text-[18px]">contact_phone</span>
+</button>
+</td>
+</tr>
+<!-- Row 8: Normal Hadir -->
+<tr class="student-row hover:bg-surface-container-low transition-colors" data-status="Hadir">
+<td class="px-space-md py-3 font-caption-tabular text-caption-tabular text-center text-outline">08</td>
+<td class="px-space-md py-3 font-caption-tabular text-caption-tabular text-on-surface-variant">0083921048</td>
+<td class="px-space-md py-3 font-semibold">Zulfa Syakirah</td>
+<td class="px-space-md py-3 font-caption-tabular text-caption-tabular text-primary font-semibold">06:40:22 WIB</td>
+<td class="px-space-md py-3 text-on-surface-variant font-body-sm text-body-sm">Usth. Maryam (Lobi Putri)</td>
+<td class="px-space-md py-3 font-caption-tabular text-caption-tabular text-outline">—</td>
+<td class="px-space-md py-3 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md font-label-sm text-label-sm bg-primary-fixed text-on-primary-fixed font-semibold">
+                Hadir
+              </span>
+</td>
+<td class="px-space-md py-3 text-right">
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant" onclick="openDetail('Zulfa Syakirah', 'Hadir', '06:40:22 WIB')" title="Lihat Riwayat Lengkap">
+<span class="material-symbols-outlined text-[18px]">info</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination & Summary Footer of Table -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-space-sm pt-space-xs font-label-sm text-label-sm text-on-surface-variant">
+<span>Menampilkan 8 dari 32 data presensi siswa</span>
+<div class="flex items-center gap-1">
+<button class="px-3 py-1 rounded bg-surface-container-low text-outline cursor-not-allowed">Sebelumnya</button>
+<button class="px-3 py-1 rounded bg-primary text-on-primary font-semibold">1</button>
+<button class="px-3 py-1 rounded bg-surface-container-low text-on-surface hover:bg-surface-container">2</button>
+<button class="px-3 py-1 rounded bg-surface-container-low text-on-surface hover:bg-surface-container">3</button>
+<button class="px-3 py-1 rounded bg-surface-container-low text-on-surface hover:bg-surface-container">4</button>
+<button class="px-3 py-1 rounded bg-surface-container-low text-on-surface hover:bg-surface-container">Selanjutnya</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  function handleAction(cardId, actionType) {
+    const card = document.getElementById(cardId);
+    if (!card) return;
+    
+    // Feedback notification
+    const studentName = card.querySelector('h3, span.font-title-md')?.innerText || 'Siswa';
+    const confirmAction = confirm(`Apakah Anda yakin ingin memberi status "${actionType}" untuk permohonan ${studentName}?`);
+    
+    if (confirmAction) {
+      card.style.opacity = '0.5';
+      card.style.pointerEvents = 'none';
+      setTimeout(() => {
+        card.innerHTML = `
+          <div class="p-space-lg flex items-center justify-center gap-space-sm text-center">
+            <span class="material-symbols-outlined text-primary text-[28px]">verified</span>
+            <span class="font-label-lg text-label-lg font-bold text-on-surface">Permohonan ${actionType} oleh Wali Kelas</span>
+          </div>
+        `;
+        card.style.opacity = '1';
+      }, 400);
+    }
+  }
+
+  function filterStatus(statusType) {
+    const rows = document.querySelectorAll('.student-row');
+    const buttons = document.querySelectorAll('.status-filter-btn');
+
+    // Update button states
+    buttons.forEach(btn => {
+      btn.className = 'status-filter-btn px-space-sm py-1.5 rounded-lg font-label-sm text-label-sm font-semibold bg-surface-container text-on-surface hover:bg-surface-container-high';
+    });
+
+    const activeBtn = event?.currentTarget;
+    if (activeBtn) {
+      activeBtn.className = 'status-filter-btn px-space-sm py-1.5 rounded-lg font-label-sm text-label-sm font-semibold bg-primary text-on-primary';
+    }
+
+    rows.forEach(row => {
+      const rowStatus = row.getAttribute('data-status');
+      if (statusType === 'all') {
+        row.style.display = '';
+      } else if (statusType === 'IzinSakit') {
+        if (rowStatus === 'Izin' || rowStatus === 'Sakit') {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      } else if (statusType === rowStatus) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  }
+
+  function openDetail(nama, status, jam) {
+    alert(`Log Kehadiran:\nNama: ${nama}\nStatus: ${status}\nWaktu Masuk: ${jam}\nTerverifikasi oleh Petugas Piket Madrasah.`);
+  }
+</script></main></div></body></html>

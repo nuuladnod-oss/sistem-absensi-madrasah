@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+
+<html lang="id"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-error-container":"#93000a","on-tertiary-container":"#ffe8dd","on-secondary-container":"#005a80","surface-dim":"#d0dbed","outline-variant":"#bec9c2","on-secondary-fixed-variant":"#004c6c","error-container":"#ffdad6","on-background":"#121c2a","inverse-on-surface":"#eaf1ff","on-primary-container":"#a4fed9","surface-container-low":"#eff4ff","background":"#f8f9ff","inverse-primary":"#7ed8b4","primary-fixed":"#9af4cf","on-primary-fixed-variant":"#00513b","on-tertiary":"#ffffff","primary-container":"#13795b","on-surface-variant":"#3e4944","inverse-surface":"#27313f","on-error":"#ffffff","surface-tint":"#006c50","surface-bright":"#f8f9ff","tertiary-fixed":"#ffdbca","tertiary":"#893c00","secondary":"#0e658c","secondary-fixed-dim":"#8bcefb","on-surface":"#121c2a","primary-fixed-dim":"#7ed8b4","on-primary-fixed":"#002116","on-tertiary-fixed":"#331200","tertiary-fixed-dim":"#ffb68e","secondary-container":"#8ed1fe","surface-variant":"#d9e3f6","on-secondary":"#ffffff","on-tertiary-fixed-variant":"#763300","surface":"#f8f9ff","surface-container-lowest":"#ffffff","surface-container":"#e6eeff","surface-container-high":"#dee9fc","tertiary-container":"#ae4f03","outline":"#6e7a73","primary":"#005e45","surface-container-highest":"#d9e3f6","on-secondary-fixed":"#001e2e","on-primary":"#ffffff","error":"#ba1a1a","secondary-fixed":"#c7e7ff"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"space-xl":"2rem","space-md":"1rem","space-xs":"0.25rem","gutter":"1rem","space-lg":"1.5rem","space-sm":"0.5rem","margin-desktop":"2rem","margin":"1rem","gutter-desktop":"1.5rem"},fontFamily:{"label-lg":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"caption-tabular":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"title-md":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"]},fontSize:{"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"display-lg":["30px",{"lineHeight":"38px","letterSpacing":"-0.02em","fontWeight":"700"}],"caption-tabular":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"500"}],"label-md":["13px",{"lineHeight":"18px","letterSpacing":"0.01em","fontWeight":"500"}],"body-lg":["16px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"400"}],"body-md":["14px",{"lineHeight":"22px","letterSpacing":"0em","fontWeight":"400"}],"headline-lg-mobile":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"display-lg-mobile":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"700"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"body-sm":["13px",{"lineHeight":"20px","letterSpacing":"0.005em","fontWeight":"400"}],"label-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"headline-sm":["18px",{"lineHeight":"26px","letterSpacing":"-0.005em","fontWeight":"600"}],"title-md":["16px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"600"}],"headline-md":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest z-50 flex flex-col shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 px-space-lg flex items-center gap-space-sm bg-surface-container-lowest"><div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-on-primary shrink-0 shadow-sm"><span class="material-symbols-outlined text-[24px]">school</span></div><div class="flex flex-col min-w-0"><span class="font-title-md text-title-md text-on-surface truncate leading-tight">Madrasah Al-Hikmah</span><span class="font-label-sm text-label-sm text-primary tracking-wide uppercase font-semibold">Presensi Terpadu</span></div></div><div class="flex-1 overflow-y-auto px-space-md py-space-sm space-y-space-md"><div class="space-y-space-xs"><div class="px-space-sm py-1 font-label-sm text-label-sm font-semibold uppercase tracking-wider text-outline">Panel Dashboard</div><nav class="space-y-1" data-active-classes="bg-primary-container text-on-primary font-bold rounded-lg shadow-sm"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="dashboard-admin" href="#"><span class="material-symbols-outlined text-[20px]">admin_panel_settings</span><span>Dashboard Admin</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="dashboard-guru" href="#"><span class="material-symbols-outlined text-[20px]">person_outline</span><span>Dashboard Guru</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="dashboard-wali-kelas" href="#"><span class="material-symbols-outlined text-[20px]">supervisor_account</span><span>Dashboard Wali Kelas</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-space-container-high hover:text-on-surface transition-all" data-path="dashboard-siswa" href="#"><span class="material-symbols-outlined text-[20px]">backpack</span><span>Dashboard Siswa</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="dashboard-kepala-madrasah" href="#"><span class="material-symbols-outlined text-[20px]">workspace_premium</span><span>Dashboard Kepala Madrasah</span></a></nav></div><div class="space-y-space-xs"><div class="px-space-sm py-1 font-label-sm text-label-sm font-semibold uppercase tracking-wider text-outline">Operasional Presensi</div><nav class="space-y-1" data-active-classes="bg-primary-container text-on-primary font-bold rounded-lg shadow-sm"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="presensi-mandiri" href="#"><span class="material-symbols-outlined text-[20px]">fingerprint</span><span>Presensi Mandiri</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="scanner-qr-siswa" href="#"><span class="material-symbols-outlined text-[20px]">qr_code_scanner</span><span>Scanner QR Siswa</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="perizinan-approval" href="#"><span class="material-symbols-outlined text-[20px]">assignment_turned_in</span><span>Perizinan &amp; Approval</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="koreksi-audit" href="#"><span class="material-symbols-outlined text-[20px]">history_edu</span><span>Koreksi &amp; Audit</span></a></nav></div><div class="space-y-space-xs"><div class="px-space-sm py-1 font-label-sm text-label-sm font-semibold uppercase tracking-wider text-outline">Laporan &amp; Rekap</div><nav class="space-y-1" data-active-classes="bg-primary-container text-on-primary font-bold rounded-lg shadow-sm"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="pusat-laporan" href="#"><span class="material-symbols-outlined text-[20px]">analytics</span><span>Pusat Laporan</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-2 transition-all bg-primary-container text-on-primary font-bold rounded-lg shadow-sm" data-path="ekspor-laporan" href="#"><span class="material-symbols-outlined text-[20px]">file_download</span><span>Ekspor Laporan</span></a></nav></div><div class="space-y-space-xs"><div class="px-space-sm py-1 font-label-sm text-label-sm font-semibold uppercase tracking-wider text-outline">Pengaturan Sistem</div><nav class="space-y-1" data-active-classes="bg-primary-container text-on-primary font-bold rounded-lg shadow-sm"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="import-excel-data-master" href="#"><span class="material-symbols-outlined text-[20px]">upload_file</span><span>Import Excel Data Master</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="periode-akademik" href="#"><span class="material-symbols-outlined text-[20px]">event_available</span><span>Periode Akademik</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="jadwal-kehadiran" href="#"><span class="material-symbols-outlined text-[20px]">schedule</span><span>Jadwal Kehadiran</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="master-data-madrasah" href="#"><span class="material-symbols-outlined text-[20px]">domain</span><span>Master Data Madrasah</span></a></nav></div></div><div class="p-space-md bg-surface-container-low"><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col min-w-0"><span class="font-label-md text-label-md text-on-surface font-semibold truncate">Ustadz Ahmad Fauzi, S.Pd.I.</span><span class="font-label-sm text-label-sm text-on-surface-variant truncate">NIP. 198403152011011004</span></div></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-20 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-1.5 rounded-lg bg-surface-container-high text-on-surface"><span class="material-symbols-outlined text-[18px] text-primary">calendar_today</span><span class="font-label-md text-label-md font-semibold">TA 2024/2025 - Ganjil</span></div><div class="hidden lg:flex items-center gap-space-xs px-space-sm py-1.5 rounded-lg bg-primary-fixed text-on-primary-fixed"><span class="material-symbols-outlined text-[16px] text-primary">verified</span><span class="font-label-sm text-label-sm font-semibold">EMIS Kemenag Sinkron</span></div></div><div class="flex items-center gap-space-md"><div class="hidden md:flex items-center gap-space-xs text-on-surface-variant font-caption-tabular text-caption-tabular"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span><span>WIB: GMT+7 Presensi Online</span></div><div class="flex items-center gap-space-xs"><button aria-label="Pencarian" class="w-10 h-10 rounded-xl flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[20px]">search</span></button><button aria-label="Notifikasi" class="w-10 h-10 rounded-xl flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors relative"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-error"></span></button><button aria-label="Bantuan Emis/Simpatika" class="w-10 h-10 rounded-xl flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[20px]">help_outline</span></button></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="w-full pt-20 bg-surface min-h-screen px-gutter-desktop py-space-lg"><div class="flex flex-col w-full space-y-space-lg">
+<!-- BREADCRUMB -->
+<nav class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant">
+<a class="hover:text-primary transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[18px]">home</span>
+<span>Beranda</span>
+</a>
+<span class="material-symbols-outlined text-[16px] text-outline">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Laporan &amp; Rekap</a>
+<span class="material-symbols-outlined text-[16px] text-outline">chevron_right</span>
+<span class="text-on-surface font-semibold">Ekspor Laporan Presensi</span>
+</nav>
+<!-- HEADER SECTION -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm space-y-space-md">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[28px]">file_download</span>
+<h1 class="font-display-lg text-display-lg text-on-surface">Pusat Ekspor Laporan Presensi</h1>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-4xl">
+          Cetak dokumen resmi berita acara dan rekapitulasi kehadiran madrasah dalam format spreadsheet Excel (.xlsx) atau dokumen cetak PDF Landscape (A4) berstandar Kemenag RI.
+        </p>
+</div>
+<div class="bg-surface-container-low p-space-sm px-space-md rounded-lg flex flex-col gap-1 shrink-0">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider font-semibold">Standar Penamaan File Otomatis</span>
+<div class="flex items-center gap-2 font-caption-tabular text-caption-tabular font-semibold text-primary">
+<span class="material-symbols-outlined text-[16px]">code</span>
+<code>Rekap-Presensi_[Periode]_[TanggalMulai]-[TanggalAkhir].[xlsx/pdf]</code>
+</div>
+</div>
+</div>
+</div>
+<!-- SIMPLE FILTER AREA -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm space-y-space-md">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">tune</span>
+<span class="font-title-md text-title-md text-on-surface">Konfigurasi Parameter Laporan</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Sesuai Modul FS-EXPORT-001 / BR-045 Kemenag</span>
+</div>
+<!-- Segmented Buttons: Periode Presensi -->
+<div class="flex flex-wrap gap-2 pt-1">
+<button class="px-space-md py-2 rounded-lg font-label-md text-label-md bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-colors" type="button">
+        Laporan Harian
+      </button>
+<button class="px-space-md py-2 rounded-lg font-label-md text-label-md bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-colors" type="button">
+        Rekap Mingguan
+      </button>
+<button class="px-space-md py-2 rounded-lg font-label-md text-label-md bg-primary-container text-on-primary font-semibold shadow-sm" type="button">
+        Rekap Bulanan
+      </button>
+<button class="px-space-md py-2 rounded-lg font-label-md text-label-md bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-colors" type="button">
+        Rekap Satu Semester
+      </button>
+</div>
+<!-- Row 1: Dropdown & Date Picker -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md pt-2">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md font-semibold text-on-surface" for="filter-periode">Periode Akademik</label>
+<div class="relative">
+<select class="w-full h-11 bg-surface-container-lowest rounded-lg px-space-md pr-10 text-on-surface font-body-md text-body-md shadow-sm appearance-none focus:outline-none focus:ring-2 focus:ring-primary-container" id="filter-periode">
+<option selected="">T.A. 2026/2027 Ganjil (Aktif)</option>
+<option>T.A. 2025/2026 Genap</option>
+<option>T.A. 2025/2026 Ganjil</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-3 text-on-surface-variant pointer-events-none text-[20px]">expand_more</span>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md font-semibold text-on-surface" for="filter-entitas">Lingkup Entitas Laporan</label>
+<div class="relative">
+<select class="w-full h-11 bg-surface-container-lowest rounded-lg px-space-md pr-10 text-on-surface font-body-md text-body-md shadow-sm appearance-none focus:outline-none focus:ring-2 focus:ring-primary-container" id="filter-entitas">
+<option>Seluruh Madrasah (Global)</option>
+<option>Dewan Guru &amp; Staf Karyawan</option>
+<option>Per Tingkat / Jenjang (Kelas VII - IX)</option>
+<option selected="">Kelas IX-A Madrasah Tsanawiyah (Wali: Ustadz Fauzi)</option>
+<option>Kelas IX-B Madrasah Tsanawiyah</option>
+<option>Individu Siswa Tertentu...</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-3 text-on-surface-variant pointer-events-none text-[20px]">expand_more</span>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md font-semibold text-on-surface" for="filter-tanggal">Rentang Tanggal Kalender</label>
+<div class="relative flex items-center">
+<input class="w-full h-11 bg-surface-container-lowest rounded-lg pl-10 pr-space-md text-on-surface font-caption-tabular text-caption-tabular shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-container cursor-pointer" id="filter-tanggal" readonly="" type="text" value="01 Sep 2026 s/d 24 Sep 2026"/>
+<span class="material-symbols-outlined absolute left-3 text-primary text-[20px]">calendar_month</span>
+<span class="material-symbols-outlined absolute right-3 text-on-surface-variant text-[18px]">date_range</span>
+</div>
+</div>
+</div>
+<!-- Row 2: Checkbox & Submit Action -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md pt-2">
+<div class="flex flex-col sm:flex-row gap-space-md">
+<label class="flex items-center gap-2 cursor-pointer select-none">
+<input checked="" class="w-4 h-4 rounded text-primary-container focus:ring-primary-container accent-primary-container" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Sertakan Kolom Tanda Tangan Digital Kepala Madrasah &amp; Wali Kelas</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer select-none">
+<input checked="" class="w-4 h-4 rounded text-primary-container focus:ring-primary-container accent-primary-container" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Sertakan QR Verifikasi Keabsahan Dokumen EMIS</span>
+</label>
+</div>
+<button class="h-11 px-space-lg rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-md text-label-md flex items-center justify-center gap-2 shadow-sm transition-all active:scale-[0.99]" type="button">
+<span class="material-symbols-outlined text-[20px] text-primary">sync</span>
+<span>Perbarui Pratinjau Dokumen</span>
+</button>
+</div>
+</div>
+<!-- TWO CLEAR EXPORT ACTION CARDS -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-space-lg">
+<!-- KARTU A: SPREADSHEET EXCEL (.XLSX) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between space-y-space-md relative overflow-hidden">
+<div class="space-y-space-md">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[32px] text-primary">table_view</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm uppercase font-semibold text-primary tracking-wider">Format Data Spreadsheet</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Ekspor Spreadsheet Excel (.xlsx)</h2>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-md bg-surface-container text-on-surface-variant font-caption-tabular text-caption-tabular font-semibold">
+            Estimasi: ~148 KB
+          </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Format resmi tabel data mentah dan matriks kehadiran terperinci, disesuaikan untuk import sinkronisasi arsip pangkalan data EMIS Kemenag &amp; SIMPATIKA.
+        </p>
+<!-- 10 Kolom Wajib Badge Matrix -->
+<div class="bg-surface-container-low p-space-md rounded-lg space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">rule</span>
+              10 Kolom Wajib Sesuai BRD (FS-EXPORT-001):
+            </span>
+<span class="font-caption-tabular text-caption-tabular text-outline">10 Kolom Terverifikasi</span>
+</div>
+<div class="flex flex-wrap gap-1.5 pt-1">
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-caption-tabular text-caption-tabular">1. Periode</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-caption-tabular text-caption-tabular">2. Tanggal</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-caption-tabular text-caption-tabular">3. NISN/NIP &amp; Nama</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-caption-tabular text-caption-tabular">4. Rombel</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-caption-tabular text-caption-tabular">5. Jam Datang</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-caption-tabular text-caption-tabular">6. Status Datang</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-caption-tabular text-caption-tabular">7. Jam Pulang</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-caption-tabular text-caption-tabular">8. Status Pulang</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-caption-tabular text-caption-tabular">9. Status Akhir</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-caption-tabular text-caption-tabular">10. Ket. Izin/Dispensasi</span>
+</div>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant font-caption-tabular text-caption-tabular bg-surface-container px-3 py-1.5 rounded-lg">
+<span class="material-symbols-outlined text-[16px] text-primary shrink-0">draft</span>
+<span class="truncate">File: Rekap-Presensi_TA2026-2027-Ganjil_20260901-20260924_Kelas-IXA.xlsx</span>
+</div>
+</div>
+<div class="pt-space-md">
+<button class="w-full h-12 rounded-lg bg-primary-container text-on-primary font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-sm hover:opacity-95 active:scale-[0.99] transition-all" type="button">
+<span class="material-symbols-outlined text-[22px]">download_for_offline</span>
+<span>Unduh Berkas Excel (.xlsx)</span>
+</button>
+</div>
+</div>
+<!-- KARTU B: PDF CETAK LANDSCAPE (A4) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between space-y-space-md relative overflow-hidden">
+<div class="space-y-space-md">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[32px] text-secondary">picture_as_pdf</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm uppercase font-semibold text-secondary tracking-wider">Format Dokumen Cetak Fisik</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Cetak Dokumen PDF Landscape (Standar A4)</h2>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-md bg-surface-container text-on-surface-variant font-caption-tabular text-caption-tabular font-semibold">
+            Estimasi: ~420 KB
+          </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Format Berita Acara Presensi (BAP) resmi siap cetak landscape horizontal. Dilengkapi kop resmi Kemenag RI, nomor lembar hukum, dan kolom tanda tangan madrasah.
+        </p>
+<!-- PDF Layout Specifications -->
+<div class="grid grid-cols-2 gap-space-sm bg-surface-container-low p-space-md rounded-lg font-caption-tabular text-caption-tabular text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-secondary">crop_landscape</span>
+<span>Orientasi: Kertas A4 Horizontal</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-secondary">verified_user</span>
+<span>QR Audit Otentikasi Digital</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-secondary">domain</span>
+<span>Kop Resmi Lembaga Madrasah</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-secondary">format_list_numbered</span>
+<span>Matriks Statistik (H, T, I, S, A)</span>
+</div>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant font-caption-tabular text-caption-tabular bg-surface-container px-3 py-1.5 rounded-lg">
+<span class="material-symbols-outlined text-[16px] text-secondary shrink-0">draft</span>
+<span class="truncate">File: Rekap-Presensi_TA2026-2027-Ganjil_20260901-20260924_Kelas-IXA.pdf</span>
+</div>
+</div>
+<div class="pt-space-md grid grid-cols-1 sm:grid-cols-2 gap-2">
+<button class="h-12 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-md text-label-md flex items-center justify-center gap-2 shadow-sm transition-all active:scale-[0.99]" type="button">
+<span class="material-symbols-outlined text-[20px]">preview</span>
+<span>Buka Pratinjau PDF Cetak</span>
+</button>
+<button class="h-12 rounded-lg bg-secondary text-on-secondary font-label-md text-label-md flex items-center justify-center gap-2 shadow-sm hover:opacity-95 active:scale-[0.99] transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">print</span>
+<span>Unduh PDF Siap Cetak (A4)</span>
+</button>
+</div>
+</div>
+</div>
+<!-- LIVE VISUAL DOCUMENT PREVIEW SECTION (A4 LANDSCAPE SHEET) -->
+<div class="space-y-space-sm pt-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">visibility</span>
+<h2 class="font-title-md text-title-md text-on-surface">Pratinjau Dokumen PDF Landscape (Skala Lembar Kerja A4)</h2>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-caption-tabular text-caption-tabular text-on-surface-variant bg-surface-container px-2.5 py-1 rounded">Lembar 1 dari 4</span>
+<span class="font-caption-tabular text-caption-tabular text-primary-container bg-surface-container-high px-2.5 py-1 rounded font-semibold">Tampilan 100% Sesuai Cetak</span>
+</div>
+</div>
+<!-- The A4 Sheet Simulator Frame with Soft Drop Shadow -->
+<div class="w-full overflow-x-auto pb-4">
+<div class="min-w-[980px] bg-surface-container-lowest p-8 rounded-xl shadow-md space-y-space-md">
+<!-- KOP SURAT RESMI -->
+<div class="flex items-center justify-between pb-3 bg-surface-container-low p-4 rounded-lg">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-xl bg-primary flex items-center justify-center text-on-primary shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[36px]">school</span>
+</div>
+<div class="space-y-0.5">
+<span class="font-label-sm text-label-sm uppercase tracking-wider font-semibold text-outline block">KEMENTERIAN AGAMA REPUBLIK INDONESIA</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface block">KANTOR KEMENTERIAN AGAMA KABUPATEN KEDIRI</span>
+<h3 class="font-title-md text-title-md text-primary font-bold">MADRASAH TSANAWIYAH AL-HIKMAH KEDIRI</h3>
+<p class="font-caption-tabular text-caption-tabular text-on-surface-variant">
+                NSM: 111232710045 | NPSN: 20582914 | Jl. Pesantren Al-Hikmah No. 45 Telp: (0354) 772819 Kediri 64132
+              </p>
+</div>
+</div>
+<div class="text-right space-y-1 shrink-0">
+<span class="px-2 py-1 rounded bg-surface-container text-on-surface font-caption-tabular text-caption-tabular font-bold">DOKUMEN RESMI BAP</span>
+<div class="font-caption-tabular text-caption-tabular text-on-surface-variant">No: MTs.AH/PP.00.4/0924/2026</div>
+</div>
+</div>
+<!-- DOCUMENT TITLE & METADATA -->
+<div class="text-center space-y-1 py-1">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight uppercase">
+            REKAPITULASI PRESENSI SISWA &amp; LAPORAN KEHADIRAN BULANAN
+          </h2>
+<div class="flex items-center justify-center gap-6 font-caption-tabular text-caption-tabular text-on-surface-variant">
+<span><strong>Periode:</strong> Semester Ganjil 2026/2027</span>
+<span>•</span>
+<span><strong>Rombongan Belajar:</strong> Kelas IX-A</span>
+<span>•</span>
+<span><strong>Hari Efektif KBM:</strong> 18 Hari</span>
+<span>•</span>
+<span><strong>Rentang Audit:</strong> 01 Sep s/d 24 Sep 2026</span>
+</div>
+</div>
+<!-- DATA TABLE SNIPPET (5 ROWS REPRESENTATIVE) -->
+<div class="overflow-x-auto rounded-lg bg-surface-container-low p-2">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead>
+<tr class="bg-surface-container text-on-surface font-label-sm text-label-sm">
+<th class="py-2.5 px-3 rounded-l-md text-center w-10">No</th>
+<th class="py-2.5 px-3">NISN</th>
+<th class="py-2.5 px-3">Nama Lengkap Siswa</th>
+<th class="py-2.5 px-2 text-center" title="Hadir Tepat Waktu">H</th>
+<th class="py-2.5 px-2 text-center" title="Terlambat">T</th>
+<th class="py-2.5 px-2 text-center" title="Izin">I</th>
+<th class="py-2.5 px-2 text-center" title="Sakit">S</th>
+<th class="py-2.5 px-2 text-center" title="Alpa / Tanpa Keterangan">A</th>
+<th class="py-2.5 px-3 text-right">Persentase</th>
+<th class="py-2.5 px-3 rounded-r-md text-center">Status Disiplin</th>
+</tr>
+</thead>
+<tbody class="divide-y-0 text-on-surface">
+<tr class="bg-surface-container-lowest">
+<td class="py-2.5 px-3 text-center font-caption-tabular">1</td>
+<td class="py-2.5 px-3 font-caption-tabular text-outline">0081294821</td>
+<td class="py-2.5 px-3 font-semibold text-on-surface">Achmad Rayhan Al-Faruqi</td>
+<td class="py-2.5 px-2 text-center font-caption-tabular font-bold text-primary">18</td>
+<td class="py-2.5 px-2 text-center font-caption-tabular">0</td>
+<td class="py-2.5 px-2 text-center font-caption-tabular">0</td>
+<td class="py-2.5 px-2 text-center font-caption-tabular">0</td>
+<td class="py-2.5 px-2 text-center font-caption-tabular">0</td>
+<td class="py-2.5 px-3 text-right font-caption-tabular font-bold text-primary">100.0%</td>
+<td class="py-2.5 px-3 text-center">
+<span class="px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-semibold">Sangat Baik</span>
+</td>
+</tr>
+<tr class="bg-surface-container-low">
+<td class="py-2.5 px-3 text-center font-caption-tabular">2</td>
+<td class="py-2.5 px-3 font-caption-tabular text-outline">0083419082</td>
+<td class="py-2.5 px-3 font-semibold text-on-surface">Aisyah Nur Ramadhani</td>
+<td class="py-2.5 px-2 text-center font-caption-tabular font-bold text-primary">17</td>
+<td class="py-2.5 px-2 text-center font-caption-tabular text-tertiary font-bold">1</td>
+<td class="py-2.5 px-2 text-center font-caption-tabular">0</td>
+<td class="py-2.5 px-2 text-center font-caption-tabular">0</td>
+<td class="py-2.5 px-2 text-center font-caption-tabular">0</td>
+<td class="py-2.5 px-3 text-right font-caption-tabular font-bold text-on-surface">94.4%</td>
+<td class="py-2.5 px-3 text-center">
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm font-semibold">Baik</span>
+</td>
+</tr>
+<tr class="bg-surface-container-lowest">
+<td class="py-2.5 px-3 text-center font-caption-tabular">3</td>
+<td class="py-2.5 px-3 font-caption-tabular text-outline">0089201943</td>
+<td class="py-2.5 px-3 font-semibold text-on-surface">Muhammad Bilal Habibi</td>
+<td class="py-2.5 px-2 text-center font-caption-tabular font-bold text-primary">15</td>
+<td class="py-2.5 px-2 text-center font-caption-tabular">0</td>
+<td class="py-2.5 px-2 text-center font-caption-tabular text-secondary font-semibold">2</td>
+<td class="py-2.5 px-2 text-center font-caption-tabular text-secondary font-semibold">1</td>
+<td class="py-2.5 px-2 text-center font-caption-tabular">0</td>
+<td class="py-2.5 px-3 text-right font-caption-tabular font-bold text-on-surface">88.8%</td>
+<td class="py-2.5 px-3 text-center">
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm font-semibold">Cukup</span>
+</td>
+</tr>
+<tr class="bg-surface-container-low">
+<td class="py-2.5 px-3 text-center font-caption-tabular">4</td>
+<td class="py-2.5 px-3 font-caption-tabular text-outline">0085521948</td>
+<td class="py-2.5 px-3 font-semibold text-on-surface">Nabila Zahra Khairunnisa</td>
+<td class="py-2.5 px-2 text-center font-caption-tabular font-bold text-primary">18</td>
+<td class="py-2.5 px-2 text-center font-caption-tabular">0</td>
+<td class="py-2.5 px-2 text-center font-caption-tabular">0</td>
+<td class="py-2.5 px-2 text-center font-caption-tabular">0</td>
+<td class="py-2.5 px-2 text-center font-caption-tabular">0</td>
+<td class="py-2.5 px-3 text-right font-caption-tabular font-bold text-primary">100.0%</td>
+<td class="py-2.5 px-3 text-center">
+<span class="px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-semibold">Sangat Baik</span>
+</td>
+</tr>
+<tr class="bg-surface-container-lowest">
+<td class="py-2.5 px-3 text-center font-caption-tabular">5</td>
+<td class="py-2.5 px-3 font-caption-tabular text-outline">0087718290</td>
+<td class="py-2.5 px-3 font-semibold text-on-surface">Zulham Efendi Saputra</td>
+<td class="py-2.5 px-2 text-center font-caption-tabular font-bold text-primary">14</td>
+<td class="py-2.5 px-2 text-center font-caption-tabular text-tertiary font-bold">2</td>
+<td class="py-2.5 px-2 text-center font-caption-tabular">0</td>
+<td class="py-2.5 px-2 text-center font-caption-tabular text-secondary font-semibold">1</td>
+<td class="py-2.5 px-2 text-center font-caption-tabular text-error font-bold">1</td>
+<td class="py-2.5 px-3 text-right font-caption-tabular font-bold text-error">77.7%</td>
+<td class="py-2.5 px-3 text-center">
+<span class="px-2 py-0.5 rounded bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold">Perlu Bimbingan</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- SUMMARY & SIGNATURE BLOCK (TITIMANGSA) -->
+<div class="grid grid-cols-3 gap-6 pt-4 items-end">
+<!-- QR Audit Keabsahan -->
+<div class="flex items-center gap-3 bg-surface-container p-3 rounded-lg">
+<div class="w-16 h-16 bg-surface-container-lowest rounded-md flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[44px] text-on-surface">qr_code_2</span>
+</div>
+<div class="space-y-0.5">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface block">Verifikasi Validitas</span>
+<p class="font-caption-tabular text-caption-tabular text-on-surface-variant">
+                Pindai untuk memeriksa rekam audit autentikasi server EMIS Kemenag RI.
+              </p>
+<span class="font-caption-tabular text-caption-tabular text-primary font-bold">Status: Terverifikasi Digital</span>
+</div>
+</div>
+<!-- Tanda Tangan Wali Kelas -->
+<div class="text-center space-y-1">
+<span class="font-caption-tabular text-caption-tabular text-on-surface-variant block">Mengetahui,</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface block">Wali Kelas IX-A</span>
+<div class="h-14 flex items-center justify-center">
+<span class="px-3 py-1 rounded bg-primary-fixed text-on-primary-fixed font-caption-tabular text-caption-tabular font-semibold">
+                [Tanda Tangan Elektronik Sah]
+              </span>
+</div>
+<span class="font-label-md text-label-md font-bold text-on-surface block">Ustadz Ahmad Fauzi, S.Pd.I.</span>
+<span class="font-caption-tabular text-caption-tabular text-outline block">NIP. 198403152011011004</span>
+</div>
+<!-- Tanda Tangan Kepala Madrasah -->
+<div class="text-center space-y-1">
+<span class="font-caption-tabular text-caption-tabular text-on-surface-variant block">Kediri, 24 September 2026</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface block">Kepala Madrasah Tsanawiyah Al-Hikmah</span>
+<div class="h-14 flex items-center justify-center">
+<span class="px-3 py-1 rounded bg-primary-fixed text-on-primary-fixed font-caption-tabular text-caption-tabular font-semibold">
+                [Tanda Tangan Elektronik Sah]
+              </span>
+</div>
+<span class="font-label-md text-label-md font-bold text-on-surface block">Drs. KH. Mansyur, M.Pd.I.</span>
+<span class="font-caption-tabular text-caption-tabular text-outline block">NIP. 196805121994031002</span>
+</div>
+</div>
+<!-- Lembar Footer Dokumen -->
+<div class="pt-2 flex items-center justify-between text-on-surface-variant font-caption-tabular text-caption-tabular">
+<span>Dicetak otomatis dari Sistem Presensi Terpadu Madrasah Al-Hikmah pada 24/09/2026 14:32:05 WIB</span>
+<span>Halaman 1 dari 4 Dokumen BAP Lengkap</span>
+</div>
+</div>
+</div>
+</div>
+<!-- CATATAN PETUNJUK RESMI KEMENAG (COMPLIANCE NOTICE) -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[24px] shrink-0 mt-0.5">verified</span>
+<div class="space-y-0.5">
+<span class="font-label-md text-label-md font-bold text-on-surface">Kepatuhan Regulasi &amp; Standar Format Kemenag RI</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        Dokumen ekspor (.xlsx) menggunakan kode pemetaan status baku Kemenag: [H] Hadir, [T] Terlambat, [I] Izin, [S] Sakit, [A] Alpa. Format Berita Acara Presensi (BAP) PDF Landscape A4 dapat langsung dilampirkan pada laporan bulanan Pengawas Madrasah Kabupaten/Kota dan diunggah ke portal EMIS Madrasah.
+      </p>
+</div>
+</div>
+</div></main></div></body></html>

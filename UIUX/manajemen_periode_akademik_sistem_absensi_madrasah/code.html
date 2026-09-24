@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+
+<html lang="id"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"error-container":"#ffdad6","on-tertiary":"#ffffff","inverse-surface":"#27313f","secondary-fixed-dim":"#8bcefb","surface-container-lowest":"#ffffff","secondary":"#0e658c","primary-fixed-dim":"#7ed8b4","primary":"#005e45","on-surface":"#121c2a","on-primary-container":"#a4fed9","on-tertiary-fixed":"#331200","surface-variant":"#d9e3f6","on-primary-fixed-variant":"#00513b","tertiary-fixed-dim":"#ffb68e","background":"#f8f9ff","secondary-container":"#8ed1fe","on-tertiary-container":"#ffe8dd","tertiary":"#893c00","on-secondary-fixed-variant":"#004c6c","primary-container":"#13795b","on-error":"#ffffff","surface-dim":"#d0dbed","tertiary-fixed":"#ffdbca","surface-container-high":"#dee9fc","on-secondary":"#ffffff","surface-container-highest":"#d9e3f6","tertiary-container":"#ae4f03","surface-tint":"#006c50","on-error-container":"#93000a","error":"#ba1a1a","on-secondary-container":"#005a80","on-primary-fixed":"#002116","on-surface-variant":"#3e4944","surface":"#f8f9ff","inverse-primary":"#7ed8b4","secondary-fixed":"#c7e7ff","on-background":"#121c2a","primary-fixed":"#9af4cf","outline-variant":"#bec9c2","inverse-on-surface":"#eaf1ff","on-secondary-fixed":"#001e2e","outline":"#6e7a73","surface-container-low":"#eff4ff","on-primary":"#ffffff","surface-bright":"#f8f9ff","surface-container":"#e6eeff","on-tertiary-fixed-variant":"#763300"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"margin-desktop":"2rem","space-xs":"0.25rem","space-xl":"2rem","space-lg":"1.5rem","gutter":"1rem","gutter-desktop":"1.5rem","space-sm":"0.5rem","space-md":"1rem","margin":"1rem"},"fontFamily":{"headline-md":["Plus Jakarta Sans"],"title-md":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"caption-tabular":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"]},"fontSize":{"headline-md":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"title-md":["16px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"400"}],"headline-sm":["18px",{"lineHeight":"26px","letterSpacing":"-0.005em","fontWeight":"600"}],"caption-tabular":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-lg-mobile":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-sm":["13px",{"lineHeight":"20px","letterSpacing":"0.005em","fontWeight":"400"}],"display-lg":["30px",{"lineHeight":"38px","letterSpacing":"-0.02em","fontWeight":"700"}],"label-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"22px","letterSpacing":"0em","fontWeight":"400"}],"label-md":["13px",{"lineHeight":"18px","letterSpacing":"0.01em","fontWeight":"500"}],"display-lg-mobile":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"700"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between"><div class="flex flex-col"><div class="h-16 px-space-md flex items-center gap-space-sm bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.02)]"><div class="w-9 h-9 rounded-lg bg-primary flex items-center justify-center text-on-primary font-headline-sm text-headline-sm"><span class="material-symbols-outlined text-[20px]">account_balance</span></div><div class="flex flex-col min-w-0"><span class="font-label-lg text-label-lg text-primary truncate leading-tight">MAS Al-Hikmah</span><span class="font-caption-tabular text-caption-tabular text-on-surface-variant truncate">Kemenag RI • NSM 131232</span></div></div><div class="px-space-md pt-space-md pb-space-xs"><span class="font-caption-tabular text-caption-tabular uppercase tracking-wider text-outline font-semibold px-space-xs">Menu Utama</span></div><nav class="flex flex-col gap-space-xs px-space-sm" data-active-classes="bg-primary-container text-on-primary font-semibold shadow-sm"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-md text-label-md" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span><span>Dashboard</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-md text-label-md" data-path="presensi-harian" href="#"><span class="material-symbols-outlined text-[20px]">fingerprint</span><span>Presensi Harian</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-md text-label-md" data-path="rekap-kehadiran" href="#"><span class="material-symbols-outlined text-[20px]">calendar_month</span><span>Rekap Bulanan</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-md text-label-md" data-path="surat-izin" href="#"><span class="material-symbols-outlined text-[20px]">fact_check</span><span>Surat Izin &amp; Sakit</span></a><div class="pt-space-md pb-space-xs px-space-xs"><span class="font-caption-tabular text-caption-tabular uppercase tracking-wider text-outline font-semibold">Konfigurasi &amp; Master</span></div><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg transition-colors bg-primary-container text-on-primary font-semibold shadow-sm" data-path="periode-akademik" href="#"><span class="material-symbols-outlined text-[20px]">date_range</span><span>Periode Akademik</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-md text-label-md" data-path="master-siswa" href="#"><span class="material-symbols-outlined text-[20px]">school</span><span>Master Siswa (NISN)</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-md text-label-md" data-path="master-guru" href="#"><span class="material-symbols-outlined text-[20px]">badge</span><span>Guru &amp; Tendik</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-md text-label-md" data-path="ekspor-emis" href="#"><span class="material-symbols-outlined text-[20px]">sync_alt</span><span>Sinkron Emis/Simpatika</span></a></nav></div><div class="p-space-md bg-surface-container-low m-space-sm rounded-xl flex items-center justify-between"><div class="flex items-center gap-space-xs text-primary font-label-sm text-label-sm"><span class="material-symbols-outlined text-[16px]">verified_user</span><span>Kemenag Terkoneksi</span></div><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-margin-desktop"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs bg-surface-container px-space-md py-space-xs rounded-full shadow-sm"><span class="material-symbols-outlined text-primary text-[18px]">event_available</span><span class="font-label-md text-label-md text-primary font-semibold">2026/2027 Ganjil</span><span class="bg-primary text-on-primary font-caption-tabular text-caption-tabular px-space-xs rounded-full font-semibold uppercase">Aktif</span></div><div class="hidden lg:flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-secondary-fixed text-on-secondary-fixed font-caption-tabular text-caption-tabular font-medium"><span class="material-symbols-outlined text-[15px]">location_on</span><span>GPS Radius Madrasah: 45m (Terkunci)</span></div></div><div class="flex items-center gap-space-md"><button class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span></button><div class="flex items-center gap-space-sm pl-space-sm border-l border-outline-variant"><div class="flex flex-col text-right"><span class="font-label-md text-label-md text-on-surface font-semibold leading-tight">Ahmad Fauzi</span><span class="font-caption-tabular text-caption-tabular text-on-surface-variant">Admin Utama</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="relative pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Top Utility Contextual Header Banner -->
+<div class="px-margin-desktop py-space-lg bg-surface-container-lowest shadow-sm">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs max-w-3xl">
+<div class="flex items-center gap-space-xs text-primary font-caption-tabular text-caption-tabular uppercase tracking-wider font-semibold">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+<span>Sistem Tata Kelola Akademik • Kemenag RI (BR-001 / BR-036)</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">
+          Periode Akademik (Tahun Pelajaran)
+        </h1>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Kelola tahun pelajaran dan semester sebagai batas isolasi data presensi, log absensi fingerprint/QR, kelas operasional, serta penugasan wali kelas. Berdasarkan standar BR-036, hanya satu periode yang berstatus aktif dalam satu waktu madrasah.
+        </p>
+</div>
+<div class="flex items-center gap-space-sm self-start lg:self-center">
+<button class="h-11 px-space-lg bg-primary-container hover:bg-primary text-on-primary font-label-lg text-label-lg rounded-lg flex items-center gap-space-xs shadow-sm transition-all active:scale-[0.98]" id="btn-open-form-modal" type="button">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+<span>Tambah Periode Baru</span>
+</button>
+</div>
+</div>
+</div>
+<div class="p-margin-desktop flex flex-col gap-space-xl">
+<!-- Active Period Operational Card (Hero Widget) -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-lowest shadow-sm p-space-lg">
+<div class="absolute -right-16 -top-16 w-56 h-56 rounded-full bg-primary/5 pointer-events-none"></div>
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-lg relative z-10">
+<div class="flex items-start sm:items-center gap-space-md">
+<div class="w-14 h-14 rounded-xl bg-primary-fixed flex items-center justify-center text-on-primary-fixed shadow-sm flex-shrink-0">
+<span class="material-symbols-outlined text-[32px]">event_available</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-headline-md text-headline-md font-bold text-on-surface">T.A. 2026/2027 — Semester Ganjil</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-primary text-on-primary font-label-sm text-label-sm font-semibold shadow-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-on-primary-container animate-ping"></span>
+<span>Sedang Berjalan (Aktif)</span>
+</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary">date_range</span>
+<span class="font-caption-tabular text-caption-tabular font-semibold text-on-surface">15 Juli 2026 — 20 Desember 2026</span>
+<span class="text-outline-variant">•</span>
+<span class="font-caption-tabular text-caption-tabular text-on-surface-variant">Sisa Hari Operasional: 48 Hari</span>
+</p>
+</div>
+</div>
+<!-- Metric Isolation Capsules -->
+<div class="grid grid-cols-3 gap-space-sm sm:gap-space-md bg-surface-container-low p-space-sm rounded-xl">
+<div class="flex flex-col px-space-sm py-1">
+<span class="font-caption-tabular text-caption-tabular text-on-surface-variant uppercase font-medium">Rombel</span>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">12</span>
+<span class="font-caption-tabular text-caption-tabular text-on-surface-variant">Kelas</span>
+</div>
+</div>
+<div class="flex flex-col px-space-sm py-1">
+<span class="font-caption-tabular text-caption-tabular text-on-surface-variant uppercase font-medium">Siswa Terdaftar</span>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-sm text-headline-sm font-bold text-primary">420</span>
+<span class="font-caption-tabular text-caption-tabular text-on-surface-variant">Jiwa</span>
+</div>
+</div>
+<div class="flex flex-col px-space-sm py-1">
+<span class="font-caption-tabular text-caption-tabular text-on-surface-variant uppercase font-medium">Pendidik &amp; Staf</span>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-sm text-headline-sm font-bold text-secondary">34</span>
+<span class="font-caption-tabular text-caption-tabular text-on-surface-variant">Guru</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Content Workspace: Two Columns (75% Table Desktop + 25% Mobile Preview & Technical Notice) -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-xl items-start">
+<!-- Left Column: Master Table & Filters (Desktop Master View) -->
+<div class="xl:col-span-8 flex flex-col gap-space-md">
+<!-- Table Control Toolbar -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm bg-surface-container-lowest p-space-sm rounded-xl shadow-xs">
+<div class="flex items-center gap-space-xs overflow-x-auto pb-1 sm:pb-0">
+<button class="px-space-md py-1.5 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md font-semibold transition-colors">
+              Semua (4)
+            </button>
+<button class="px-space-md py-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant font-label-md text-label-md transition-colors">
+              Aktif (1)
+            </button>
+<button class="px-space-md py-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant font-label-md text-label-md transition-colors">
+              Mendatang (1)
+            </button>
+<button class="px-space-md py-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant font-label-md text-label-md transition-colors">
+              Arsip (2)
+            </button>
+</div>
+<div class="flex items-center gap-space-xs">
+<div class="relative w-full sm:w-64">
+<span class="material-symbols-outlined absolute left-2.5 top-2.5 text-outline text-[18px]">search</span>
+<input class="w-full h-9 pl-9 pr-3 text-body-sm font-body-sm bg-surface-container-low text-on-surface placeholder-outline rounded-lg focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/40 transition-all" placeholder="Cari tahun ajaran..." type="text"/>
+</div>
+<button class="w-9 h-9 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface-variant flex items-center justify-center transition-colors" title="Ekspor Daftar Periode">
+<span class="material-symbols-outlined text-[18px]">file_download</span>
+</button>
+</div>
+</div>
+<!-- Academic Periods Data Table -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container text-on-surface-variant font-caption-tabular text-caption-tabular uppercase tracking-wider font-semibold">
+<th class="py-3 px-space-md">Tahun Pelajaran &amp; Semester</th>
+<th class="py-3 px-space-md">Rentang Kalender</th>
+<th class="py-3 px-space-md text-center">Status Operasional</th>
+<th class="py-3 px-space-md text-center">Konteks Rombel</th>
+<th class="py-3 px-space-md text-right">Aksi Terjadwal</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container font-body-md text-body-md text-on-surface">
+<!-- ROW 1: Currently Active -->
+<tr class="bg-surface-container-low/40 hover:bg-surface-container-low transition-colors">
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">radio_button_checked</span>
+<div>
+<div class="font-headline-sm text-headline-sm font-bold text-on-surface">2026/2027 Ganjil</div>
+<span class="font-caption-tabular text-caption-tabular text-on-surface-variant">ID: PRD-2026-GANJIL</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md font-caption-tabular text-caption-tabular">
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface">15 Jul 2026 — 20 Des 2026</span>
+<span class="text-outline">158 Hari Kalender Absensi</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary-container text-on-primary font-label-sm text-label-sm font-semibold shadow-xs">
+<span class="w-2 h-2 rounded-full bg-on-primary-container"></span>
+<span>Aktif (Operasional)</span>
+</span>
+</td>
+<td class="py-3.5 px-space-md text-center">
+<span class="inline-block px-2 py-0.5 rounded bg-surface-container text-on-surface font-caption-tabular text-caption-tabular font-semibold">12 Rombel</span>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="btn-edit-row p-1.5 rounded-md hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" data-active="true" data-end="2026-12-20" data-semester="Ganjil" data-start="2026-07-15" data-title="2026/2027 Ganjil" title="Ubah Konfigurasi Tanggal" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<span class="px-2 py-1 rounded text-caption-tabular text-caption-tabular font-semibold bg-surface-container text-outline cursor-not-allowed" title="Periode ini sedang digunakan aktif pada mesin absen">
+                        Terkunci Aktif
+                      </span>
+</div>
+</td>
+</tr>
+<!-- ROW 2: Upcoming / Rencana -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-outline text-[20px]">radio_button_unchecked</span>
+<div>
+<div class="font-title-md text-title-md font-semibold text-on-surface">2026/2027 Genap</div>
+<span class="font-caption-tabular text-caption-tabular text-on-surface-variant">ID: PRD-2026-GENAP</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md font-caption-tabular text-caption-tabular">
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface">05 Jan 2027 — 25 Jun 2027</span>
+<span class="text-outline">171 Hari Kalender Absensi</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+<span>Mendatang / Rencana</span>
+</span>
+</td>
+<td class="py-3.5 px-space-md text-center">
+<span class="inline-block px-2 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-caption-tabular text-caption-tabular">0 Rombel</span>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="btn-edit-row p-1.5 rounded-md hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" data-active="false" data-end="2027-06-25" data-semester="Genap" data-start="2027-01-05" data-title="2026/2027 Genap" title="Ubah Parameter" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="btn-trigger-activate px-3 py-1.5 rounded-lg bg-surface-container-high hover:bg-primary hover:text-on-primary text-primary font-label-sm text-label-sm font-semibold transition-all shadow-xs flex items-center gap-1" data-dates="05 Jan 2027 s.d. 25 Jun 2027" data-target="2026/2027 Genap" type="button">
+<span class="material-symbols-outlined text-[16px]">play_circle</span>
+<span>Aktifkan Sekarang</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 3: Archived Past Period -->
+<tr class="hover:bg-surface-container-low transition-colors opacity-85">
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-outline-variant text-[20px]">inventory_2</span>
+<div>
+<div class="font-title-md text-title-md font-semibold text-on-surface">2025/2026 Genap</div>
+<span class="font-caption-tabular text-caption-tabular text-outline">ID: PRD-2025-GENAP</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md font-caption-tabular text-caption-tabular">
+<div class="flex flex-col">
+<span class="font-medium text-on-surface-variant">06 Jan 2026 — 24 Jun 2026</span>
+<span class="text-outline">Telah Berakhir (170 Hari)</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm font-medium">
+<span>Selesai (Arsip)</span>
+</span>
+</td>
+<td class="py-3.5 px-space-md text-center">
+<span class="inline-block px-2 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-caption-tabular text-caption-tabular">12 Rombel</span>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="btn-edit-row p-1.5 rounded-md hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" data-active="false" data-end="2026-06-24" data-semester="Genap" data-start="2026-01-06" data-title="2025/2026 Genap" title="Ubah Catatan" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="px-2.5 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-medium transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">history_edu</span>
+<span>Lihat Rekap Presensi</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 4: Archived Past Period -->
+<tr class="hover:bg-surface-container-low transition-colors opacity-85">
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-outline-variant text-[20px]">inventory_2</span>
+<div>
+<div class="font-title-md text-title-md font-semibold text-on-surface">2025/2026 Ganjil</div>
+<span class="font-caption-tabular text-caption-tabular text-outline">ID: PRD-2025-GANJIL</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md font-caption-tabular text-caption-tabular">
+<div class="flex flex-col">
+<span class="font-medium text-on-surface-variant">14 Jul 2025 — 19 Des 2025</span>
+<span class="text-outline">Telah Berakhir (158 Hari)</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm font-medium">
+<span>Selesai (Arsip)</span>
+</span>
+</td>
+<td class="py-3.5 px-space-md text-center">
+<span class="inline-block px-2 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-caption-tabular text-caption-tabular">12 Rombel</span>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="px-2.5 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-medium transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">history_edu</span>
+<span>Lihat Rekap Presensi</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer Pagination and Legend -->
+<div class="p-space-md bg-surface-container-lowest flex flex-col sm:flex-row items-center justify-between gap-space-sm font-caption-tabular text-caption-tabular text-on-surface-variant">
+<div class="flex items-center gap-space-md">
+<span>Menampilkan 4 dari 4 periode terdaftar</span>
+<span class="inline-flex items-center gap-1 text-primary font-medium">
+<span class="material-symbols-outlined text-[15px]">database</span>
+<span>Tabel academic_periods terindeks unik</span>
+</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 rounded bg-surface-container opacity-40 flex items-center justify-center text-outline cursor-not-allowed" disabled="">
+<span class="material-symbols-outlined text-[16px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded bg-primary-container text-on-primary font-bold flex items-center justify-center">1</button>
+<button class="w-8 h-8 rounded bg-surface-container opacity-40 flex items-center justify-center text-outline cursor-not-allowed" disabled="">
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Technical Business Rule Specification Accordion / Context (BRD Compliance) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center gap-space-xs text-on-surface">
+<span class="material-symbols-outlined text-primary text-[22px]">policy</span>
+<h3 class="font-headline-sm text-headline-sm font-bold">Kepatuhan Aturan Bisnis Presensi Madrasah</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<div class="bg-surface-container-low p-space-md rounded-lg flex flex-col gap-1">
+<span class="font-label-sm text-label-sm font-bold text-primary">BR-036: Isolasi Periode Aktif</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Tepat satu periode berstatus <code class="font-caption-tabular text-caption-tabular text-primary font-semibold">is_active = true</code>. Mesin presensi GPS &amp; QR menolak pencatatan jika tidak ada periode aktif.
+              </p>
+</div>
+<div class="bg-surface-container-low p-space-md rounded-lg flex flex-col gap-1">
+<span class="font-label-sm text-label-sm font-bold text-secondary">FS-PERIOD-003: Proteksi Integritas</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Data kehadiran pada periode terdahulu diarsipkan secara permanen. Tidak dapat ditimpa atau dihapus saat tahun ajaran baru diinisiasi.
+              </p>
+</div>
+<div class="bg-surface-container-low p-space-md rounded-lg flex flex-col gap-1">
+<span class="font-label-sm text-label-sm font-bold text-tertiary">Data Model: Partial Index</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Ditegakkan oleh constraint database Postgres: <code class="font-caption-tabular text-caption-tabular text-tertiary">CREATE UNIQUE INDEX ON academic_periods (madrasah_id) WHERE is_active = true</code>.
+              </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Android Preview Companion + Quick Setup Tips -->
+<div class="xl:col-span-4 flex flex-col gap-space-lg">
+<!-- Mobile Viewport Frame Simulation (390px scale standard) -->
+<div class="bg-surface-container-lowest p-space-md rounded-2xl shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between pb-2 border-b border-surface-container">
+<div class="flex items-center gap-1.5 text-on-surface font-label-md text-label-md font-semibold">
+<span class="material-symbols-outlined text-[18px] text-secondary">smartphone</span>
+<span>Preview Tampilan Mobile (Android App)</span>
+</div>
+<span class="font-caption-tabular text-caption-tabular text-on-surface-variant">Wali Kelas / Guru</span>
+</div>
+<!-- Phone Chassis Simulator -->
+<div class="w-full max-w-[340px] mx-auto bg-surface-container-lowest rounded-2xl shadow-md p-3.5 flex flex-col gap-3">
+<!-- Simulated Android Top Status -->
+<div class="flex items-center justify-between text-[11px] font-caption-tabular text-outline font-semibold">
+<span>07:15 WIB</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">wifi</span>
+<span class="material-symbols-outlined text-[14px]">battery_std</span>
+</div>
+</div>
+<!-- Header Inside App -->
+<div class="bg-primary-container text-on-primary p-3 rounded-xl flex items-center justify-between shadow-xs">
+<div class="flex flex-col">
+<span class="text-[11px] opacity-80 uppercase tracking-wider font-semibold">Tahun Pelajaran Aktif</span>
+<span class="font-label-lg text-label-lg font-bold">2026/2027 Ganjil</span>
+</div>
+<span class="w-2.5 h-2.5 rounded-full bg-on-primary-container animate-pulse"></span>
+</div>
+<!-- List of Period Cards on Android -->
+<div class="flex flex-col gap-2">
+<div class="bg-surface-container-low p-2.5 rounded-lg flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-bold text-on-surface">2026/2027 Ganjil</span>
+<span class="px-2 py-0.5 rounded bg-primary text-on-primary text-[10px] font-bold">AKTIF</span>
+</div>
+<div class="text-[11px] font-caption-tabular text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">calendar_today</span>
+<span>15 Jul 2026 — 20 Des 2026</span>
+</div>
+<div class="text-[11px] text-on-surface-variant flex items-center justify-between pt-1">
+<span>12 Rombel terdata</span>
+<span class="text-primary font-semibold">420 Siswa</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-2.5 rounded-lg shadow-xs flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-semibold text-on-surface">2026/2027 Genap</span>
+<span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed text-[10px] font-semibold">RENCANA</span>
+</div>
+<div class="text-[11px] font-caption-tabular text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">calendar_today</span>
+<span>05 Jan 2027 — 25 Jun 2027</span>
+</div>
+<!-- 44px touch target on Android -->
+<button class="w-full h-10 mt-1 bg-surface-container hover:bg-primary hover:text-on-primary text-primary text-[12px] font-semibold rounded-lg flex items-center justify-center gap-1 transition-colors" type="button">
+<span class="material-symbols-outlined text-[15px]">power_settings_new</span>
+<span>Aktifkan Periode</span>
+</button>
+</div>
+</div>
+<div class="text-center text-[10px] text-outline font-caption-tabular py-1">
+              Tampilan adaptif otomatis untuk layar sentuh ponsel
+            </div>
+</div>
+</div>
+<!-- Academic Calendar Guidelines Banner -->
+<div class="bg-surface-container-low p-space-lg rounded-xl flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-xs text-primary font-label-lg text-label-lg font-bold">
+<span class="material-symbols-outlined text-[20px]">lightbulb</span>
+<span>Petunjuk Transisi Semester</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Sebelum mengaktifkan semester baru, pastikan seluruh Wali Kelas telah menyelesaikan verifikasi presensi bulanan dan mencetak laporan rekapitulasi Emis pada periode yang sedang berjalan.
+          </p>
+<div class="pt-space-xs flex items-center gap-space-xs text-secondary font-label-sm text-label-sm font-semibold cursor-pointer hover:underline">
+<span class="material-symbols-outlined text-[16px]">file_copy</span>
+<span>Unduh Template Panduan Transisi (.PDF)</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- SLIDE-OVER DRAWER / MODAL: Tambah & Edit Periode Akademik -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-inverse-surface/40 backdrop-blur-xs hidden transition-opacity" id="modal-period-form">
+<div class="w-full max-w-lg bg-surface-container-lowest rounded-2xl shadow-xl overflow-hidden mx-4 my-8 transform transition-transform animate-in fade-in zoom-in-95">
+<!-- Modal Header -->
+<div class="px-space-lg py-space-md bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-lg bg-primary-container text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">calendar_add_on</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface" id="form-modal-title">Tambah Periode Akademik</h2>
+<p class="font-caption-tabular text-caption-tabular text-on-surface-variant">Definisikan rentang waktu kalender absensi madrasah</p>
+</div>
+</div>
+<button class="w-8 h-8 rounded-full hover:bg-surface-container text-on-surface-variant flex items-center justify-center transition-colors" id="btn-close-form-modal" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Modal Form Body -->
+<form class="p-space-lg flex flex-col gap-space-md" id="form-academic-period" onsubmit="return false;">
+<!-- Field 1: Nama Periode / Tahun Pelajaran -->
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md font-semibold text-on-surface flex items-center justify-between" for="period-name">
+<span>Nama Tahun Pelajaran &amp; Semester <span class="text-error">*</span></span>
+<span class="font-caption-tabular text-caption-tabular text-outline">Format: TTTT/TTTT Semester</span>
+</label>
+<input class="h-11 px-space-md bg-surface text-on-surface rounded-lg font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary/50 shadow-xs" id="period-name" placeholder="Contoh: 2027/2028 Ganjil" required="" type="text" value="2027/2028 Ganjil"/>
+</div>
+<!-- Field 2: Semester Selection -->
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md font-semibold text-on-surface" for="period-semester">
+            Pilihan Semester <span class="text-error">*</span>
+</label>
+<div class="relative">
+<select class="w-full h-11 px-space-md bg-surface text-on-surface rounded-lg font-body-md text-body-md appearance-none focus:outline-none focus:ring-2 focus:ring-primary/50 shadow-xs" id="period-semester">
+<option selected="" value="Ganjil">Semester Ganjil (Gasal)</option>
+<option value="Genap">Semester Genap</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-3 pointer-events-none text-outline">expand_more</span>
+</div>
+</div>
+<!-- Field 3 & 4: Date Range (Two Columns) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md font-semibold text-on-surface" for="period-start-date">
+              Tanggal Mulai <span class="text-error">*</span>
+</label>
+<div class="relative">
+<input class="w-full h-11 px-space-md bg-surface text-on-surface rounded-lg font-caption-tabular text-caption-tabular focus:outline-none focus:ring-2 focus:ring-primary/50 shadow-xs" id="period-start-date" required="" type="date" value="2027-07-15"/>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md font-semibold text-on-surface" for="period-end-date">
+              Tanggal Berakhir <span class="text-error">*</span>
+</label>
+<div class="relative">
+<input class="w-full h-11 px-space-md bg-surface text-on-surface rounded-lg font-caption-tabular text-caption-tabular focus:outline-none focus:ring-2 focus:ring-primary/50 shadow-xs" id="period-end-date" required="" type="date" value="2027-12-20"/>
+</div>
+</div>
+</div>
+<!-- Validation Error Message Inline Slot -->
+<div class="hidden p-space-sm rounded-lg bg-error-container text-on-error-container text-body-sm font-body-sm flex items-center gap-space-xs" id="date-error-message">
+<span class="material-symbols-outlined text-[18px]">error</span>
+<span>Tanggal berakhir tidak boleh mendahului atau sama dengan tanggal mulai.</span>
+</div>
+<!-- Field 5: Active Period Checkbox & Warning -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-2">
+<label class="flex items-start gap-space-sm cursor-pointer select-none">
+<input class="mt-0.5 w-4 h-4 text-primary rounded focus:ring-primary" id="check-is-active" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-on-surface">Tetapkan Langsung sebagai Periode Aktif</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">
+                Mengaktifkan periode ini akan menonaktifkan periode yang saat ini aktif (2026/2027 Ganjil) secara otomatis.
+              </span>
+</div>
+</label>
+</div>
+<!-- Form Actions -->
+<div class="flex items-center justify-end gap-space-sm pt-space-sm">
+<button class="h-11 px-space-lg rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md font-semibold transition-colors" id="btn-cancel-form" type="button">
+            Batal
+          </button>
+<button class="h-11 px-space-lg rounded-lg bg-primary-container hover:bg-primary text-on-primary font-label-md text-label-md font-semibold shadow-xs flex items-center gap-1.5 transition-all" id="btn-save-period" type="button">
+<span class="material-symbols-outlined text-[18px]">check</span>
+<span>Simpan Periode</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+<!-- MODAL DIALOG: Konfirmasi Pengalihan Periode Aktif (BR-036 / FS-PERIOD-002) -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-inverse-surface/40 backdrop-blur-xs hidden transition-opacity" id="modal-confirm-switch">
+<div class="w-full max-w-lg bg-surface-container-lowest rounded-2xl shadow-xl overflow-hidden mx-4 my-8 transform transition-transform animate-in fade-in zoom-in-95">
+<!-- Warning Header -->
+<div class="px-space-lg pt-space-lg pb-space-md flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[28px]">swap_horiz</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-tertiary-container text-on-tertiary-container font-caption-tabular text-caption-tabular font-bold">PERUBAHAN GLOBAL</span>
+<span class="font-caption-tabular text-caption-tabular text-outline">BR-036 Rule</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface mt-1">Konfirmasi Pengalihan Periode Aktif</h2>
+</div>
+</div>
+<div class="px-space-lg py-space-sm flex flex-col gap-space-md">
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Periode Aktif Saat Ini:</span>
+<span class="font-bold text-on-surface line-through">2026/2027 Ganjil</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Akan Dialihkan Ke:</span>
+<span class="font-bold text-primary" id="target-switch-period-label">2026/2027 Genap</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Seluruh pencatatan presensi guru, pemindaian QR siswa, dan kalender operasional hari ini akan langsung menggunakan konteks periode baru ini. Data periode <strong>2026/2027 Ganjil</strong> akan diarsipkan dan tetap aman diakses melalui menu Rekap Bulanan.
+        </p>
+<!-- Safety Checklist Checks -->
+<div class="flex flex-col gap-2 bg-surface-container-lowest p-space-sm rounded-lg">
+<label class="flex items-center gap-space-sm cursor-pointer">
+<input class="w-4 h-4 text-primary rounded" id="check-confirm-1" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface">Saya memahami bahwa hanya 1 periode yang dapat berstatus aktif.</span>
+</label>
+<label class="flex items-center gap-space-sm cursor-pointer">
+<input class="w-4 h-4 text-primary rounded" id="check-confirm-2" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface">Kelas dan rombongan belajar pada periode tujuan telah siap.</span>
+</label>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="px-space-lg py-space-md bg-surface-container-low flex items-center justify-end gap-space-sm">
+<button class="h-11 px-space-lg rounded-lg bg-surface-container-lowest hover:bg-surface-container text-on-surface font-label-md text-label-md font-semibold transition-colors" id="btn-cancel-switch" type="button">
+          Batal
+        </button>
+<button class="h-11 px-space-lg rounded-lg bg-primary-container text-on-primary font-label-md text-label-md font-semibold shadow-xs flex items-center gap-1.5 transition-all opacity-50 cursor-not-allowed" disabled="" id="btn-execute-switch" type="button">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span>Ya, Aktifkan Periode</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Toast Notification Template (Auto-trigger demo) -->
+<div class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none bg-surface-container-lowest shadow-xl rounded-xl p-space-md flex items-center gap-space-md max-w-md" id="toast-success">
+<div class="w-10 h-10 rounded-lg bg-primary-container text-on-primary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[22px]">done_all</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-on-surface">Periode Berhasil Diperbarui</span>
+<span class="font-caption-tabular text-caption-tabular text-on-surface-variant" id="toast-message">Konfigurasi database telah disimpan sesuai spesifikasi BR-036.</span>
+</div>
+</div>
+</div>
+<script>
+  (function() {
+    // DOM Elements
+    const btnOpenForm = document.getElementById('btn-open-form-modal');
+    const btnCloseForm = document.getElementById('btn-close-form-modal');
+    const btnCancelForm = document.getElementById('btn-cancel-form');
+    const modalPeriodForm = document.getElementById('modal-period-form');
+    const formModalTitle = document.getElementById('form-modal-title');
+    const btnSavePeriod = document.getElementById('btn-save-period');
+
+    const startDateInput = document.getElementById('period-start-date');
+    const endDateInput = document.getElementById('period-end-date');
+    const periodNameInput = document.getElementById('period-name');
+    const dateErrorMessage = document.getElementById('date-error-message');
+
+    const modalConfirmSwitch = document.getElementById('modal-confirm-switch');
+    const btnCancelSwitch = document.getElementById('btn-cancel-switch');
+    const btnExecuteSwitch = document.getElementById('btn-execute-switch');
+    const targetSwitchLabel = document.getElementById('target-switch-period-label');
+    const check1 = document.getElementById('check-confirm-1');
+    const check2 = document.getElementById('check-confirm-2');
+
+    const toast = document.getElementById('toast-success');
+    const toastMsg = document.getElementById('toast-message');
+
+    function showToast(text) {
+      if (!toast) return;
+      if (text) toastMsg.innerText = text;
+      toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+      setTimeout(() => {
+        toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+      }, 3500);
+    }
+
+    // Modal Form Open/Close Handlers
+    if (btnOpenForm && modalPeriodForm) {
+      btnOpenForm.addEventListener('click', () => {
+        formModalTitle.innerText = 'Tambah Periode Akademik';
+        periodNameInput.value = '2027/2028 Ganjil';
+        startDateInput.value = '2027-07-15';
+        endDateInput.value = '2027-12-20';
+        dateErrorMessage.classList.add('hidden');
+        modalPeriodForm.classList.remove('hidden');
+      });
+    }
+
+    function closePeriodModal() {
+      if (modalPeriodForm) modalPeriodForm.classList.add('hidden');
+    }
+
+    if (btnCloseForm) btnCloseForm.addEventListener('click', closePeriodModal);
+    if (btnCancelForm) btnCancelForm.addEventListener('click', closePeriodModal);
+
+    // Row Edit Buttons
+    const editButtons = document.querySelectorAll('.btn-edit-row');
+    editButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const title = btn.getAttribute('data-title');
+        const start = btn.getAttribute('data-start');
+        const end = btn.getAttribute('data-end');
+        formModalTitle.innerText = 'Ubah Periode Akademik';
+        periodNameInput.value = title;
+        startDateInput.value = start;
+        endDateInput.value = end;
+        dateErrorMessage.classList.add('hidden');
+        modalPeriodForm.classList.remove('hidden');
+      });
+    });
+
+    // Inline Date Validation
+    function validateDates() {
+      if (startDateInput.value && endDateInput.value) {
+        if (new Date(endDateInput.value) <= new Date(startDateInput.value)) {
+          dateErrorMessage.classList.remove('hidden');
+          return false;
+        } else {
+          dateErrorMessage.classList.add('hidden');
+          return true;
+        }
+      }
+      return true;
+    }
+
+    if (startDateInput) startDateInput.addEventListener('change', validateDates);
+    if (endDateInput) endDateInput.addEventListener('change', validateDates);
+
+    // Save Form Handler
+    if (btnSavePeriod) {
+      btnSavePeriod.addEventListener('click', () => {
+        if (!validateDates()) return;
+        closePeriodModal();
+        showToast('Periode "' + periodNameInput.value + '" berhasil disimpan ke database.');
+      });
+    }
+
+    // Modal Confirmation for Setting Active Period (BR-036)
+    const activateButtons = document.querySelectorAll('.btn-trigger-activate');
+    activateButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.getAttribute('data-target') || '2026/2027 Genap';
+        targetSwitchLabel.innerText = target;
+        check1.checked = false;
+        check2.checked = false;
+        btnExecuteSwitch.disabled = true;
+        btnExecuteSwitch.classList.add('opacity-50', 'cursor-not-allowed');
+        modalConfirmSwitch.classList.remove('hidden');
+      });
+    });
+
+    function closeConfirmModal() {
+      if (modalConfirmSwitch) modalConfirmSwitch.classList.add('hidden');
+    }
+
+    if (btnCancelSwitch) btnCancelSwitch.addEventListener('click', closeConfirmModal);
+
+    function checkSwitchChecklist() {
+      if (check1.checked && check2.checked) {
+        btnExecuteSwitch.disabled = false;
+        btnExecuteSwitch.classList.remove('opacity-50', 'cursor-not-allowed');
+      } else {
+        btnExecuteSwitch.disabled = true;
+        btnExecuteSwitch.classList.add('opacity-50', 'cursor-not-allowed');
+      }
+    }
+
+    if (check1) check1.addEventListener('change', checkSwitchChecklist);
+    if (check2) check2.addEventListener('change', checkSwitchChecklist);
+
+    if (btnExecuteSwitch) {
+      btnExecuteSwitch.addEventListener('click', () => {
+        closeConfirmModal();
+        showToast('Berhasil! Periode aktif kini telah beralih ke ' + targetSwitchLabel.innerText);
+      });
+    }
+
+  })();
+</script></main></div><script>(function(){const path='periode-akademik';const nav=document.querySelector('nav[data-active-classes]');if(nav){const activeClasses=nav.getAttribute('data-active-classes').split(' ').filter(Boolean);const link=nav.querySelector(`a[data-path="${path}"]`);if(link){link.classList.remove('text-on-surface-variant','hover:bg-surface-container','hover:text-on-surface');link.classList.add(...activeClasses);}}})();</script></body></html>

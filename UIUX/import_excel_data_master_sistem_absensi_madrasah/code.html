@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+
+<html lang="id"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-error-container":"#93000a","on-tertiary-container":"#ffe8dd","on-secondary-container":"#005a80","surface-dim":"#d0dbed","outline-variant":"#bec9c2","on-secondary-fixed-variant":"#004c6c","error-container":"#ffdad6","on-background":"#121c2a","inverse-on-surface":"#eaf1ff","on-primary-container":"#a4fed9","surface-container-low":"#eff4ff","background":"#f8f9ff","inverse-primary":"#7ed8b4","primary-fixed":"#9af4cf","on-primary-fixed-variant":"#00513b","on-tertiary":"#ffffff","primary-container":"#13795b","on-surface-variant":"#3e4944","inverse-surface":"#27313f","on-error":"#ffffff","surface-tint":"#006c50","surface-bright":"#f8f9ff","tertiary-fixed":"#ffdbca","tertiary":"#893c00","secondary":"#0e658c","secondary-fixed-dim":"#8bcefb","on-surface":"#121c2a","primary-fixed-dim":"#7ed8b4","on-primary-fixed":"#002116","on-tertiary-fixed":"#331200","tertiary-fixed-dim":"#ffb68e","secondary-container":"#8ed1fe","surface-variant":"#d9e3f6","on-secondary":"#ffffff","on-tertiary-fixed-variant":"#763300","surface":"#f8f9ff","surface-container-lowest":"#ffffff","surface-container":"#e6eeff","surface-container-high":"#dee9fc","tertiary-container":"#ae4f03","outline":"#6e7a73","primary":"#005e45","surface-container-highest":"#d9e3f6","on-secondary-fixed":"#001e2e","on-primary":"#ffffff","error":"#ba1a1a","secondary-fixed":"#c7e7ff"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"space-xl":"2rem","space-md":"1rem","space-xs":"0.25rem","gutter":"1rem","space-lg":"1.5rem","space-sm":"0.5rem","margin-desktop":"2rem","margin":"1rem","gutter-desktop":"1.5rem"},fontFamily:{"label-lg":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"caption-tabular":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"title-md":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"]},fontSize:{"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"display-lg":["30px",{"lineHeight":"38px","letterSpacing":"-0.02em","fontWeight":"700"}],"caption-tabular":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"500"}],"label-md":["13px",{"lineHeight":"18px","letterSpacing":"0.01em","fontWeight":"500"}],"body-lg":["16px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"400"}],"body-md":["14px",{"lineHeight":"22px","letterSpacing":"0em","fontWeight":"400"}],"headline-lg-mobile":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"display-lg-mobile":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"700"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"body-sm":["13px",{"lineHeight":"20px","letterSpacing":"0.005em","fontWeight":"400"}],"label-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"headline-sm":["18px",{"lineHeight":"26px","letterSpacing":"-0.005em","fontWeight":"600"}],"title-md":["16px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"600"}],"headline-md":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest z-50 flex flex-col shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 px-space-lg flex items-center gap-space-sm bg-surface-container-lowest"><div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-on-primary shrink-0 shadow-sm"><span class="material-symbols-outlined text-[24px]">school</span></div><div class="flex flex-col min-w-0"><span class="font-title-md text-title-md text-on-surface truncate leading-tight">Madrasah Al-Hikmah</span><span class="font-label-sm text-label-sm text-primary tracking-wide uppercase font-semibold">Presensi Terpadu</span></div></div><div class="flex-1 overflow-y-auto px-space-md py-space-sm space-y-space-md"><div class="space-y-space-xs"><div class="px-space-sm py-1 font-label-sm text-label-sm font-semibold uppercase tracking-wider text-outline">Panel Dashboard</div><nav class="space-y-1" data-active-classes="bg-primary-container text-on-primary font-bold rounded-lg shadow-sm"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="dashboard-admin" href="#"><span class="material-symbols-outlined text-[20px]">admin_panel_settings</span><span>Dashboard Admin</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="dashboard-guru" href="#"><span class="material-symbols-outlined text-[20px]">person_outline</span><span>Dashboard Guru</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="dashboard-wali-kelas" href="#"><span class="material-symbols-outlined text-[20px]">supervisor_account</span><span>Dashboard Wali Kelas</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-space-container-high hover:text-on-surface transition-all" data-path="dashboard-siswa" href="#"><span class="material-symbols-outlined text-[20px]">backpack</span><span>Dashboard Siswa</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="dashboard-kepala-madrasah" href="#"><span class="material-symbols-outlined text-[20px]">workspace_premium</span><span>Dashboard Kepala Madrasah</span></a></nav></div><div class="space-y-space-xs"><div class="px-space-sm py-1 font-label-sm text-label-sm font-semibold uppercase tracking-wider text-outline">Operasional Presensi</div><nav class="space-y-1" data-active-classes="bg-primary-container text-on-primary font-bold rounded-lg shadow-sm"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="presensi-mandiri" href="#"><span class="material-symbols-outlined text-[20px]">fingerprint</span><span>Presensi Mandiri</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="scanner-qr-siswa" href="#"><span class="material-symbols-outlined text-[20px]">qr_code_scanner</span><span>Scanner QR Siswa</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="perizinan-approval" href="#"><span class="material-symbols-outlined text-[20px]">assignment_turned_in</span><span>Perizinan &amp; Approval</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="koreksi-audit" href="#"><span class="material-symbols-outlined text-[20px]">history_edu</span><span>Koreksi &amp; Audit</span></a></nav></div><div class="space-y-space-xs"><div class="px-space-sm py-1 font-label-sm text-label-sm font-semibold uppercase tracking-wider text-outline">Laporan &amp; Rekap</div><nav class="space-y-1" data-active-classes="bg-primary-container text-on-primary font-bold rounded-lg shadow-sm"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="pusat-laporan" href="#"><span class="material-symbols-outlined text-[20px]">analytics</span><span>Pusat Laporan</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="ekspor-laporan" href="#"><span class="material-symbols-outlined text-[20px]">file_download</span><span>Ekspor Laporan</span></a></nav></div><div class="space-y-space-xs"><div class="px-space-sm py-1 font-label-sm text-label-sm font-semibold uppercase tracking-wider text-outline">Pengaturan Sistem</div><nav class="space-y-1" data-active-classes="bg-primary-container text-on-primary font-bold rounded-lg shadow-sm"><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-2 transition-all bg-primary-container text-on-primary font-bold rounded-lg shadow-sm" data-path="import-excel-data-master" href="#"><span class="material-symbols-outlined text-[20px]">upload_file</span><span>Import Excel Data Master</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="periode-akademik" href="#"><span class="material-symbols-outlined text-[20px]">event_available</span><span>Periode Akademik</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="jadwal-kehadiran" href="#"><span class="material-symbols-outlined text-[20px]">schedule</span><span>Jadwal Kehadiran</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="master-data-madrasah" href="#"><span class="material-symbols-outlined text-[20px]">domain</span><span>Master Data Madrasah</span></a></nav></div></div><div class="p-space-md bg-surface-container-low"><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col min-w-0"><span class="font-label-md text-label-md text-on-surface font-semibold truncate">Ustadz Ahmad Fauzi, S.Pd.I.</span><span class="font-label-sm text-label-sm text-on-surface-variant truncate">NIP. 198403152011011004</span></div></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-20 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-1.5 rounded-lg bg-surface-container-high text-on-surface"><span class="material-symbols-outlined text-[18px] text-primary">calendar_today</span><span class="font-label-md text-label-md font-semibold">TA 2024/2025 - Ganjil</span></div><div class="hidden lg:flex items-center gap-space-xs px-space-sm py-1.5 rounded-lg bg-primary-fixed text-on-primary-fixed"><span class="material-symbols-outlined text-[16px] text-primary">verified</span><span class="font-label-sm text-label-sm font-semibold">EMIS Kemenag Sinkron</span></div></div><div class="flex items-center gap-space-md"><div class="hidden md:flex items-center gap-space-xs text-on-surface-variant font-caption-tabular text-caption-tabular"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span><span>WIB: GMT+7 Presensi Online</span></div><div class="flex items-center gap-space-xs"><button aria-label="Pencarian" class="w-10 h-10 rounded-xl flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[20px]">search</span></button><button aria-label="Notifikasi" class="w-10 h-10 rounded-xl flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors relative"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-error"></span></button><button aria-label="Bantuan Emis/Simpatika" class="w-10 h-10 rounded-xl flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[20px]">help_outline</span></button></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="w-full pt-20 bg-surface min-h-screen px-gutter-desktop py-space-lg"><div class="flex flex-col w-full space-y-space-lg">
+<!-- Top Academic Context & Breadcrumbs -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm bg-surface-container-lowest p-space-md rounded-xl shadow-sm">
+<nav aria-label="Breadcrumb" class="flex items-center gap-space-xs text-on-surface-variant font-label-md text-label-md">
+<span class="hover:text-primary transition-colors cursor-pointer flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">home</span>
+        Beranda
+      </span>
+<span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+<span class="hover:text-primary transition-colors cursor-pointer">Pengaturan</span>
+<span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+<span class="font-label-lg text-label-lg text-primary font-bold">Import Excel Data Master</span>
+</nav>
+<div class="inline-flex items-center gap-space-xs px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-semibold self-start md:self-auto">
+<span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+      Konteks Periode: T.A. 2026/2027 Ganjil (Aktif) — Data terisolasi aman
+    </div>
+</div>
+<!-- Main Hero Title Section -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-lowest p-space-lg shadow-sm">
+<div class="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-primary/5 pointer-events-none"></div>
+<div class="relative flex flex-col md:flex-row md:items-start justify-between gap-space-md">
+<div class="space-y-space-xs max-w-3xl">
+<div class="inline-flex items-center gap-space-xs px-2.5 py-1 rounded-md bg-secondary-fixed text-on-secondary-fixed font-caption-tabular text-caption-tabular font-bold tracking-wider uppercase">
+          FS-IMPORT-001 s/d FS-IMPORT-004
+        </div>
+<h1 class="font-display-lg text-display-lg text-on-surface font-extrabold tracking-tight">
+          Import Data Master Excel
+        </h1>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          Unggah data Guru atau Siswa secara massal menggunakan file spreadsheet (.xlsx/.xls) dengan panduan langkah demi langkah dan validasi otomatis sebelum disimpan.
+        </p>
+</div>
+<div class="flex items-center gap-space-xs shrink-0 self-start">
+<a class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors" href="#panduan-format">
+<span class="material-symbols-outlined text-[18px] text-secondary">menu_book</span>
+          Buku Panduan EMIS
+        </a>
+</div>
+</div>
+<!-- Step Progress Flow -->
+<div class="mt-space-xl pt-space-lg">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-sm relative">
+<!-- Step 1 -->
+<div class="flex items-center gap-space-sm p-space-sm rounded-lg bg-primary-fixed/40">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-label-md shrink-0">
+<span class="material-symbols-outlined text-[18px]">check</span>
+</div>
+<div class="min-w-0">
+<div class="font-label-sm text-label-sm uppercase text-primary font-bold">Langkah 1</div>
+<div class="font-label-md text-label-md text-on-surface font-semibold truncate">Pilih Tipe &amp; Template</div>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="flex items-center gap-space-sm p-space-sm rounded-lg bg-primary-fixed/40">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-label-md shrink-0">
+<span class="material-symbols-outlined text-[18px]">check</span>
+</div>
+<div class="min-w-0">
+<div class="font-label-sm text-label-sm uppercase text-primary font-bold">Langkah 2</div>
+<div class="font-label-md text-label-md text-on-surface font-semibold truncate">Unggah Berkas Excel</div>
+</div>
+</div>
+<!-- Step 3 (Active) -->
+<div class="flex items-center gap-space-sm p-space-sm rounded-lg bg-primary text-on-primary shadow-sm">
+<div class="w-8 h-8 rounded-full bg-on-primary text-primary flex items-center justify-center font-bold text-label-md shrink-0 animate-pulse">
+            3
+          </div>
+<div class="min-w-0">
+<div class="font-label-sm text-label-sm uppercase text-primary-fixed font-bold">Langkah 3 (Aktif)</div>
+<div class="font-label-md text-label-md text-on-primary font-semibold truncate">Validasi &amp; Pratinjau</div>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="flex items-center gap-space-sm p-space-sm rounded-lg bg-surface-container-low text-on-surface-variant">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center font-bold text-label-md shrink-0">
+            4
+          </div>
+<div class="min-w-0">
+<div class="font-label-sm text-label-sm uppercase text-outline font-semibold">Langkah 4</div>
+<div class="font-label-md text-label-md text-on-surface-variant font-medium truncate">Simpan ke Master Data</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive Action Grid: Template Selection & File Upload -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Card 1: Configuration & Template (5 Cols) -->
+<div class="lg:col-span-5 bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between space-y-space-md">
+<div class="space-y-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-6 bg-primary rounded-full inline-block"></span>
+<h2 class="font-title-md text-title-md text-on-surface font-bold">1. Pilih Tipe Data &amp; Unduh Template</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Format berkas harus mematuhi standar kolom BRD Bab 7. Silakan pilih peruntukan data sebelum menyalin baris dari buku induk sekolah.
+        </p>
+<!-- Selector Options -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm pt-space-xs">
+<label class="cursor-pointer relative p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-all flex flex-col items-start gap-1">
+<input class="sr-only" name="target_data_type" type="radio" value="guru"/>
+<div class="flex items-center justify-between w-full">
+<span class="material-symbols-outlined text-secondary text-[24px]">badge</span>
+<span class="w-4 h-4 rounded-full bg-surface-container-highest"></span>
+</div>
+<span class="font-label-md text-label-md font-bold text-on-surface mt-1">Guru &amp; Tendik</span>
+<span class="font-caption-tabular text-caption-tabular text-on-surface-variant">NUPTK, NIP, Jabatan</span>
+</label>
+<label class="cursor-pointer relative p-space-sm rounded-lg bg-primary-fixed/20 shadow-sm flex flex-col items-start gap-1">
+<input checked="" class="sr-only" name="target_data_type" type="radio" value="siswa"/>
+<div class="flex items-center justify-between w-full">
+<span class="material-symbols-outlined text-primary text-[24px]">school</span>
+<span class="w-4 h-4 rounded-full bg-primary flex items-center justify-center">
+<span class="w-1.5 h-1.5 rounded-full bg-on-primary"></span>
+</span>
+</div>
+<span class="font-label-md text-label-md font-bold text-primary mt-1">Siswa &amp; Rombel</span>
+<span class="font-caption-tabular text-caption-tabular text-primary">NISN, Nama, Kelas VII-IX</span>
+</label>
+</div>
+<!-- Official Template Box -->
+<div class="p-space-md rounded-xl bg-surface-container-low space-y-space-sm">
+<div class="flex items-start gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">table_view</span>
+</div>
+<div class="min-w-0 flex-1">
+<div class="font-label-md text-label-md font-bold text-on-surface truncate">Template_Import_Siswa_Madrasah_v2.xlsx</div>
+<div class="font-caption-tabular text-caption-tabular text-on-surface-variant">Ukuran: 58 KB • Versi Skema 2026.1</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded-lg text-on-surface-variant font-body-sm text-body-sm flex items-start gap-2">
+<span class="material-symbols-outlined text-tertiary text-[18px] shrink-0 mt-0.5">info</span>
+<span><strong>Perhatian:</strong> Jangan mengubah urutan header Kolom A sampai F agar pemetaan otomatis berhasil.</span>
+</div>
+<a class="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-semibold hover:bg-on-primary-fixed-variant transition-colors shadow-sm" href="#">
+<span class="material-symbols-outlined text-[18px]">download</span>
+            Unduh Template Resmi (.xlsx)
+          </a>
+</div>
+</div>
+<div class="pt-space-xs text-on-surface-variant font-caption-tabular text-caption-tabular flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">verified</span>
+        Kompatibel dengan Microsoft Excel 2013+, Google Sheets, LibreOffice Calc.
+      </div>
+</div>
+<!-- Card 2: File Upload Drag & Drop (7 Cols) -->
+<div class="lg:col-span-7 bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between space-y-space-md">
+<div class="space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-6 bg-primary rounded-full inline-block"></span>
+<h2 class="font-title-md text-title-md text-on-surface font-bold">2. Unggah Berkas Excel</h2>
+</div>
+<span class="font-caption-tabular text-caption-tabular text-outline uppercase font-semibold">Maksimal 5.0 MB</span>
+</div>
+<!-- Dropzone Area -->
+<div class="group relative rounded-xl p-space-lg flex flex-col items-center justify-center text-center cursor-pointer transition-colors bg-surface-container-lowest hover:bg-surface-container-low">
+<div class="w-14 h-14 rounded-full bg-secondary-fixed/50 text-secondary flex items-center justify-center mb-space-sm group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[28px]">upload_file</span>
+</div>
+<p class="font-label-lg text-label-lg font-bold text-on-surface">
+            Tarik berkas ke sini atau <span class="text-primary underline">klik untuk memilih file</span>
+</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+            Format didukung: <strong>.xlsx</strong> atau <strong>.xls</strong> dari komputer Anda
+          </p>
+<input accept=".xlsx, .xls" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" type="file"/>
+</div>
+<!-- Currently Attached File Widget -->
+<div class="p-space-md rounded-xl bg-surface-container-high flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-11 h-11 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">description</span>
+</div>
+<div class="min-w-0">
+<div class="font-label-md text-label-md font-bold text-on-surface truncate">
+                Data_Siswa_Baru_Kelas_VII_2026.xlsx
+              </div>
+<div class="flex items-center gap-2 font-caption-tabular text-caption-tabular text-on-surface-variant">
+<span>245 KB</span>
+<span>•</span>
+<span>Diunggah 14:20 WIB</span>
+<span>•</span>
+<span class="text-primary font-semibold flex items-center gap-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                  Terunggah Penuh
+                </span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-lowest hover:bg-surface font-label-sm text-label-sm text-on-surface-variant transition-colors flex items-center gap-1 shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px]">sync</span>
+              Ganti File
+            </button>
+<button class="w-8 h-8 rounded-lg bg-error-container text-on-error-container hover:opacity-80 flex items-center justify-center transition-opacity" title="Hapus Berkas" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Action Button -->
+<div class="pt-space-sm">
+<button class="w-full py-3 px-6 rounded-lg bg-primary-container text-on-primary font-label-lg text-label-lg font-bold hover:bg-primary transition-all flex items-center justify-center gap-2 shadow-md" type="button">
+<span class="material-symbols-outlined text-[22px]">play_circle</span>
+          Mulai Validasi Berkas Sekarang
+        </button>
+</div>
+</div>
+</div>
+<!-- Processing State & Metric Summary Counters -->
+<div class="space-y-space-md">
+<!-- Progress Indicator Banner -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm space-y-space-xs">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">task_alt</span>
+<span class="font-bold text-on-surface">Validasi Berkas Selesai Sepenuhnya</span>
+<span class="font-caption-tabular text-caption-tabular text-on-surface-variant">(1.8 detik pemrosesan server)</span>
+</div>
+<span class="font-label-lg text-label-lg font-bold text-primary">100% Selesai</span>
+</div>
+<div class="w-full h-2.5 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full bg-primary rounded-full transition-all duration-500" style="width: 100%;"></div>
+</div>
+</div>
+<!-- 3 Big Metric Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Total Rows Card -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex items-center justify-between">
+<div class="space-y-1">
+<div class="font-label-sm text-label-sm font-semibold uppercase tracking-wider text-outline">Total Diproses</div>
+<div class="font-display-lg text-display-lg font-bold text-on-surface">45 <span class="font-body-md text-body-md text-on-surface-variant font-normal">Baris Data</span></div>
+<div class="font-caption-tabular text-caption-tabular text-secondary font-medium">Sheet 1: "Data_Siswa"</div>
+</div>
+<div class="w-14 h-14 rounded-2xl bg-secondary-fixed/40 text-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[32px]">dataset</span>
+</div>
+</div>
+<!-- Valid Rows Card -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex items-center justify-between">
+<div class="space-y-1">
+<div class="font-label-sm text-label-sm font-semibold uppercase tracking-wider text-primary">Berhasil Valid</div>
+<div class="font-display-lg text-display-lg font-bold text-primary">41 <span class="font-body-md text-body-md text-primary font-normal">Siswa Siap Diimpor</span></div>
+<div class="font-caption-tabular text-caption-tabular text-primary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+            Memenuhi standar EMIS 4.0
+          </div>
+</div>
+<div class="w-14 h-14 rounded-2xl bg-primary-fixed text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[32px]">how_to_reg</span>
+</div>
+</div>
+<!-- Error Rows Card -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex items-center justify-between">
+<div class="space-y-1">
+<div class="font-label-sm text-label-sm font-semibold uppercase tracking-wider text-error">Gagal Validasi</div>
+<div class="font-display-lg text-display-lg font-bold text-error">4 <span class="font-body-md text-body-md text-error font-normal">Baris Bermasalah</span></div>
+<div class="font-caption-tabular text-caption-tabular text-error font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">report_problem</span>
+            Perlu revisi kolom
+          </div>
+</div>
+<div class="w-14 h-14 rounded-2xl bg-error-container text-on-error-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[32px]">error</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Detailed Error Inspection Section -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden space-y-space-md p-space-lg">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm pb-space-xs">
+<div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-[24px]">feedback</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">
+            Detail Baris yang Memerlukan Perbaikan (4 Baris Gagal)
+          </h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+          Hanya baris bermasalah berikut yang tidak dapat diimpor. Anda dapat memperbaiki data pada file Excel Anda lalu mengunggah ulang, atau melanjutkan impor hanya untuk <strong>41 baris yang valid</strong>.
+        </p>
+</div>
+<!-- Action: Download Failed Rows Only -->
+<button class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-surface-container-high text-on-surface font-label-md text-label-md font-semibold hover:bg-surface-dim transition-colors shrink-0 shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px] text-tertiary">download_for_offline</span>
+        Unduh Baris Gagal Saja (.xlsx)
+      </button>
+</div>
+<!-- Error Table Container -->
+<div class="overflow-x-auto rounded-lg bg-surface-container-lowest">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-md text-label-md uppercase tracking-wider">
+<th class="py-3 px-4">No. Baris Excel</th>
+<th class="py-3 px-4">Identitas Data</th>
+<th class="py-3 px-4">Kolom Bermasalah</th>
+<th class="py-3 px-4">Kode Kesalahan</th>
+<th class="py-3 px-4">Keterangan Kesalahan &amp; Saran Perbaikan</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high">
+<!-- Row 1: Baris 12 -->
+<tr class="hover:bg-error-container/20 transition-colors">
+<td class="py-3.5 px-4 font-caption-tabular text-caption-tabular font-bold text-on-surface whitespace-nowrap">
+<span class="px-2 py-1 rounded bg-surface-container-high">Baris 12</span>
+</td>
+<td class="py-3.5 px-4">
+<div class="font-label-md text-label-md font-bold text-on-surface">Ahmad Faiz Al-Habsyi</div>
+<div class="font-caption-tabular text-caption-tabular text-on-surface-variant">NISN: 0089234711</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2.5 py-1 rounded-md bg-surface-container-high text-on-surface font-caption-tabular text-caption-tabular font-semibold">
+                NISN (Kolom B)
+              </span>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-error-container text-on-error-container font-mono font-bold">
+                ERR_DUPLICATE_NISN
+              </span>
+</td>
+<td class="py-3.5 px-4 text-on-surface">
+<div class="font-medium text-error flex items-start gap-1.5">
+<span class="material-symbols-outlined text-[16px] shrink-0 mt-0.5">cancel</span>
+<span>NISN <code>'0089234711'</code> sudah terdaftar aktif atas nama siswa yang sama di Rombel IX-A.</span>
+</div>
+<div class="font-caption-tabular text-caption-tabular text-on-surface-variant mt-0.5 pl-5">
+                Saran: Hapus baris ini jika siswa sudah memiliki akun, atau periksa kembali nomor induk yang dimasukkan.
+              </div>
+</td>
+</tr>
+<!-- Row 2: Baris 19 -->
+<tr class="hover:bg-error-container/20 transition-colors">
+<td class="py-3.5 px-4 font-caption-tabular text-caption-tabular font-bold text-on-surface whitespace-nowrap">
+<span class="px-2 py-1 rounded bg-surface-container-high">Baris 19</span>
+</td>
+<td class="py-3.5 px-4">
+<div class="font-label-md text-label-md font-bold text-on-surface">Siti Maryam Nur</div>
+<div class="font-caption-tabular text-caption-tabular text-on-surface-variant">NISN: 0108745219</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2.5 py-1 rounded-md bg-surface-container-high text-on-surface font-caption-tabular text-caption-tabular font-semibold">
+                Tanggal Lahir (Kolom D)
+              </span>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-error-container text-on-error-container font-mono font-bold">
+                ERR_INVALID_DATE
+              </span>
+</td>
+<td class="py-3.5 px-4 text-on-surface">
+<div class="font-medium text-error flex items-start gap-1.5">
+<span class="material-symbols-outlined text-[16px] shrink-0 mt-0.5">cancel</span>
+<span>Format tanggal tidak sesuai standar YYYY-MM-DD (ditemukan nilai: <code>31/02/2012</code>).</span>
+</div>
+<div class="font-caption-tabular text-caption-tabular text-on-surface-variant mt-0.5 pl-5">
+                Saran: Tanggal 31 Februari tidak valid secara kalender kalender masehi. Mohon perbaiki ke tanggal yang sah.
+              </div>
+</td>
+</tr>
+<!-- Row 3: Baris 27 -->
+<tr class="hover:bg-error-container/20 transition-colors">
+<td class="py-3.5 px-4 font-caption-tabular text-caption-tabular font-bold text-on-surface whitespace-nowrap">
+<span class="px-2 py-1 rounded bg-surface-container-high">Baris 27</span>
+</td>
+<td class="py-3.5 px-4">
+<div class="font-label-md text-label-md font-bold text-on-surface">Rian Hidayatullah</div>
+<div class="font-caption-tabular text-caption-tabular text-on-surface-variant">NISN: 0096123488</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2.5 py-1 rounded-md bg-surface-container-high text-on-surface font-caption-tabular text-caption-tabular font-semibold">
+                Kelas/Rombel (Kolom E)
+              </span>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-error-container text-on-error-container font-mono font-bold">
+                ERR_ROMBEL_NOT_FOUND
+              </span>
+</td>
+<td class="py-3.5 px-4 text-on-surface">
+<div class="font-medium text-error flex items-start gap-1.5">
+<span class="material-symbols-outlined text-[16px] shrink-0 mt-0.5">cancel</span>
+<span>Rombel <code>'VII-E'</code> tidak terdaftar pada Master Data Periode Akademik 2026/2027 Ganjil.</span>
+</div>
+<div class="font-caption-tabular text-caption-tabular text-on-surface-variant mt-0.5 pl-5">
+                Saran: Tambahkan Rombel 'VII-E' di menu Master Data Madrasah terlebih dahulu atau ubah ke rombel yang aktif (VII-A s/d VII-D).
+              </div>
+</td>
+</tr>
+<!-- Row 4: Baris 38 -->
+<tr class="hover:bg-error-container/20 transition-colors">
+<td class="py-3.5 px-4 font-caption-tabular text-caption-tabular font-bold text-on-surface whitespace-nowrap">
+<span class="px-2 py-1 rounded bg-surface-container-high">Baris 38</span>
+</td>
+<td class="py-3.5 px-4">
+<div class="font-label-md text-label-md font-bold text-outline italic">[Kolom Nama Kosong]</div>
+<div class="font-caption-tabular text-caption-tabular text-on-surface-variant">NISN: -</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2.5 py-1 rounded-md bg-surface-container-high text-on-surface font-caption-tabular text-caption-tabular font-semibold">
+                Nama Lengkap (Kolom A)
+              </span>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-error-container text-on-error-container font-mono font-bold">
+                ERR_EMPTY_FIELD
+              </span>
+</td>
+<td class="py-3.5 px-4 text-on-surface">
+<div class="font-medium text-error flex items-start gap-1.5">
+<span class="material-symbols-outlined text-[16px] shrink-0 mt-0.5">cancel</span>
+<span>Nama lengkap dan identitas pokok siswa tidak boleh dikosongkan pada baris data.</span>
+</div>
+<div class="font-caption-tabular text-caption-tabular text-on-surface-variant mt-0.5 pl-5">
+                Saran: Isi nama lengkap siswa atau hapus baris kosong pada spreadsheet Anda.
+              </div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Informational Note on Quarantine / Skip Policy -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm text-on-surface-variant">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[24px]">verified</span>
+<div class="font-body-sm text-body-sm">
+<strong>Mode Toleransi Kesalahan (Partial Ingestion):</strong> Sistem akan otomatis mengabaikan 4 baris yang bermasalah dan hanya memasukkan 41 data siswa yang sah ke basis data absensi madrasah.
+        </div>
+</div>
+<div class="shrink-0">
+<label class="inline-flex items-center gap-2 cursor-pointer font-label-sm text-label-sm font-semibold text-on-surface">
+<input checked="" class="w-4 h-4 rounded text-primary focus:ring-0" type="checkbox"/>
+<span>Lewati baris gagal secara otomatis</span>
+</label>
+</div>
+</div>
+</div>
+<!-- Final Sticky Action Bar -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-md flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="flex flex-wrap items-center gap-space-sm w-full md:w-auto">
+<button class="px-4 py-2.5 rounded-lg bg-surface-container-high text-on-surface font-label-md text-label-md font-semibold hover:bg-surface-dim transition-colors flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[18px]">replay</span>
+        Batalkan &amp; Unggah Ulang
+      </button>
+<button class="px-4 py-2.5 rounded-lg bg-surface-container-low text-on-surface-variant font-label-md text-label-md font-medium hover:bg-surface-container transition-colors flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+        Unduh Laporan Log Validasi (.txt)
+      </button>
+</div>
+<!-- Dominant Primary Commitment Button -->
+<div class="flex flex-col sm:flex-row items-center gap-space-md w-full md:w-auto">
+<div class="text-right hidden sm:block">
+<div class="font-label-md text-label-md font-bold text-on-surface">41 Siswa Siap Dimasukkan</div>
+<div class="font-caption-tabular text-caption-tabular text-primary">T.A. 2026/2027 Ganjil</div>
+</div>
+<button class="w-full sm:w-auto px-8 py-3 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg font-bold hover:bg-on-primary-fixed-variant transition-all flex items-center justify-center gap-2 shadow-lg hover:shadow-xl active:scale-[0.99]" type="button">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+        Lanjutkan Impor 41 Data Valid Sekarang
+      </button>
+</div>
+</div>
+<!-- Compliance Note -->
+<div class="px-space-sm text-center">
+<p class="font-caption-tabular text-caption-tabular text-outline">
+      Kepatuhan BRD v1.3: Data yang berhasil diimpor akan langsung menghasilkan token kartu QR NISN statis untuk scanner absensi dan tercatat utuh pada audit log sistem madrasah.
+    </p>
+</div>
+</div>
+<script>
+  // Simple micro-interactions for beginner-friendly experience
+  document.addEventListener('DOMContentLoaded', () => {
+    // Radio toggle highlight visual feedback
+    const radioInputs = document.querySelectorAll('input[name="target_data_type"]');
+    radioInputs.forEach(input => {
+      input.addEventListener('change', (e) => {
+        radioInputs.forEach(r => {
+          const card = r.closest('label');
+          if (r.checked) {
+            card.classList.remove('bg-surface-container-low');
+            card.classList.add('bg-primary-fixed/20', 'shadow-sm');
+          } else {
+            card.classList.add('bg-surface-container-low');
+            card.classList.remove('bg-primary-fixed/20', 'shadow-sm');
+          }
+        });
+      });
+    });
+  });
+</script></main></div></body></html>

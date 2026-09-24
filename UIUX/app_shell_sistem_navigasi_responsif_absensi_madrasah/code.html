@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App Shell & Sistem Navigasi Responsif — Sistem Absensi Madrasah</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#ebf7f2',
+              100: '#d1efe3',
+              500: '#13795b',
+              600: '#0e6249',
+              700: '#0b4e3a',
+              900: '#06291e',
+            },
+            surface: {
+              canvas: '#f8fafc',
+              card: '#ffffff',
+              border: '#e2e8f0',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom scrollbar for clean shallow navigation */
+    ::-webkit-scrollbar { width: 5px; height: 5px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 font-sans antialiased min-h-screen p-4 md:p-8">
+
+  <!-- TOP BAR KONTROL SWITCHER PREVIEW PERAN -->
+  <header class="max-w-7xl mx-auto mb-8 bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-5">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-brand-500 text-white flex items-center justify-center font-bold text-lg shadow-sm">
+          M
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-xl font-bold text-slate-900 tracking-tight">Sistem Absensi Madrasah — Desain App Shell</h1>
+            <span class="text-xs font-semibold px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200">Production Shell Spec</span>
+          </div>
+          <p class="text-xs text-slate-500 mt-0.5">Spesifikasi App Shell Responsif (Desktop Sidebar, Top Bar, Periode Akademik Aktif & Navigasi Mobile Android)</p>
+        </div>
+      </div>
+
+      <!-- Quick Role Toggle Buttons -->
+      <div class="flex flex-wrap items-center gap-2 bg-slate-50 p-1.5 rounded-xl border border-slate-200">
+        <span class="text-xs font-semibold text-slate-500 px-2">Lihat Peran:</span>
+        <button onclick="switchRole('admin')" id="btn-admin" class="role-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-brand-500 text-white shadow-xs">Admin</button>
+        <button onclick="switchRole('guru')" id="btn-guru" class="role-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">Guru</button>
+        <button onclick="switchRole('walikelas')" id="btn-walikelas" class="role-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">Wali Kelas</button>
+        <button onclick="switchRole('siswa')" id="btn-siswa" class="role-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">Siswa</button>
+        <button onclick="switchRole('kepala')" id="btn-kepala" class="role-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">Kepala Madrasah</button>
+      </div>
+    </div>
+
+    <!-- Active Metadata & Constraint Notes -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-4 text-xs">
+      <div class="flex items-center gap-2 text-slate-600">
+        <svg class="w-4 h-4 text-brand-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+        <span>Periode Aktif: <strong class="text-slate-800 font-semibold">2026/2027 Ganjil</strong></span>
+      </div>
+      <div class="flex items-center gap-2 text-slate-600">
+        <svg class="w-4 h-4 text-emerald-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+        </svg>
+        <span>Geofence Madrasah: <strong class="text-slate-800 font-semibold">200m (Radius Aman)</strong></span>
+      </div>
+      <div class="flex items-center gap-2 text-slate-600">
+        <svg class="w-4 h-4 text-indigo-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+        </svg>
+        <span>Android Optimasi: <strong class="text-slate-800 font-semibold">Min 44px Touch Target</strong></span>
+      </div>
+      <div class="flex items-center gap-2 text-slate-600">
+        <svg class="w-4 h-4 text-amber-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <span>Navigasi Dangkal: <strong class="text-slate-800 font-semibold">Strict 0-Nesting (1-Click)</strong></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN DUAL VIEW: DESKTOP SHELL + ANDROID MOBILE SHELL -->
+  <main class="max-w-7xl mx-auto space-y-12">
+
+    <!-- ========================================== -->
+    <!-- SECTION 1: DESKTOP APPLICATION SHELL VIEW  -->
+    <!-- ========================================== -->
+    <section>
+      <div class="flex items-center justify-between mb-4">
+        <div>
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="inline-block w-2.5 h-2.5 rounded-full bg-brand-500"></span>
+            1. Desktop Shell Layout (1280px Viewport)
+          </h2>
+          <p class="text-xs text-slate-500">Sidebar terstruktur, top bar dengan identitas madrasah, pill periode aktif, dan area akun pengguna.</p>
+        </div>
+        <div class="text-xs font-mono text-slate-500 bg-white px-3 py-1 rounded-md border border-slate-200">
+          State: <span id="desktop-role-label" class="font-bold text-brand-700">Administrator Madrasah</span>
+        </div>
+      </div>
+
+      <!-- DESKTOP SHELL CANVAS CONTAINER -->
+      <div class="bg-white border border-slate-300 rounded-2xl shadow-md overflow-hidden flex flex-col min-h-[620px]">
+        
+        <!-- GLOBAL TOP BAR -->
+        <header class="h-16 border-b border-slate-200 bg-white flex items-center justify-between px-6 z-20">
+          
+          <!-- Left: Brand & Institution -->
+          <div class="flex items-center gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-lg bg-brand-500 flex items-center justify-center text-white font-bold text-sm shadow-xs">
+                AM
+              </div>
+              <div>
+                <div class="text-sm font-bold text-slate-900 tracking-tight leading-none">MAS Al-Hikmah</div>
+                <div class="text-[11px] text-slate-500 mt-0.5 leading-none">Sistem Presensi GPS & QR Code</div>
+              </div>
+            </div>
+
+            <div class="h-5 w-px bg-slate-200 hidden sm:block mx-1"></div>
+
+            <!-- Active Academic Period Pill Indicator (CRITICAL REQUIREMENT) -->
+            <div class="hidden sm:flex items-center gap-2 bg-emerald-50/90 border border-emerald-200 px-3 py-1 rounded-full text-xs font-medium text-emerald-800">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span>Periode Aktif: <strong>2026/2027 Ganjil</strong></span>
+            </div>
+          </div>
+
+          <!-- Right: Status GPS + Account Area -->
+          <div class="flex items-center gap-4">
+            <!-- GPS Radius Indicator Status -->
+            <div class="hidden md:flex items-center gap-1.5 text-xs text-slate-600 bg-slate-50 border border-slate-200 px-2.5 py-1 rounded-lg">
+              <svg class="w-3.5 h-3.5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              </svg>
+              <span>GPS Siap <strong class="text-slate-700">(±12m)</strong></span>
+            </div>
+
+            <div class="h-6 w-px bg-slate-200"></div>
+
+            <!-- User Account Profile Section -->
+            <div class="flex items-center gap-3 pl-1">
+              <div class="text-right hidden sm:block">
+                <div id="desktop-user-name" class="text-xs font-semibold text-slate-900 leading-tight">Ahmad Fauzi, S.Kom</div>
+                <div id="desktop-user-badge" class="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">Admin Utama</div>
+              </div>
+              <div class="relative group cursor-pointer">
+                <div id="desktop-user-avatar" class="w-9 h-9 rounded-full bg-slate-100 border border-slate-300 flex items-center justify-center font-bold text-xs text-brand-700">
+                  AF
+                </div>
+                <!-- Mini presence dot -->
+                <span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 border-2 border-white rounded-full"></span>
+              </div>
+              <button title="Keluar / Logout" class="text-slate-400 hover:text-rose-600 p-1 rounded transition">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                </svg>
+              </button>
+            </div>
+
+          </div>
+        </header>
+
+        <!-- SHELL BODY: SIDEBAR + CONTENT FRAME -->
+        <div class="flex-1 flex overflow-hidden">
+          
+          <!-- DESKTOP SIDEBAR NAVIGATION -->
+          <aside class="w-64 border-r border-slate-200 bg-slate-50/70 flex flex-col justify-between p-4 flex-shrink-0">
+            <div>
+              <div class="text-[11px] font-bold uppercase tracking-wider text-slate-400 px-3 mb-2" id="sidebar-role-heading">
+                Menu Utama (Admin)
+              </div>
+
+              <!-- DYNAMIC NAVIGATION LIST FOR DESKTOP -->
+              <nav class="space-y-1" id="desktop-nav-items">
+                <!-- Javascript will populate based on selected role -->
+              </nav>
+            </div>
+
+            <!-- Sidebar Bottom: Institution Context Footer -->
+            <div class="pt-4 border-t border-slate-200">
+              <div class="bg-white p-3 rounded-xl border border-slate-200/80 shadow-xs">
+                <div class="flex items-center justify-between text-[11px] font-semibold text-slate-700 mb-1">
+                  <span>Tahun Ajaran</span>
+                  <span class="text-brand-600 font-mono">26/27</span>
+                </div>
+                <div class="text-[11px] text-slate-500 truncate">Semester Ganjil (Aktif)</div>
+                <div class="mt-2 text-[10px] text-slate-400 flex items-center justify-between">
+                  <span>Versi Sistem</span>
+                  <span class="font-mono">v2.0-Prod</span>
+                </div>
+              </div>
+            </div>
+          </aside>
+
+          <!-- DESKTOP INNER CONTENT WORKSPACE -->
+          <main class="flex-1 bg-slate-100/60 p-6 sm:p-8 overflow-y-auto">
+            
+            <!-- Standard Page Header Inside Desktop Shell -->
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+              <div>
+                <div class="flex items-center gap-2">
+                  <h2 id="desktop-page-title" class="text-2xl font-bold text-slate-900 tracking-tight">Dashboard Overview</h2>
+                  <span class="text-xs bg-slate-200/80 text-slate-700 px-2 py-0.5 rounded font-mono" id="desktop-page-code">FS-DASH</span>
+                </div>
+                <p id="desktop-page-desc" class="text-xs text-slate-500 mt-1">Ringkasan operasional kehadiran hari ini dan status rekapitulasi madrasah.</p>
+              </div>
+
+              <!-- Context Actions in Header -->
+              <div class="flex items-center gap-2">
+                <div class="text-xs text-slate-600 font-mono bg-white border border-slate-200 px-3 py-2 rounded-lg">
+                  Kamis, 24 Sep 2026 • <strong class="text-brand-700">07:14:02 WIB</strong>
+                </div>
+                <button class="bg-brand-500 hover:bg-brand-600 text-white text-xs font-semibold px-4 py-2 rounded-lg shadow-xs transition flex items-center gap-1.5 h-9" id="desktop-header-action">
+                  <span>Aksi Cepat</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Simulated Inner Screen Area -->
+            <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-xs min-h-[360px] flex flex-col justify-center items-center text-center">
+              <div class="w-12 h-12 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center mb-3">
+                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                </svg>
+              </div>
+              <h3 class="text-sm font-semibold text-slate-800">Dynamic Page Workspace Frame</h3>
+              <p class="text-xs text-slate-500 max-w-md mt-1 mb-4" id="desktop-content-hint">
+                Ruang konten dinamis ini akan dirender secara konsisten oleh sistem halaman spesifik sesuai dengan rute yang dipilih.
+              </p>
+              <div class="inline-flex items-center gap-2 text-xs font-medium text-brand-700 bg-brand-50 px-3 py-1.5 rounded-lg border border-brand-100">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>
+                <span>Shell Template Siap Digunakan untuk Semua Halaman</span>
+              </div>
+            </div>
+
+          </main>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- SECTION 2: ANDROID MOBILE SHELL VIEW (390px)  -->
+    <!-- ============================================== -->
+    <section>
+      <div class="flex items-center justify-between mb-4">
+        <div>
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="inline-block w-2.5 h-2.5 rounded-full bg-indigo-600"></span>
+            2. Android Mobile Shell Layout (390px Native App Framework)
+          </h2>
+          <p class="text-xs text-slate-500">Top bar ringkas, indikator periode terlihat jelas, bottom navigation untuk aksi harian utama, dan sheet menu sekunder.</p>
+        </div>
+        <div class="text-xs text-slate-500 bg-white px-3 py-1 rounded-md border border-slate-200">
+          Viewport: <strong class="font-mono text-slate-800">390 × 844 px</strong>
+        </div>
+      </div>
+
+      <div class="flex flex-col lg:flex-row items-start gap-8 justify-center">
+
+        <!-- DEVICE FRAME: ANDROID SMARTPHONE -->
+        <div class="w-full max-w-[390px] mx-auto bg-slate-900 p-3 rounded-[40px] shadow-2xl border-4 border-slate-700">
+          
+          <!-- Screen Glass Interior -->
+          <div class="w-full bg-slate-50 rounded-[32px] overflow-hidden flex flex-col h-[740px] relative border border-slate-800">
+            
+            <!-- Android System Status Bar -->
+            <div class="h-7 bg-white px-5 flex items-center justify-between text-[11px] font-semibold text-slate-800 select-none">
+              <span class="font-mono">07:14</span>
+              <div class="w-20 h-4 bg-slate-900 rounded-b-xl mx-auto -mt-3.5"></div>
+              <div class="flex items-center gap-1.5 text-slate-700">
+                <span class="text-[10px]">4G</span>
+                <div class="w-4 h-2.5 border border-slate-700 rounded-sm p-0.5 flex items-center">
+                  <div class="h-full w-2.5 bg-emerald-600 rounded-xs"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ANDROID APP TOP BAR (PERSISTENT) -->
+            <div class="bg-white border-b border-slate-200 px-4 py-2.5 flex items-center justify-between">
+              <div class="flex items-center gap-2.5">
+                <div class="w-8 h-8 rounded-lg bg-brand-500 text-white flex items-center justify-center font-bold text-xs">
+                  M
+                </div>
+                <div>
+                  <div class="text-xs font-bold text-slate-900 leading-tight">MAS Al-Hikmah</div>
+                  <!-- Active Academic Period Indicator on Mobile -->
+                  <div class="flex items-center gap-1 mt-0.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                    <span class="text-[10px] text-emerald-800 font-semibold bg-emerald-50 px-1.5 py-0.2 rounded border border-emerald-200">2026/27 Ganjil</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right: GPS Status & Drawer Toggle Button -->
+              <div class="flex items-center gap-2">
+                <div class="flex items-center gap-1 text-[10px] text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full font-medium">
+                  <svg class="w-3 h-3 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  </svg>
+                  <span>Radius 48m</span>
+                </div>
+                <button onclick="toggleMobileDrawer()" class="p-1.5 text-slate-600 hover:text-slate-900 rounded-lg hover:bg-slate-100 transition" title="Menu Lengkap">
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- ANDROID MAIN SCROLLABLE BODY -->
+            <div class="flex-1 overflow-y-auto p-4 space-y-4">
+              
+              <!-- Mobile Page Title Bar -->
+              <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-xs">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400" id="mobile-role-tag">ROLE: ADMIN</span>
+                    <h3 class="text-base font-bold text-slate-900 tracking-tight" id="mobile-page-title">Dashboard Presensi</h3>
+                  </div>
+                  <div class="w-8 h-8 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center font-bold text-[11px] text-brand-700" id="mobile-user-avatar">
+                    AF
+                  </div>
+                </div>
+                <div class="mt-2 text-[11px] text-slate-500 flex items-center gap-1.5 border-t border-slate-100 pt-2">
+                  <span class="text-emerald-600 font-semibold">● Sesi Aktif:</span>
+                  <span id="mobile-user-desc">Ahmad Fauzi (Admin Madrasah)</span>
+                </div>
+              </div>
+
+              <!-- Representative Screen Mock Content -->
+              <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-xs">
+                <div class="text-xs font-semibold text-slate-800 mb-2 flex items-center justify-between">
+                  <span>Aksi Cepat Harian</span>
+                  <span class="text-[10px] text-slate-400">Paling Sering Digunakan</span>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-2" id="mobile-quick-actions">
+                  <!-- Javascript fills quick actions based on role -->
+                </div>
+              </div>
+
+              <!-- Context Status Card -->
+              <div class="bg-brand-50 border border-brand-100 rounded-xl p-3.5 text-xs text-brand-900">
+                <div class="font-bold flex items-center gap-1.5 mb-1">
+                  <svg class="w-4 h-4 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span>Informasi Navigasi Mobile</span>
+                </div>
+                <p class="text-[11px] text-brand-800 leading-relaxed" id="mobile-behavior-notes">
+                  Navigasi mobile memisahkan tindakan harian berfrekuensi tinggi pada <strong>Bottom Bar</strong>, sementara menu sekunder dapat diakses melalui drawer menu samping.
+                </p>
+              </div>
+
+            </div>
+
+            <!-- ANDROID PERSISTENT BOTTOM NAVIGATION BAR -->
+            <!-- Touch target minimal 44px (h-16), 3-4 menu prioritas -->
+            <nav class="h-16 bg-white border-t border-slate-200 flex items-center justify-around px-2 z-20 shadow-lg" id="mobile-bottom-nav">
+              <!-- Populated by JavaScript according to role requirements -->
+            </nav>
+
+            <!-- ANDROID MOBILE DRAWER / SHEET FOR SECONDARY MENU ITEMS -->
+            <div id="mobile-drawer" class="absolute inset-0 bg-slate-900/60 z-30 hidden transition-opacity flex flex-col justify-end">
+              <div class="bg-white rounded-t-2xl p-5 max-h-[85%] overflow-y-auto space-y-4">
+                <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                  <div class="flex items-center gap-2">
+                    <span class="text-xs font-bold text-slate-900" id="drawer-title">Menu Lengkap (Admin)</span>
+                    <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">2026/27</span>
+                  </div>
+                  <button onclick="toggleMobileDrawer()" class="p-1 rounded text-slate-400 hover:text-slate-600">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+
+                <div class="space-y-1" id="mobile-drawer-items">
+                  <!-- JS populates full secondary items -->
+                </div>
+
+                <div class="pt-2 border-t border-slate-100">
+                  <button onclick="toggleMobileDrawer()" class="w-full py-2.5 text-center text-xs font-semibold text-slate-600 bg-slate-100 rounded-lg">
+                    Tutup Menu
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- MOBILE BEHAVIOR & ROLE MATRIX EXPLANATION -->
+        <div class="flex-1 bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+          <h3 class="text-base font-bold text-slate-900 mb-2 flex items-center gap-2">
+            <svg class="w-5 h-5 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+            Kepatuhan Navigasi Sesuai 5 Peran Resmi
+          </h3>
+          <p class="text-xs text-slate-500 mb-4">
+            Struktur navigasi dibuat dangkal (*shallow* tanpa dropdown bersarang), berpedoman pada daftar kebutuhan peran tanpa menambah fitur di luar spesifikasi:
+          </p>
+
+          <div class="space-y-3 text-xs">
+            
+            <div class="p-3 rounded-xl border border-slate-200 bg-slate-50/50">
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="font-bold text-slate-800">1. Admin (10 Item)</span>
+                <span class="text-[11px] font-mono text-slate-500">10 Menu Resmi</span>
+              </div>
+              <div class="flex flex-wrap gap-1 text-[11px]">
+                <span class="px-2 py-0.5 bg-white border border-slate-200 rounded">Dashboard</span>
+                <span class="px-2 py-0.5 bg-white border border-slate-200 rounded">Master Data</span>
+                <span class="px-2 py-0.5 bg-white border border-slate-200 rounded">Periode Akademik</span>
+                <span class="px-2 py-0.5 bg-white border border-slate-200 rounded">Jadwal</span>
+                <span class="px-2 py-0.5 bg-white border border-slate-200 rounded font-semibold text-brand-700">Presensi</span>
+                <span class="px-2 py-0.5 bg-white border border-slate-200 rounded">Izin</span>
+                <span class="px-2 py-0.5 bg-white border border-slate-200 rounded">Koreksi</span>
+                <span class="px-2 py-0.5 bg-white border border-slate-200 rounded">Audit</span>
+                <span class="px-2 py-0.5 bg-white border border-slate-200 rounded">Import Excel</span>
+                <span class="px-2 py-0.5 bg-white border border-slate-200 rounded">Laporan</span>
+              </div>
+              <div class="text-[11px] text-slate-500 mt-2">
+                <em>Prioritas Android:</em> Presensi, Koreksi, Izin, dan Drawer Menu Lengkap.
+              </div>
+            </div>
+
+            <div class="p-3 rounded-xl border border-slate-200 bg-slate-50/50">
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="font-bold text-slate-800">2. Guru (7 Item)</span>
+                <span class="text-[11px] font-mono text-slate-500">7 Menu Resmi</span>
+              </div>
+              <div class="flex flex-wrap gap-1 text-[11px]">
+                <span class="px-2 py-0.5 bg-white border border-slate-200 rounded">Dashboard</span>
+                <span class="px-2 py-0.5 bg-white border border-slate-200 rounded font-semibold text-brand-700">Presensi Saya</span>
+                <span class="px-2 py-0.5 bg-white border border-slate-200 rounded font-semibold text-brand-700">Scan Siswa</span>
+                <span class="px-2 py-0.5 bg-white border border-slate-200 rounded">Riwayat</span>
+                <span class="px-2 py-0.5 bg-white border border-slate-200 rounded">Izin Saya</span>
+                <span class="px-2 py-0.5 bg-white border border-slate-200 rounded">Koreksi</span>
+                <span class="px-2 py-0.5 bg-white border border-slate-200 rounded">Panduan</span>
+              </div>
+              <div class="text-[11px] text-slate-500 mt-2">
+                <em>Prioritas Android:</em> Presensi Mandiri, Pemindai QR Siswa, Izin Saya, Riwayat Kehadiran.
+              </div>
+            </div>
+
+            <div class="p-3 rounded-xl border border-slate-200 bg-slate-50/50">
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="font-bold text-slate-800">3. Wali Kelas (6 Item)</span>
+                <span class="text-[11px] font-mono text-slate-500">6 Menu Resmi</span>
+              </div>
+              <div class="flex flex-wrap gap-1 text-[11px]">
+                <span class="px-2 py-0.5 bg-white border border-slate-200 rounded">Dashboard</span>
+                <span class="px-2 py-0.5 bg-white border border-slate-200 rounded">Presensi Kelas</span>
+                <span class="px-2 py-0.5 bg-white border border-slate-200 rounded">Siswa</span>
+                <span class="px-2 py-0.5 bg-white border border-slate-200 rounded font-semibold text-brand-700">Approval Izin</span>
+                <span class="px-2 py-0.5 bg-white border border-slate-200 rounded">Izin Saya</span>
+                <span class="px-2 py-0.5 bg-white border border-slate-200 rounded">Panduan</span>
+              </div>
+            </div>
+
+            <div class="p-3 rounded-xl border border-slate-200 bg-slate-50/50">
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="font-bold text-slate-800">4. Siswa (5 Item)</span>
+                <span class="text-[11px] font-mono text-slate-500">5 Menu Resmi</span>
+              </div>
+              <div class="flex flex-wrap gap-1 text-[11px]">
+                <span class="px-2 py-0.5 bg-white border border-slate-200 rounded">Dashboard</span>
+                <span class="px-2 py-0.5 bg-white border border-slate-200 rounded">Presensi Saya</span>
+                <span class="px-2 py-0.5 bg-white border border-slate-200 rounded">Izin Saya</span>
+                <span class="px-2 py-0.5 bg-white border border-slate-200 rounded font-semibold text-brand-700">QR Saya</span>
+                <span class="px-2 py-0.5 bg-white border border-slate-200 rounded">Panduan</span>
+              </div>
+            </div>
+
+            <div class="p-3 rounded-xl border border-slate-200 bg-slate-50/50">
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="font-bold text-slate-800">5. Kepala Madrasah (5 Item)</span>
+                <span class="text-[11px] font-mono text-slate-500">5 Menu Resmi</span>
+              </div>
+              <div class="flex flex-wrap gap-1 text-[11px]">
+                <span class="px-2 py-0.5 bg-white border border-slate-200 rounded">Dashboard</span>
+                <span class="px-2 py-0.5 bg-white border border-slate-200 rounded font-semibold text-brand-700">Monitoring Presensi</span>
+                <span class="px-2 py-0.5 bg-white border border-slate-200 rounded font-semibold text-brand-700">Approval Izin Guru</span>
+                <span class="px-2 py-0.5 bg-white border border-slate-200 rounded">Laporan</span>
+                <span class="px-2 py-0.5 bg-white border border-slate-200 rounded">Audit</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Developer Implementation Checklist -->
+          <div class="mt-5 p-3.5 bg-emerald-50/60 rounded-xl border border-emerald-200">
+            <div class="text-xs font-bold text-emerald-900 mb-1">Checklist Arsitektur Shell:</div>
+            <ul class="text-[11px] text-emerald-800 space-y-1 list-disc list-inside">
+              <li>Indikator Periode Akademik Aktif selalu terpasang di Top Bar Desktop & Mobile.</li>
+              <li>Satu klik navigasi tanpa dropdown bertingkat (*shallow architecture*).</li>
+              <li>Touch target tombol dan nav item mobile memenuhi standar Android (>= 44px).</li>
+              <li>User role profile terisolasi dengan penanda avatar dan nama lengkap.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ROLE DEFINITIONS AND INTERACTIVE SCRIPT -->
+  <script>
+    const rolesData = {
+      admin: {
+        roleName: "Administrator Madrasah",
+        userFullName: "Ahmad Fauzi, S.Kom",
+        userBadge: "Admin Utama",
+        userInitials: "AF",
+        pageTitle: "Dashboard Ringkasan Admin",
+        pageCode: "FS-DASH-ADM",
+        pageDesc: "Monitoring presensi madrasah, status GPS geofencing, dan rekapitulasi harian.",
+        headerAction: "+ Buat Periode",
+        sidebarHeading: "Menu Utama (Admin)",
+        desktopItems: [
+          { name: "Dashboard", active: true, icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" },
+          { name: "Master Data", icon: "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" },
+          { name: "Periode Akademik", icon: "M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" },
+          { name: "Jadwal", icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" },
+          { name: "Presensi", icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" },
+          { name: "Izin", icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" },
+          { name: "Koreksi", icon: "M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" },
+          { name: "Audit", icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" },
+          { name: "Import Excel", icon: "M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" },
+          { name: "Laporan", icon: "M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" }
+        ],
+        mobileBottomItems: [
+          { name: "Dashboard", active: true, icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" },
+          { name: "Presensi", icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" },
+          { name: "Koreksi", icon: "M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" },
+          { name: "Menu", isDrawer: true, icon: "M4 6h16M4 12h16M4 18h16" }
+        ],
+        mobileQuick: [
+          { label: "Data Presensi", desc: "Pantau absensi", icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" },
+          { label: "Koreksi Kehadiran", desc: "Approval koreksi", icon: "M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5" },
+          { label: "Master Guru/Siswa", desc: "Kelola data", icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" },
+          { label: "Audit Perubahan", desc: "Log aktivitas", icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" }
+        ]
+      },
+      guru: {
+        roleName: "Guru Pengajar",
+        userFullName: "M. Ridwan, S.Pd",
+        userBadge: "Guru Aktif",
+        userInitials: "MR",
+        pageTitle: "Presensi Mandiri Guru",
+        pageCode: "FS-ATT-G",
+        pageDesc: "Presensi mandiri datang & pulang guru berbasis lokasi GPS Geofence (radius 200m).",
+        headerAction: "Absen Datang",
+        sidebarHeading: "Menu Guru",
+        desktopItems: [
+          { name: "Dashboard", icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" },
+          { name: "Presensi Saya", active: true, icon: "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" },
+          { name: "Scan Siswa", icon: "M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" },
+          { name: "Riwayat", icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" },
+          { name: "Izin Saya", icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" },
+          { name: "Koreksi", icon: "M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" },
+          { name: "Panduan", icon: "M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" }
+        ],
+        mobileBottomItems: [
+          { name: "Presensi", active: true, icon: "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" },
+          { name: "Scan Siswa", icon: "M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" },
+          { name: "Izin Saya", icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" },
+          { name: "Menu", isDrawer: true, icon: "M4 6h16M4 12h16M4 18h16" }
+        ],
+        mobileQuick: [
+          { label: "Presensi Mandiri", desc: "Datang / Pulang GPS", icon: "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" },
+          { label: "Scan QR Siswa", desc: "Verifikasi visual", icon: "M12 4v1m6 11h2m-6 0h-2v4m0-11v3" },
+          { label: "Riwayat Presensi", desc: "Data kehadiran", icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" },
+          { label: "Ajukan Koreksi", desc: "Koreksi jam/status", icon: "M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5" }
+        ]
+      },
+      walikelas: {
+        roleName: "Wali Kelas (Kelas IX-A)",
+        userFullName: "Siti Aminah, M.Pd",
+        userBadge: "Wali Kelas IX-A",
+        userInitials: "SA",
+        pageTitle: "Persetujuan Izin Siswa Kelas IX-A",
+        pageCode: "FS-APP-S",
+        pageDesc: "Daftar permohonan izin/sakit siswa perwalian yang memerlukan persetujuan wali kelas.",
+        headerAction: "Approval Massal",
+        sidebarHeading: "Menu Wali Kelas",
+        desktopItems: [
+          { name: "Dashboard", icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" },
+          { name: "Presensi Kelas", icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" },
+          { name: "Siswa", icon: "M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" },
+          { name: "Approval Izin", active: true, icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" },
+          { name: "Izin Saya", icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" },
+          { name: "Panduan", icon: "M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" }
+        ],
+        mobileBottomItems: [
+          { name: "Presensi", icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" },
+          { name: "Approval", active: true, icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" },
+          { name: "Siswa", icon: "M12 4.354a4 4 0 110 5.292" },
+          { name: "Menu", isDrawer: true, icon: "M4 6h16M4 12h16M4 18h16" }
+        ],
+        mobileQuick: [
+          { label: "Approval Izin Siswa", desc: "4 menunggu", icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" },
+          { label: "Presensi Kelas", desc: "32 siswa IX-A", icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" },
+          { label: "Daftar Siswa", desc: "Status NISN/QR", icon: "M12 4.354a4 4 0 110 5.292" },
+          { label: "Izin Saya", desc: "Form izin pribadi", icon: "M9 12h6m-6 4h6" }
+        ]
+      },
+      siswa: {
+        roleName: "Siswa Madrasah",
+        userFullName: "Ahmad Faiz Al-Habsyi",
+        userBadge: "Kelas IX-A • 0089234711",
+        userInitials: "AF",
+        pageTitle: "Kartu QR Presensi Siswa",
+        pageCode: "FS-QR-S",
+        pageDesc: "Tunjukkan QR statis kepada guru piket / pengajar untuk dicatat kehadirannya.",
+        headerAction: "Unduh QR Card",
+        sidebarHeading: "Menu Siswa",
+        desktopItems: [
+          { name: "Dashboard", icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" },
+          { name: "Presensi Saya", icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" },
+          { name: "Izin Saya", icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" },
+          { name: "QR Saya", active: true, icon: "M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" },
+          { name: "Panduan", icon: "M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" }
+        ],
+        mobileBottomItems: [
+          { name: "QR Saya", active: true, icon: "M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" },
+          { name: "Presensi", icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" },
+          { name: "Izin Saya", icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" },
+          { name: "Panduan", icon: "M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" }
+        ],
+        mobileQuick: [
+          { label: "Buka QR Siswa", desc: "Tunjukkan ke guru", icon: "M12 4v1m6 11h2m-6 0h-2v4" },
+          { label: "Ajukan Izin", desc: "Sakit / Surat Dokter", icon: "M9 12h6m-6 4h6" },
+          { label: "Riwayat Presensi", desc: "Rekap kehadiran", icon: "M9 5H7a2 2 0 00-2 2v12" },
+          { label: "Panduan Siswa", desc: "Aturan absensi", icon: "M13 16h-1v-4h-1" }
+        ]
+      },
+      kepala: {
+        roleName: "Kepala Madrasah",
+        userFullName: "Drs. H. Maimun, M.Ag",
+        userBadge: "Kepala Madrasah",
+        userInitials: "HM",
+        pageTitle: "Monitoring Kehadiran Madrasah",
+        pageCode: "FS-MON-KM",
+        pageDesc: "Tinjauan tingkat kehadiran real-time guru & siswa serta approval izin dinas guru.",
+        headerAction: "Unduh Rekap",
+        sidebarHeading: "Menu Eksekutif",
+        desktopItems: [
+          { name: "Dashboard", icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" },
+          { name: "Monitoring Presensi", active: true, icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" },
+          { name: "Approval Izin Guru", icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" },
+          { name: "Laporan", icon: "M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" },
+          { name: "Audit", icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" }
+        ],
+        mobileBottomItems: [
+          { name: "Monitoring", active: true, icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10" },
+          { name: "Approval Guru", icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" },
+          { name: "Laporan", icon: "M9 17v-2m3 2v-4m3 4v-6" },
+          { name: "Audit", icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944" }
+        ],
+        mobileQuick: [
+          { label: "Approval Izin Guru", desc: "2 permohonan", icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" },
+          { label: "Monitoring Harian", desc: "98.2% hadir", icon: "M9 19v-6a2 2 0 00-2-2H5" },
+          { label: "Audit Presensi", desc: "Log koreksi admin", icon: "M9 12l2 2 4-4m5.618-4.016" },
+          { label: "Rekap Bulanan", desc: "Export XLSX/PDF", icon: "M9 17v-2m3 2v-4" }
+        ]
+      }
+    };
+
+    let currentRole = 'admin';
+
+    function switchRole(roleKey) {
+      currentRole = roleKey;
+      const data = rolesData[roleKey];
+      if (!data) return;
+
+      // Update button styling
+      document.querySelectorAll('.role-btn').forEach(btn => {
+        btn.className = "role-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200";
+      });
+      const activeBtn = document.getElementById(`btn-${roleKey}`);
+      if (activeBtn) {
+        activeBtn.className = "role-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-brand-500 text-white shadow-xs";
+      }
+
+      // Update Desktop Shell Texts
+      document.getElementById('desktop-role-label').textContent = data.roleName;
+      document.getElementById('desktop-user-name').textContent = data.userFullName;
+      document.getElementById('desktop-user-badge').textContent = data.userBadge;
+      document.getElementById('desktop-user-avatar').textContent = data.userInitials;
+      document.getElementById('desktop-page-title').textContent = data.pageTitle;
+      document.getElementById('desktop-page-code').textContent = data.pageCode;
+      document.getElementById('desktop-page-desc').textContent = data.pageDesc;
+      document.getElementById('desktop-header-action').innerHTML = `<span>${data.headerAction}</span>`;
+      document.getElementById('sidebar-role-heading').textContent = data.sidebarHeading;
+
+      // Render Desktop Navigation List
+      const desktopNavContainer = document.getElementById('desktop-nav-items');
+      desktopNavContainer.innerHTML = '';
+      data.desktopItems.forEach(item => {
+        const itemEl = document.createElement('a');
+        itemEl.href = '#';
+        if (item.active) {
+          itemEl.className = 'flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs font-semibold bg-brand-500 text-white shadow-xs transition';
+        } else {
+          itemEl.className = 'flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition';
+        }
+        itemEl.innerHTML = `
+          <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${item.icon}" />
+          </svg>
+          <span class="truncate">${item.name}</span>
+        `;
+        desktopNavContainer.appendChild(itemEl);
+      });
+
+      // Update Mobile Shell Texts
+      document.getElementById('mobile-role-tag').textContent = `ROLE: ${roleKey.toUpperCase()}`;
+      document.getElementById('mobile-page-title').textContent = data.pageTitle;
+      document.getElementById('mobile-user-avatar').textContent = data.userInitials;
+      document.getElementById('mobile-user-desc').textContent = `${data.userFullName} (${data.roleName})`;
+      document.getElementById('drawer-title').textContent = `Menu Lengkap (${data.roleName})`;
+
+      // Render Mobile Quick Actions
+      const quickContainer = document.getElementById('mobile-quick-actions');
+      quickContainer.innerHTML = '';
+      data.mobileQuick.forEach(act => {
+        const card = document.createElement('div');
+        card.className = 'p-2.5 bg-slate-50 border border-slate-200 rounded-lg text-left hover:border-brand-500 transition cursor-pointer';
+        card.innerHTML = `
+          <div class="w-6 h-6 rounded-md bg-white border border-slate-200 text-brand-600 flex items-center justify-center mb-1.5">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${act.icon}" />
+            </svg>
+          </div>
+          <div class="text-[11px] font-bold text-slate-800 leading-tight">${act.label}</div>
+          <div class="text-[9px] text-slate-500 mt-0.5">${act.desc}</div>
+        `;
+        quickContainer.appendChild(card);
+      });
+
+      // Render Mobile Bottom Navigation
+      const bottomNavContainer = document.getElementById('mobile-bottom-nav');
+      bottomNavContainer.innerHTML = '';
+      data.mobileBottomItems.forEach(navItem => {
+        const btn = document.createElement('button');
+        if (navItem.isDrawer) {
+          btn.onclick = toggleMobileDrawer;
+        }
+        btn.className = `flex flex-col items-center justify-center flex-1 h-full py-1 text-center min-w-[60px] ${
+          navItem.active ? 'text-brand-600 font-bold' : 'text-slate-500 hover:text-slate-800'
+        }`;
+        btn.innerHTML = `
+          <div class="w-6 h-6 flex items-center justify-center mb-0.5">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${navItem.icon}" />
+            </svg>
+          </div>
+          <span class="text-[10px] tracking-tight leading-none">${navItem.name}</span>
+        `;
+        bottomNavContainer.appendChild(btn);
+      });
+
+      // Render Drawer Full Items (all desktop items)
+      const drawerContainer = document.getElementById('mobile-drawer-items');
+      drawerContainer.innerHTML = '';
+      data.desktopItems.forEach(item => {
+        const drawerLink = document.createElement('a');
+        drawerLink.href = '#';
+        drawerLink.onclick = () => { toggleMobileDrawer(); };
+        drawerLink.className = `flex items-center gap-3 px-3 py-2 rounded-lg text-xs font-medium ${
+          item.active ? 'bg-brand-50 text-brand-700 font-semibold' : 'text-slate-700 hover:bg-slate-50'
+        }`;
+        drawerLink.innerHTML = `
+          <svg class="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${item.icon}" />
+          </svg>
+          <span>${item.name}</span>
+        `;
+        drawerContainer.appendChild(drawerLink);
+      });
+    }
+
+    function toggleMobileDrawer() {
+      const drawer = document.getElementById('mobile-drawer');
+      if (drawer.classList.contains('hidden')) {
+        drawer.classList.remove('hidden');
+      } else {
+        drawer.classList.add('hidden');
+      }
+    }
+
+    // Initialize Default Role (Admin)
+    window.addEventListener('DOMContentLoaded', () => {
+      switchRole('admin');
+    });
+  </script>
+</body>
+</html>

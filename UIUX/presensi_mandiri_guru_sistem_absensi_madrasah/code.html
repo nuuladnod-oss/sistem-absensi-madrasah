@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+
+<html lang="id"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-container":"#e6eeff","primary-fixed":"#9af4cf","on-background":"#121c2a","inverse-on-surface":"#eaf1ff","on-primary-fixed-variant":"#00513b","outline":"#6e7a73","on-tertiary-fixed":"#331200","on-primary-container":"#a4fed9","on-secondary-container":"#005a80","primary-container":"#13795b","surface":"#f8f9ff","secondary-fixed-dim":"#8bcefb","tertiary-container":"#ae4f03","on-surface":"#121c2a","tertiary-fixed":"#ffdbca","primary-fixed-dim":"#7ed8b4","surface-container-high":"#dee9fc","on-tertiary-container":"#ffe8dd","error":"#ba1a1a","on-error":"#ffffff","on-tertiary-fixed-variant":"#763300","surface-container-lowest":"#ffffff","inverse-surface":"#27313f","surface-variant":"#d9e3f6","on-error-container":"#93000a","on-secondary-fixed-variant":"#004c6c","on-tertiary":"#ffffff","outline-variant":"#bec9c2","inverse-primary":"#7ed8b4","error-container":"#ffdad6","surface-tint":"#006c50","surface-container-highest":"#d9e3f6","secondary":"#0e658c","surface-bright":"#f8f9ff","background":"#f8f9ff","tertiary":"#893c00","on-secondary":"#ffffff","surface-container-low":"#eff4ff","on-primary-fixed":"#002116","primary":"#005e45","on-primary":"#ffffff","secondary-fixed":"#c7e7ff","surface-dim":"#d0dbed","on-secondary-fixed":"#001e2e","on-surface-variant":"#3e4944","tertiary-fixed-dim":"#ffb68e","secondary-container":"#8ed1fe"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-xl":"2rem",gutter:"1rem","space-lg":"1.5rem",margin:"1rem","space-md":"1rem","space-sm":"0.5rem","gutter-desktop":"1.5rem","space-xs":"0.25rem","margin-desktop":"2rem"},fontFamily:{"body-sm":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"title-md":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"caption-tabular":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"]},fontSize:{"body-sm":["13px",{lineHeight:"20px",letterSpacing:"0.005em",fontWeight:"400"}],"headline-lg":["24px",{lineHeight:"32px",letterSpacing:"-0.015em",fontWeight:"600"}],"label-md":["13px",{lineHeight:"18px",letterSpacing:"0.01em",fontWeight:"500"}],"body-lg":["16px",{lineHeight:"24px",letterSpacing:"0em",fontWeight:"400"}],"label-sm":["12px",{lineHeight:"16px",letterSpacing:"0.02em",fontWeight:"600"}],"headline-sm":["18px",{lineHeight:"26px",letterSpacing:"-0.005em",fontWeight:"600"}],"title-md":["16px",{lineHeight:"24px",letterSpacing:"0em",fontWeight:"600"}],"label-lg":["14px",{lineHeight:"20px",letterSpacing:"0.01em",fontWeight:"600"}],"headline-md":["20px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"600"}],"display-lg":["30px",{lineHeight:"38px",letterSpacing:"-0.02em",fontWeight:"700"}],"caption-tabular":["12px",{lineHeight:"16px",letterSpacing:"0.02em",fontWeight:"500"}],"headline-lg-mobile":["20px",{lineHeight:"28px",letterSpacing:"-0.01em",fontWeight:"600"}],"body-md":["14px",{lineHeight:"22px",letterSpacing:"0em",fontWeight:"400"}],"display-lg-mobile":["24px",{lineHeight:"32px",letterSpacing:"-0.015em",fontWeight:"700"}]}}}}</script></head><body class="bg-background font-body-md text-on-surface"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-16 flex items-center gap-3 px-space-lg bg-surface-container-low"><div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-on-primary font-headline-sm text-headline-sm"><span class="material-symbols-outlined">account_balance</span></div><div class="flex flex-col"><span class="font-title-md text-title-md text-primary leading-tight">Al-Hikmah</span><span class="font-label-sm text-label-sm text-outline">Portal Guru &amp; Staf</span></div></div><div class="px-space-md py-space-sm"><span class="font-label-sm text-label-sm text-outline uppercase tracking-wider px-space-sm">Operasional Presensi</span></div><nav class="flex flex-col gap-space-xs px-space-md" data-active-classes="bg-primary-container text-on-primary-container font-label-lg rounded-lg"><a aria-current="page" class="flex items-center gap-3 px-space-md py-2.5 transition-all bg-primary-container text-on-primary-container font-label-lg rounded-lg" data-path="presensi-mandiri" href="#"><span class="material-symbols-outlined text-[20px]">fingerprint</span><span>Presensi Mandiri</span></a><a class="flex items-center gap-3 px-space-md py-2.5 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-all" data-path="scanner-qr-siswa" href="#"><span class="material-symbols-outlined text-[20px]">qr_code_scanner</span><span>Scanner QR Siswa</span></a><a class="flex items-center gap-3 px-space-md py-2.5 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-all" data-path="riwayat-dan-izin" href="#"><span class="material-symbols-outlined text-[20px]">pending_actions</span><span>Riwayat &amp; Izin</span></a><a class="flex items-center gap-3 px-space-md py-2.5 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-all" data-path="dashboard-kehadiran" href="#"><span class="material-symbols-outlined text-[20px]">bar_chart</span><span>Dashboard</span></a></nav></div><div class="p-space-md bg-surface-container-low"><div class="bg-surface-container-lowest p-space-sm rounded-lg flex flex-col gap-space-xs shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><span class="font-label-sm text-label-sm text-outline">Status Radius GPS</span><div class="flex items-center gap-2 text-primary font-label-sm text-label-sm"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span><span>Aktif di Area Madrasah</span></div></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface-container-lowest z-40 flex items-center justify-between px-space-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-space-md"><div class="flex items-center gap-2 px-space-md py-1 bg-surface-container rounded-full text-on-secondary-container font-label-md text-label-md"><span class="material-symbols-outlined text-[16px]">school</span><span>TA 2026/2027 Ganjil</span></div><div class="hidden md:flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm"><span class="material-symbols-outlined text-[16px]">schedule</span><span>Pukul 06:45:12 WIB</span></div></div><div class="flex items-center gap-space-lg"><button class="w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors relative"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error"></span></button><div class="flex items-center gap-3 pl-space-md"><div class="text-right hidden sm:flex flex-col"><span class="font-label-lg text-label-lg text-on-surface leading-tight">Ustadz Ahmad Fauzi, S.Pd</span><span class="font-label-sm text-label-sm text-outline">Guru Kejuruan • NIP. 19850312...</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="relative pt-16 bg-background w-full px-space-xl min-h-screen"><div class="flex flex-col w-full">
+<!-- Interactive State Selector Banner (Inspector Toolbar) -->
+<section class="mb-space-lg rounded-xl bg-surface-container-low p-space-md shadow-sm">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-sm mb-space-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">tune</span>
+<span class="font-label-lg text-label-lg text-on-surface">State Inspector Simulasi Sistem</span>
+<span class="text-caption-tabular text-outline bg-surface-container px-2 py-0.5 rounded-full">11 Status Operasional (FS-GEO &amp; BR Rules)</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Pilih skenario presensi untuk menguji respon antarmuka</span>
+</div>
+<div class="flex items-center gap-2 overflow-x-auto pb-1">
+<button class="state-btn active-state whitespace-nowrap px-3 py-1.5 rounded-lg text-label-sm font-label-sm bg-primary text-on-primary shadow-sm transition-all flex items-center gap-1.5" id="btn-state-1" onclick="switchState(1)">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-fixed"></span>1. Normal Datang (Siap)
+      </button>
+<button class="state-btn whitespace-nowrap px-3 py-1.5 rounded-lg text-label-sm font-label-sm bg-surface-container-lowest text-on-surface hover:bg-surface-container transition-all flex items-center gap-1.5" id="btn-state-2" onclick="switchState(2)">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>2. Izin GPS Ditolak
+      </button>
+<button class="state-btn whitespace-nowrap px-3 py-1.5 rounded-lg text-label-sm font-label-sm bg-surface-container-lowest text-on-surface hover:bg-surface-container transition-all flex items-center gap-1.5" id="btn-state-3" onclick="switchState(3)">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>3. GPS Mati / Hilang
+      </button>
+<button class="state-btn whitespace-nowrap px-3 py-1.5 rounded-lg text-label-sm font-label-sm bg-surface-container-lowest text-on-surface hover:bg-surface-container transition-all flex items-center gap-1.5" id="btn-state-4" onclick="switchState(4)">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>4. Akurasi Buruk (&gt;30m)
+      </button>
+<button class="state-btn whitespace-nowrap px-3 py-1.5 rounded-lg text-label-sm font-label-sm bg-surface-container-lowest text-on-surface hover:bg-surface-container transition-all flex items-center gap-1.5" id="btn-state-5" onclick="switchState(5)">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>5. Luar Radius (&gt;200m)
+      </button>
+<button class="state-btn whitespace-nowrap px-3 py-1.5 rounded-lg text-label-sm font-label-sm bg-surface-container-lowest text-on-surface hover:bg-surface-container transition-all flex items-center gap-1.5" id="btn-state-6" onclick="switchState(6)">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>6. Jendela Belum Buka
+      </button>
+<button class="state-btn whitespace-nowrap px-3 py-1.5 rounded-lg text-label-sm font-label-sm bg-surface-container-lowest text-on-surface hover:bg-surface-container transition-all flex items-center gap-1.5" id="btn-state-7" onclick="switchState(7)">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>7. Jendela Berakhir
+      </button>
+<button class="state-btn whitespace-nowrap px-3 py-1.5 rounded-lg text-label-sm font-label-sm bg-surface-container-lowest text-on-surface hover:bg-surface-container transition-all flex items-center gap-1.5" id="btn-state-8" onclick="switchState(8)">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>8. Presensi Duplikat
+      </button>
+<button class="state-btn whitespace-nowrap px-3 py-1.5 rounded-lg text-label-sm font-label-sm bg-surface-container-lowest text-on-surface hover:bg-surface-container transition-all flex items-center gap-1.5" id="btn-state-9" onclick="switchState(9)">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>9. Hari Libur
+      </button>
+<button class="state-btn whitespace-nowrap px-3 py-1.5 rounded-lg text-label-sm font-label-sm bg-surface-container-lowest text-on-surface hover:bg-surface-container transition-all flex items-center gap-1.5" id="btn-state-10" onclick="switchState(10)">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>10. Tanpa Periode Aktif
+      </button>
+<button class="state-btn whitespace-nowrap px-3 py-1.5 rounded-lg text-label-sm font-label-sm bg-surface-container-lowest text-on-surface hover:bg-surface-container transition-all flex items-center gap-1.5" id="btn-state-11" onclick="switchState(11)">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>11. Sudah Absen Datang
+      </button>
+</div>
+</section>
+<!-- Header Context & Quick Badges -->
+<section class="mb-space-lg">
+<div class="flex items-center gap-2 text-label-sm font-label-sm text-outline mb-1">
+<span class="hover:text-primary transition-colors cursor-pointer">Beranda</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="hover:text-primary transition-colors cursor-pointer">Presensi Guru</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-on-surface font-label-md">Presensi Mandiri</span>
+</div>
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-md">
+<div>
+<h1 class="font-display-lg text-display-lg text-on-surface tracking-tight">Presensi Mandiri Guru</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mt-0.5">
+          Pencatatan kehadiran datang dan kepulangan guru berbasis verifikasi lokasi GPS &amp; radius madrasah MAS Al-Hikmah.
+        </p>
+</div>
+<!-- Quick Badges Group -->
+<div class="flex flex-wrap items-center gap-2">
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-lowest shadow-sm text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-primary text-[16px]">calendar_today</span>
+<span>Kamis, 24 Sep 2026</span>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container text-on-secondary-container font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+<span>2026/2027 Ganjil (Aktif)</span>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-lowest shadow-sm text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">timelapse</span>
+<span>Jadwal: 07:00 – 15:00 WIB</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Split Canvas: Left Column (Desktop Focus), Right Column (Mobile Android Companion) -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg items-start mb-space-xl">
+<!-- LEFT PANEL: Operational Dashboard (Cols 8) -->
+<div class="xl:col-span-8 flex flex-col gap-space-lg">
+<!-- Primary Live Attendance & Real-time Clock Card -->
+<div class="rounded-xl bg-surface-container-lowest p-space-lg shadow-sm relative overflow-hidden">
+<!-- Background subtle institutional watermark ring -->
+<div class="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-primary/5 pointer-events-none"></div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md pb-space-md border-b-0">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline block mb-1">Waktu Server Presensi (WIB)</span>
+<div class="flex items-baseline gap-3">
+<span class="font-display-lg text-display-lg text-on-surface font-bold tracking-tight" id="live-clock">06:48:22</span>
+<span class="font-label-lg text-label-lg text-primary font-semibold">WIB</span>
+</div>
+</div>
+<div id="live-badge-container">
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-md text-label-md" id="badge-window-state">
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+<span id="badge-window-text">Jendela Presensi Datang Terbuka</span>
+</div>
+</div>
+</div>
+<!-- Attendance Windows Split Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md mt-space-md">
+<!-- Absen Datang Panel -->
+<div class="rounded-xl bg-surface p-space-md flex flex-col justify-between relative transition-all" id="card-arrival">
+<div class="flex items-start justify-between mb-space-sm">
+<div class="flex items-center gap-2">
+<div class="w-9 h-9 rounded-lg bg-primary-fixed/60 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">login</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface">Absen Datang</h3>
+<span class="font-label-sm text-label-sm text-outline">Target 07:00 WIB</span>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded text-caption-tabular font-caption-tabular bg-surface-container text-on-surface-variant" id="arrival-status-tag">
+                Belum Tercatat
+              </span>
+</div>
+<div class="space-y-1.5 mt-2">
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Rentang Buka:</span>
+<span class="font-label-md text-label-md text-on-surface">06:00 – 09:00 WIB</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Toleransi / Grace:</span>
+<span class="font-label-md text-label-md text-primary">s/d 07:10 WIB (Tepat Waktu)</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center gap-1.5 text-caption-tabular font-caption-tabular text-outline">
+<span class="material-symbols-outlined text-[14px]">info</span>
+<span>Rekap otomatis tersinkronisasi ke EMIS Kemenag</span>
+</div>
+</div>
+<!-- Absen Pulang Panel -->
+<div class="rounded-xl bg-surface-container-low p-space-md flex flex-col justify-between opacity-95 transition-all" id="card-departure">
+<div class="flex items-start justify-between mb-space-sm">
+<div class="flex items-center gap-2">
+<div class="w-9 h-9 rounded-lg bg-secondary-fixed/50 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface">Absen Pulang</h3>
+<span class="font-label-sm text-label-sm text-outline">Target 15:00 WIB</span>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded text-caption-tabular font-caption-tabular bg-surface-container-high text-on-secondary-container" id="departure-status-tag">
+                Menunggu Jadwal Pulang
+              </span>
+</div>
+<div class="space-y-1.5 mt-2">
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Rentang Buka:</span>
+<span class="font-label-md text-label-md text-on-surface">13:00 – 18:00 WIB</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Toleransi Cepat:</span>
+<span class="font-label-md text-label-md text-tertiary">14:50 WIB (Khusus Piket)</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center gap-1.5 text-caption-tabular font-caption-tabular text-outline">
+<span class="material-symbols-outlined text-[14px]">lock_clock</span>
+<span id="departure-lock-note">Dibuka otomatis pukul 13:00 WIB</span>
+</div>
+</div>
+</div>
+</div>
+<!-- GPS & Geofence Live Radar Card -->
+<div class="rounded-xl bg-surface-container-lowest p-space-lg shadow-sm">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm mb-space-md">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary-fixed flex items-center justify-center text-on-primary-fixed-variant">
+<span class="material-symbols-outlined text-[22px]">radar</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Radar Geofence Madrasah</h2>
+<span class="font-body-sm text-body-sm text-outline">Verifikasi posisi presensi berstandar Kemenag RI</span>
+</div>
+</div>
+<button class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-secondary-container font-label-md text-label-md transition-all active:scale-95" onclick="refreshGps()">
+<span class="material-symbols-outlined text-[18px]" id="refresh-icon">sync</span>
+<span>Perbarui Koordinat GPS</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md mb-space-md">
+<!-- Metric 1: Status GPS -->
+<div class="rounded-lg bg-surface p-space-md flex flex-col justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Status GPS</span>
+<div class="mt-2 flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse" id="gps-status-indicator"></span>
+<span class="font-title-md text-title-md text-primary font-semibold" id="gps-status-text">GPS Aktif &amp; Terkunci</span>
+</div>
+<span class="font-caption-tabular text-caption-tabular text-outline mt-1 font-mono" id="gps-coord-label">-7.839420, 112.023415</span>
+</div>
+<!-- Metric 2: Akurasi GPS (FS-GEO-002) -->
+<div class="rounded-lg bg-surface p-space-md flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Akurasi GPS</span>
+<span class="font-caption-tabular text-caption-tabular text-outline">Maks. 30m</span>
+</div>
+<div class="mt-2 flex items-baseline gap-1.5">
+<span class="font-display-lg text-display-lg text-on-surface font-bold" id="gps-accuracy-val">12</span>
+<span class="font-label-md text-label-md text-on-surface-variant">meter</span>
+</div>
+<div class="flex items-center gap-1.5 text-caption-tabular font-caption-tabular text-primary" id="gps-accuracy-status">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+<span>Memenuhi batas akurasi (FS-GEO-002)</span>
+</div>
+</div>
+<!-- Metric 3: Jarak Radius (FS-GEO-001) -->
+<div class="rounded-lg bg-surface p-space-md flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Jarak Ke Titik Pusat</span>
+<span class="font-caption-tabular text-caption-tabular text-outline">Radius 200m</span>
+</div>
+<div class="mt-2 flex items-baseline gap-1.5">
+<span class="font-display-lg text-display-lg text-primary font-bold" id="gps-distance-val">45</span>
+<span class="font-label-md text-label-md text-on-surface-variant">meter</span>
+</div>
+<div class="flex items-center gap-1.5 text-caption-tabular font-caption-tabular text-primary" id="gps-distance-status">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>Di dalam radius aman gerbang</span>
+</div>
+</div>
+</div>
+<!-- Radar Visual Distance Visualizer Bar & Geographic Summary -->
+<div class="rounded-xl bg-surface-container-low p-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">pin_drop</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Titik Acuan: MAS Al-Hikmah Kediri (Gerbang Utama)</span>
+</div>
+<span class="font-caption-tabular text-caption-tabular px-2 py-0.5 rounded bg-primary/10 text-primary font-semibold" id="radar-distance-badge">45m / 200m (22.5%)</span>
+</div>
+<!-- Progress Bar of Radius -->
+<div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-primary rounded-full transition-all duration-500" id="radar-bar-fill" style="width: 22.5%;"></div>
+</div>
+<div class="flex items-center justify-between text-caption-tabular font-caption-tabular text-outline mt-1.5">
+<span>Pusat Madrasah (0m)</span>
+<span>Batas Maksimum Radius Geofence (200m)</span>
+</div>
+<div class="mt-space-md p-space-sm rounded-lg bg-surface-container-lowest flex items-start gap-2.5" id="geofence-alert-box">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5" id="geofence-alert-icon">verified_user</span>
+<p class="font-body-sm text-body-sm text-on-surface leading-snug" id="geofence-alert-desc">
+              Lokasi Anda terverifikasi berada di area madrasah. Anda berhak melakukan presensi datang maupun kepulangan sesuai jam tugas.
+            </p>
+</div>
+</div>
+</div>
+<!-- ONE STRONG PRIMARY ACTION BUTTON CONTAINER -->
+<div class="rounded-xl bg-surface-container-lowest p-space-lg shadow-sm flex flex-col items-center justify-center text-center">
+<div class="w-full max-w-xl flex flex-col items-center" id="action-wrapper">
+<button class="w-full h-14 rounded-xl bg-primary text-on-primary font-label-lg text-headline-sm flex items-center justify-center gap-3 shadow-md hover:bg-primary/95 active:scale-[0.99] transition-all cursor-pointer" id="primary-attendance-btn" onclick="executeAttendance()">
+<span class="material-symbols-outlined text-[26px]" id="btn-icon">fingerprint</span>
+<span id="btn-label">Catat Presensi Datang Sekarang</span>
+</button>
+<div class="flex items-center gap-2 mt-space-sm text-caption-tabular font-caption-tabular text-outline">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+<span id="btn-subtext">Presensi hanya dapat dicatat satu kali per kategori pada hari ini (Anti-duplicate BR-013).</span>
+</div>
+</div>
+</div>
+<!-- Important Business Rules Card (BR-003, BR-004, BR-013, BR-015, BR-039..42) -->
+<div class="rounded-xl bg-surface-container-lowest p-space-lg shadow-sm">
+<div class="flex items-center gap-2 mb-space-md">
+<span class="material-symbols-outlined text-primary text-[20px]">policy</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Pedoman &amp; Ketentuan Presensi Guru Madrasah</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div class="p-space-sm rounded-lg bg-surface flex items-start gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[18px]">distance</span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-semibold block">BR-003 &amp; BR-004: Radius GPS &amp; Akurasi</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                Radius maksimal diizinkan 200 meter dari koordinat titik pusat madrasah. Toleransi sinyal GPS perangkat maksimal 30 meter.
+              </p>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface flex items-start gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[18px]">history_toggle_off</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold block"></span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-semibold block">BR-013: Pencegahan Duplikasi Presensi</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                Sistem menolak pencatatan berulang pada kategori dan tanggal yang sama. Histori tersimpan permanen demi integritas SIMPATIKA.
+              </p>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface flex items-start gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[18px]">nest_clock_farsight_analog</span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-semibold block">BR-015: Batas Waktu &amp; Grace Period</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                Jadwal datang 07:00 WIB dengan dispensasi 10 menit. Absen melebihi 07:10:01 WIB dikategorikan 'Terlambat' secara sistemik.
+              </p>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface flex items-start gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-semibold block">BR-039 s/d BR-042: Validasi Kalender &amp; Periode</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                Presensi hanya dapat dilakukan pada hari efektif kegiatan belajar mengajar aktif dalam periode semester resmi Kementerian Agama.
+              </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT PANEL: Android Mobile Companion Preview Frame (Cols 4) -->
+<div class="xl:col-span-4 flex flex-col items-center">
+<div class="sticky top-20 w-full max-w-[390px]">
+<!-- Mobile Frame Header Label -->
+<div class="flex items-center justify-between px-2 mb-2 text-label-sm font-label-sm text-outline">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">smartphone</span>
+<span>Pratinjau Aplikasi Android Guru</span>
+</div>
+<span class="text-caption-tabular">390 × 844 px</span>
+</div>
+<!-- Simulated Android Device Case -->
+<div class="w-full bg-on-background rounded-[40px] p-3 shadow-2xl">
+<!-- Screen Glass -->
+<div class="w-full bg-background rounded-[32px] overflow-hidden flex flex-col min-h-[720px] relative">
+<!-- Android Status Bar -->
+<div class="h-8 bg-surface-container-lowest px-5 flex items-center justify-between text-on-surface text-[12px] font-medium pt-1">
+<span id="phone-clock">06:48</span>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px]">wifi</span>
+<span class="material-symbols-outlined text-[15px]">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-[16px]">battery_5_bar</span>
+</div>
+</div>
+<!-- Mobile App Top Bar -->
+<div class="bg-surface-container-lowest px-4 py-3 flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary font-bold text-[14px]">
+<span>AH</span>
+</div>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface leading-tight">MAS Al-Hikmah</h4>
+<span class="font-label-sm text-label-sm text-primary">Portal Presensi Guru</span>
+</div>
+</div>
+<div class="w-7 h-7 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">notifications</span>
+</div>
+</div>
+<!-- Mobile User Identity Card -->
+<div class="p-4 bg-surface-container-low flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold text-headline-sm">
+                AF
+              </div>
+<div class="flex-1 min-w-0">
+<span class="font-label-md text-label-md text-on-surface truncate block font-semibold">Ustadz Ahmad Fauzi, S.Pd</span>
+<span class="font-label-sm text-label-sm text-outline truncate block">NIP. 198503122010011015</span>
+</div>
+</div>
+<!-- Mobile Tab Switch: Datang vs Pulang -->
+<div class="p-3">
+<div class="grid grid-cols-2 p-1 bg-surface-container rounded-xl gap-1">
+<button class="py-2 rounded-lg bg-surface-container-lowest text-primary font-label-md text-label-md shadow-sm flex items-center justify-center gap-1.5" id="phone-tab-datang">
+<span class="material-symbols-outlined text-[16px]">login</span>
+<span>Absen Datang</span>
+</button>
+<button class="py-2 rounded-lg text-on-surface-variant font-label-md text-label-md flex items-center justify-center gap-1.5" id="phone-tab-pulang">
+<span class="material-symbols-outlined text-[16px]">logout</span>
+<span>Absen Pulang</span>
+</button>
+</div>
+</div>
+<!-- Mobile Interactive Body -->
+<div class="px-4 py-2 flex flex-col items-center flex-1 justify-between pb-6">
+<!-- Radar Status Pill on Phone -->
+<div class="w-full flex items-center justify-between p-2.5 rounded-xl bg-surface-container-lowest shadow-sm mb-4">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse" id="phone-gps-dot"></span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-semibold text-primary" id="phone-gps-text">Dalam Radius (45m)</span>
+<span class="font-caption-tabular text-caption-tabular text-outline">Akurasi GPS: 12m</span>
+</div>
+</div>
+<span class="text-caption-tabular px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed-variant font-semibold" id="phone-window-pill">
+                  Buka s/d 09:00
+                </span>
+</div>
+<!-- Big Circular Thumb Tap Button (Target >= 48px, specifically 144px for ergonomic one-hand reach) -->
+<div class="relative my-auto flex flex-col items-center justify-center">
+<!-- Pulsing outer ring -->
+<div class="absolute w-44 h-44 rounded-full bg-primary/10 animate-ping pointer-events-none" id="phone-ring"></div>
+<div class="w-40 h-40 rounded-full bg-primary-fixed/30 flex items-center justify-center p-2">
+<button class="w-36 h-36 rounded-full bg-primary text-on-primary flex flex-col items-center justify-center shadow-xl active:scale-95 transition-transform" id="phone-circle-btn" onclick="executeAttendance()">
+<span class="material-symbols-outlined text-[38px] mb-1" id="phone-btn-icon">fingerprint</span>
+<span class="font-label-lg text-label-lg font-bold" id="phone-btn-text">REKAM PRESENSI</span>
+<span class="text-[11px] opacity-90 mt-0.5" id="phone-btn-sub">SENTUH DI SINI</span>
+</button>
+</div>
+</div>
+<!-- Phone Verification Guidance Note -->
+<div class="w-full text-center mt-4 p-2.5 rounded-xl bg-surface-container-lowest" id="phone-bottom-note">
+<p class="font-label-sm text-label-sm text-on-surface" id="phone-note-desc">
+                  Siap dicatat. Pastikan Anda berada di lingkungan madrasah.
+                </p>
+<span class="text-caption-tabular font-caption-tabular text-outline block mt-0.5" id="phone-note-sub">
+                  Waktu &amp; Geo-tag tersimpan otomatis
+                </span>
+</div>
+<!-- Android Virtual Bottom Bar -->
+<div class="w-full flex justify-around items-center pt-3 mt-2 border-t-0 text-outline">
+<span class="material-symbols-outlined text-[20px]">menu</span>
+<span class="material-symbols-outlined text-[20px]">circle</span>
+<span class="material-symbols-outlined text-[20px]">chevron_left</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Android Companion Note -->
+<p class="font-label-sm text-label-sm text-center text-outline mt-3">
+          Tampilan identik pada aplikasi Progressive Web App (PWA) Android guru.
+        </p>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Clock update logic
+  function updateTime() {
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    const timeStr = hours + ':' + minutes + ':' + seconds;
+    const shortTimeStr = hours + ':' + minutes;
+    
+    const deskClock = document.getElementById('live-clock');
+    const phoneClock = document.getElementById('phone-clock');
+    if (deskClock) deskClock.innerText = timeStr;
+    if (phoneClock) phoneClock.innerText = shortTimeStr;
+  }
+  setInterval(updateTime, 1000);
+  updateTime();
+
+  function refreshGps() {
+    const icon = document.getElementById('refresh-icon');
+    if (icon) {
+      icon.classList.add('animate-spin');
+      setTimeout(() => {
+        icon.classList.remove('animate-spin');
+      }, 700);
+    }
+  }
+
+  function executeAttendance() {
+    alert("Presensi Mandiri Guru berhasil diverifikasi dan tersimpan ke basis data Simpatika / EMIS.");
+  }
+
+  // 11 Business States Configuration
+  const statesConfig = {
+    1: {
+      title: "Normal Datang Siap Absen",
+      badgeWindow: { text: "Jendela Presensi Datang Terbuka", class: "bg-primary-fixed text-on-primary-fixed-variant" },
+      arrivalStatus: { text: "Belum Tercatat", class: "bg-surface-container text-on-surface-variant" },
+      departureStatus: { text: "Menunggu Jadwal Pulang", class: "bg-surface-container-high text-on-secondary-container" },
+      gpsStatus: { text: "GPS Aktif & Terkunci", dotClass: "bg-primary animate-pulse", textClass: "text-primary" },
+      accuracy: { val: "12", valid: true, text: "Memenuhi batas akurasi (FS-GEO-002)" },
+      distance: { val: "45", valid: true, text: "Di dalam radius aman gerbang", bar: "22.5%" },
+      alertBox: { icon: "verified_user", text: "Lokasi Anda terverifikasi berada di area madrasah. Anda berhak melakukan presensi datang.", class: "text-primary" },
+      btn: { disabled: false, label: "Catat Presensi Datang Sekarang", icon: "fingerprint", class: "bg-primary text-on-primary hover:bg-primary/95 cursor-pointer", sub: "Presensi hanya dapat dicatat satu kali per kategori pada hari ini (Anti-duplicate BR-013)." },
+      phone: { gps: "Dalam Radius (45m)", gpsClass: "text-primary", pill: "Buka s/d 09:00", pillClass: "bg-primary-fixed text-on-primary-fixed-variant", btnClass: "bg-primary text-on-primary", btnText: "REKAM PRESENSI", btnSub: "SENTUH DI SINI", note: "Siap dicatat. Pastikan Anda berada di lingkungan madrasah." }
+    },
+    2: {
+      title: "GPS Permission Ditolak",
+      badgeWindow: { text: "Verifikasi Lokasi Ditolak", class: "bg-error-container text-on-error-container" },
+      arrivalStatus: { text: "Izin Diperlukan", class: "bg-error-container text-on-error-container" },
+      departureStatus: { text: "Menunggu Jadwal", class: "bg-surface-container" },
+      gpsStatus: { text: "Izin Lokasi Ditolak", dotClass: "bg-error", textClass: "text-error" },
+      accuracy: { val: "--", valid: false, text: "Tidak ada data akurasi" },
+      distance: { val: "--", valid: false, text: "Gagal mendeteksi jarak", bar: "0%" },
+      alertBox: { icon: "error", text: "Izin Lokasi Ditolak. Mohon aktifkan izin GPS di pengaturan browser atau HP Anda untuk melakukan absensi.", class: "text-error" },
+      btn: { disabled: true, label: "Aktifkan Izin Lokasi di Pengaturan", icon: "location_off", class: "bg-surface-container-high text-outline cursor-not-allowed", sub: "Presensi diblokir tanpa izin koordinat geofence (FS-GEO-001)." },
+      phone: { gps: "Izin GPS Ditolak", gpsClass: "text-error", pill: "GPS Terkunci", pillClass: "bg-error-container text-on-error-container", btnClass: "bg-surface-container-high text-outline", btnText: "IZIN LOKASI MATI", btnSub: "BUKA SETELAN HP", note: "Aktifkan izin GPS di Chrome/Browser HP Anda untuk lanjut." }
+    },
+    3: {
+      title: "GPS Tidak Tersedia",
+      badgeWindow: { text: "Sinyal GPS Tidak Ditemukan", class: "bg-error-container text-on-error-container" },
+      arrivalStatus: { text: "Sinyal Hilang", class: "bg-error-container text-on-error-container" },
+      departureStatus: { text: "Menunggu Jadwal", class: "bg-surface-container" },
+      gpsStatus: { text: "GPS Tidak Tersedia", dotClass: "bg-error", textClass: "text-error" },
+      accuracy: { val: "--", valid: false, text: "Sinyal satelit tidak terbaca" },
+      distance: { val: "--", valid: false, text: "Jarak tidak teridentifikasi", bar: "0%" },
+      alertBox: { icon: "signal_cellular_connected_no_internet_0_bar", text: "Sinyal GPS Tidak Ditemukan. Pastikan fitur lokasi perangkat Anda sudah aktif.", class: "text-error" },
+      btn: { disabled: true, label: "Sinyal GPS Tidak Ditemukan", icon: "sensors_off", class: "bg-surface-container-high text-outline cursor-not-allowed", sub: "Pastikan Anda tidak sedang menggunakan VPN atau mock-location." },
+      phone: { gps: "GPS Tidak Aktif", gpsClass: "text-error", pill: "Tanpa Sinyal", pillClass: "bg-error-container text-on-error-container", btnClass: "bg-surface-container-high text-outline", btnText: "GPS OFF", btnSub: "AKTIFKAN LOKASI", note: "Nyalakan Location Service pada panel kontrol Android Anda." }
+    },
+    4: {
+      title: "Akurasi GPS Buruk (>30m)",
+      badgeWindow: { text: "Sinyal GPS Lemah", class: "bg-tertiary-fixed text-on-tertiary-fixed-variant" },
+      arrivalStatus: { text: "Akurasi Rendah", class: "bg-tertiary-fixed text-on-tertiary-fixed-variant" },
+      departureStatus: { text: "Menunggu Jadwal", class: "bg-surface-container" },
+      gpsStatus: { text: "Akurasi Tidak Memenuhi Syarat", dotClass: "bg-tertiary animate-pulse", textClass: "text-tertiary" },
+      accuracy: { val: "42", valid: false, text: "Melebihi toleransi maks. 30 meter" },
+      distance: { val: "75", valid: true, text: "Radius perkiraan 75 meter", bar: "37.5%" },
+      alertBox: { icon: "warning", text: "Akurasi GPS Rendah (42m). Batas maksimal 30m sesuai FS-GEO-002. Pindahlah ke area terbuka di luar gedung.", class: "text-tertiary" },
+      btn: { disabled: true, label: "Akurasi Terlalu Rendah (42m)", icon: "gps_not_fixed", class: "bg-surface-container-high text-outline cursor-not-allowed", sub: "Tunggu stabilisasi satelit GPS atau bergerak menuju luar ruangan madrasah." },
+      phone: { gps: "Akurasi Buruk (42m)", gpsClass: "text-tertiary", pill: "Akurasi Rendah", pillClass: "bg-tertiary-fixed text-on-tertiary-fixed-variant", btnClass: "bg-surface-container-high text-outline", btnText: "SINYAL LEMAH", btnSub: "KELUAR KE TERAS", note: "Akurasi 42m tidak aman. Pindahlah sejenak ke halaman/teras madrasah." }
+    },
+    5: {
+      title: "Di Luar Radius Geofence (>200m)",
+      badgeWindow: { text: "Di Luar Area Madrasah", class: "bg-tertiary-fixed text-on-tertiary-fixed-variant" },
+      arrivalStatus: { text: "Luar Jangkauan", class: "bg-tertiary-fixed text-on-tertiary-fixed-variant" },
+      departureStatus: { text: "Menunggu Jadwal", class: "bg-surface-container" },
+      gpsStatus: { text: "Di Luar Geofence", dotClass: "bg-tertiary", textClass: "text-tertiary" },
+      accuracy: { val: "14", valid: true, text: "Akurasi GPS baik (14m)" },
+      distance: { val: "280", valid: false, text: "Melebihi batas radius aman 200 meter", bar: "100%" },
+      alertBox: { icon: "wrong_location", text: "Di Luar Area Madrasah (280m). Batas radius 200m dari gerbang madrasah. Presensi hanya berlaku di lokasi.", class: "text-tertiary" },
+      btn: { disabled: true, label: "Anda Berada di Luar Radius (280m)", icon: "near_me_disabled", class: "bg-surface-container-high text-outline cursor-not-allowed", sub: "Dekati area madrasah MAS Al-Hikmah untuk membuka tombol presensi." },
+      phone: { gps: "Luar Radius (280m)", gpsClass: "text-tertiary", pill: "Jarak 280m", pillClass: "bg-tertiary-fixed text-on-tertiary-fixed-variant", btnClass: "bg-surface-container-high text-outline", btnText: "DI LUAR AREA", btnSub: "DEKATI GERBANG", note: "Anda berjarak 280 meter dari pusat madrasah (Maksimal 200m)." }
+    },
+    6: {
+      title: "Jendela Belum Dibuka",
+      badgeWindow: { text: "Jendela Dibuka Pukul 06:00 WIB", class: "bg-surface-container-high text-on-surface-variant" },
+      arrivalStatus: { text: "Belum Dibuka", class: "bg-surface-container" },
+      departureStatus: { text: "Belum Dibuka", class: "bg-surface-container" },
+      gpsStatus: { text: "GPS Siap & Terkunci", dotClass: "bg-primary", textClass: "text-primary" },
+      accuracy: { val: "10", valid: true, text: "Akurasi GPS akurat (10m)" },
+      distance: { val: "25", valid: true, text: "Dalam area madrasah (25m)", bar: "12.5%" },
+      alertBox: { icon: "schedule", text: "Jendela Presensi Belum Dibuka. Pencatatan kehadiran datang baru dibuka mulai pukul 06:00:00 WIB.", class: "text-on-surface" },
+      btn: { disabled: true, label: "Jendela Dibuka Pukul 06:00 WIB", icon: "timer", class: "bg-surface-container-high text-outline cursor-not-allowed", sub: "Pencatatan terlalu pagi tidak diperbolehkan sistem tata tertib Kemenag." },
+      phone: { gps: "Dalam Radius (25m)", gpsClass: "text-primary", pill: "Buka 06:00", pillClass: "bg-surface-container text-on-surface-variant", btnClass: "bg-surface-container-high text-outline", btnText: "BELUM BUKA", btnSub: "MULAI 06:00 WIB", note: "Sistem presensi akan terbuka tepat pukul 06:00 WIB." }
+    },
+    7: {
+      title: "Jendela Sudah Berakhir",
+      badgeWindow: { text: "Jendela Datang Telah Tutup (09:00 WIB)", class: "bg-error-container text-on-error-container" },
+      arrivalStatus: { text: "Tutup / Terlewat", class: "bg-error-container text-on-error-container" },
+      departureStatus: { text: "Menunggu Jadwal", class: "bg-surface-container" },
+      gpsStatus: { text: "GPS Valid", dotClass: "bg-primary", textClass: "text-primary" },
+      accuracy: { val: "15", valid: true, text: "Akurasi GPS baik (15m)" },
+      distance: { val: "30", valid: true, text: "Dalam area madrasah (30m)", bar: "15%" },
+      alertBox: { icon: "event_busy", text: "Jendela Presensi Datang Telah Berakhir (Tutup 09:00 WIB). Hubungi Operator Admin Madrasah untuk konfirmasi surat izin / tugas.", class: "text-error" },
+      btn: { disabled: true, label: "Jendela Presensi Datang Berakhir", icon: "block", class: "bg-surface-container-high text-outline cursor-not-allowed", sub: "Batas toleransi maksimal kehadiran mandiri adalah pukul 09:00:00 WIB." },
+      phone: { gps: "Dalam Radius (30m)", gpsClass: "text-primary", pill: "Tutup 09:00", pillClass: "bg-error-container text-on-error-container", btnClass: "bg-surface-container-high text-outline", btnText: "WAKTU HABIS", btnSub: "HUBUNGI ADMIN", note: "Batas jam absen pagi lewat. Silakan hubungi bagian piket tata usaha." }
+    },
+    8: {
+      title: "Presensi Duplikat",
+      badgeWindow: { text: "Presensi Datang Sudah Tersimpan", class: "bg-surface-container text-on-secondary-container" },
+      arrivalStatus: { text: "Hadir (06:45 WIB)", class: "bg-primary-fixed text-on-primary-fixed-variant" },
+      departureStatus: { text: "Menunggu Jadwal Pulang", class: "bg-surface-container" },
+      gpsStatus: { text: "GPS Valid", dotClass: "bg-primary", textClass: "text-primary" },
+      accuracy: { val: "12", valid: true, text: "Akurasi valid (12m)" },
+      distance: { val: "45", valid: true, text: "Dalam madrasah (45m)", bar: "22.5%" },
+      alertBox: { icon: "check_circle", text: "Presensi Datang Sudah Tercatat. Anda tidak dapat melakukan pencatatan ganda pada tanggal yang sama (Anti-duplicate BR-013).", class: "text-secondary" },
+      btn: { disabled: true, label: "Kehadiran Datang Sudah Lengkap", icon: "task_alt", class: "bg-surface-container-high text-outline cursor-not-allowed", sub: "Tersimpan permanen di SIMPATIKA pada 24 Sep 2026, 06:45:18 WIB." },
+      phone: { gps: "Dalam Radius (45m)", gpsClass: "text-primary", pill: "Tersimpan 06:45", pillClass: "bg-primary-fixed text-on-primary-fixed-variant", btnClass: "bg-surface-container-high text-outline", btnText: "SUDAH ABSEN", btnSub: "DATANG: 06:45 WIB", note: "Presensi datang Anda sudah terekam sah hari ini." }
+    },
+    9: {
+      title: "Hari Libur",
+      badgeWindow: { text: "Hari Libur Madrasah", class: "bg-surface-container-high text-on-surface-variant" },
+      arrivalStatus: { text: "Libur Rutin / Resmi", class: "bg-surface-container" },
+      departureStatus: { text: "Libur Rutin / Resmi", class: "bg-surface-container" },
+      gpsStatus: { text: "GPS Standby", dotClass: "bg-outline", textClass: "text-outline" },
+      accuracy: { val: "15", valid: true, text: "GPS Standby" },
+      distance: { val: "--", valid: false, text: "Tidak dihitung saat libur", bar: "0%" },
+      alertBox: { icon: "beach_access", text: "Hari Ini Libur. Madrasah libur rutin/khusus, tidak ada kewajiban pencatatan presensi guru.", class: "text-on-surface" },
+      btn: { disabled: true, label: "Madrasah Hari Ini Libur", icon: "free_cancellation", class: "bg-surface-container-high text-outline cursor-not-allowed", sub: "Sesuai Kalender Pendidikan Kemenag RI TA 2026/2027." },
+      phone: { gps: "Kalender Libur", gpsClass: "text-outline", pill: "Libur Madrasah", pillClass: "bg-surface-container text-on-surface-variant", btnClass: "bg-surface-container-high text-outline", btnText: "HARI LIBUR", btnSub: "TIDAK ADA ABSEN", note: "Hari ini adalah hari libur kegiatan belajar mengajar." }
+    },
+    10: {
+      title: "Tidak Ada Periode Aktif",
+      badgeWindow: { text: "Periode Akademik Tidak Ditemukan", class: "bg-error-container text-on-error-container" },
+      arrivalStatus: { text: "Periode Tidak Aktif", class: "bg-error-container text-on-error-container" },
+      departureStatus: { text: "Periode Tidak Aktif", class: "bg-error-container text-on-error-container" },
+      gpsStatus: { text: "Sistem Terkunci", dotClass: "bg-error", textClass: "text-error" },
+      accuracy: { val: "--", valid: false, text: "Nonaktif" },
+      distance: { val: "--", valid: false, text: "Nonaktif", bar: "0%" },
+      alertBox: { icon: "report_problem", text: "Tidak Ada Periode Akademik Aktif. Hubungi Administrator Madrasah untuk aktivasi tahun pelajaran dan semester.", class: "text-error" },
+      btn: { disabled: true, label: "Tahun Ajaran Belum Diaktifkan", icon: "lock", class: "bg-surface-container-high text-outline cursor-not-allowed", sub: "Pencatatan dinonaktifkan demi keabsahan data buku induk madrasah." },
+      phone: { gps: "Periode Nonaktif", gpsClass: "text-error", pill: "Periode Tutup", pillClass: "bg-error-container text-on-error-container", btnClass: "bg-surface-container-high text-outline", btnText: "SISTEM TERKUNCI", btnSub: "HUBUNGI ADMIN", note: "Tahun ajaran belum diaktifkan oleh admin madrasah." }
+    },
+    11: {
+      title: "Sudah Absen Datang / Menunggu Pulang",
+      badgeWindow: { text: "Hadir Datang Tercatat • Menunggu Jam Pulang", class: "bg-primary-fixed text-on-primary-fixed-variant" },
+      arrivalStatus: { text: "Hadir (06:50 WIB)", class: "bg-primary-fixed text-on-primary-fixed-variant" },
+      departureStatus: { text: "Buka Pukul 13:00 WIB", class: "bg-surface-container-high text-on-secondary-container" },
+      gpsStatus: { text: "GPS Terkunci", dotClass: "bg-primary animate-pulse", textClass: "text-primary" },
+      accuracy: { val: "12", valid: true, text: "Memenuhi batas akurasi (FS-GEO-002)" },
+      distance: { val: "45", valid: true, text: "Di dalam radius aman gerbang", bar: "22.5%" },
+      alertBox: { icon: "task_alt", text: "Sudah Hadir Datang (06:50 WIB). Menunggu Jendela Pulang dibuka mulai pukul 13:00 WIB.", class: "text-primary" },
+      btn: { disabled: true, label: "Menunggu Jadwal Pulang (Buka 13:00 WIB)", icon: "hourglass_top", class: "bg-surface-container-high text-outline cursor-not-allowed", sub: "Tombol presensi pulang akan aktif otomatis ketika jendela presensi sore dibuka." },
+      phone: { gps: "Dalam Radius (45m)", gpsClass: "text-primary", pill: "Datang: 06:50 WIB", pillClass: "bg-primary-fixed text-on-primary-fixed-variant", btnClass: "bg-surface-container-high text-outline", btnText: "MENUNGGU SORE", btnSub: "PULANG: 13:00 WIB", note: "Absen pagi sukses (06:50 WIB). Absen pulang dibuka pukul 13:00 WIB." }
+    }
+  };
+
+  function switchState(stateNumber) {
+    const cfg = statesConfig[stateNumber];
+    if (!cfg) return;
+
+    // Update state buttons styling
+    for (let i = 1; i <= 11; i++) {
+      const btn = document.getElementById('btn-state-' + i);
+      if (btn) {
+        if (i === stateNumber) {
+          btn.className = "state-btn active-state whitespace-nowrap px-3 py-1.5 rounded-lg text-label-sm font-label-sm bg-primary text-on-primary shadow-sm transition-all flex items-center gap-1.5";
+        } else {
+          btn.className = "state-btn whitespace-nowrap px-3 py-1.5 rounded-lg text-label-sm font-label-sm bg-surface-container-lowest text-on-surface hover:bg-surface-container transition-all flex items-center gap-1.5";
+        }
+      }
+    }
+
+    // Top window badge
+    const badgeWin = document.getElementById('badge-window-state');
+    const badgeWinText = document.getElementById('badge-window-text');
+    if (badgeWin && badgeWinText) {
+      badgeWin.className = "inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full font-label-md text-label-md " + cfg.badgeWindow.class;
+      badgeWinText.innerText = cfg.badgeWindow.text;
+    }
+
+    // Arrival & Departure Status tags
+    const arrivalTag = document.getElementById('arrival-status-tag');
+    if (arrivalTag) {
+      arrivalTag.className = "px-2.5 py-1 rounded text-caption-tabular font-caption-tabular " + cfg.arrivalStatus.class;
+      arrivalTag.innerText = cfg.arrivalStatus.text;
+    }
+    const depTag = document.getElementById('departure-status-tag');
+    if (depTag) {
+      depTag.className = "px-2.5 py-1 rounded text-caption-tabular font-caption-tabular " + cfg.departureStatus.class;
+      depTag.innerText = cfg.departureStatus.text;
+    }
+
+    // GPS Status
+    const gpsDot = document.getElementById('gps-status-indicator');
+    const gpsText = document.getElementById('gps-status-text');
+    if (gpsDot) gpsDot.className = "w-2.5 h-2.5 rounded-full " + cfg.gpsStatus.dotClass;
+    if (gpsText) {
+      gpsText.className = "font-title-md text-title-md font-semibold " + cfg.gpsStatus.textClass;
+      gpsText.innerText = cfg.gpsStatus.text;
+    }
+
+    // GPS Accuracy
+    const accVal = document.getElementById('gps-accuracy-val');
+    const accStatus = document.getElementById('gps-accuracy-status');
+    if (accVal) accVal.innerText = cfg.accuracy.val;
+    if (accStatus) {
+      accStatus.innerHTML = `<span class="material-symbols-outlined text-[14px]">${cfg.accuracy.valid ? 'verified' : 'warning'}</span><span>${cfg.accuracy.text}</span>`;
+      accStatus.className = "flex items-center gap-1.5 text-caption-tabular font-caption-tabular " + (cfg.accuracy.valid ? 'text-primary' : 'text-error');
+    }
+
+    // GPS Distance & Bar
+    const distVal = document.getElementById('gps-distance-val');
+    const distStatus = document.getElementById('gps-distance-status');
+    const distBadge = document.getElementById('radar-distance-badge');
+    const barFill = document.getElementById('radar-bar-fill');
+    if (distVal) distVal.innerText = cfg.distance.val;
+    if (distStatus) {
+      distStatus.innerHTML = `<span class="material-symbols-outlined text-[14px]">${cfg.distance.valid ? 'check_circle' : 'cancel'}</span><span>${cfg.distance.text}</span>`;
+      distStatus.className = "flex items-center gap-1.5 text-caption-tabular font-caption-tabular " + (cfg.distance.valid ? 'text-primary' : 'text-error');
+    }
+    if (distBadge) distBadge.innerText = `${cfg.distance.val}m / 200m (${cfg.distance.bar})`;
+    if (barFill) {
+      barFill.style.width = cfg.distance.bar;
+      barFill.className = "h-full rounded-full transition-all duration-500 " + (cfg.distance.valid ? 'bg-primary' : 'bg-error');
+    }
+
+    // Geofence alert box
+    const alertIcon = document.getElementById('geofence-alert-icon');
+    const alertDesc = document.getElementById('geofence-alert-desc');
+    if (alertIcon) {
+      alertIcon.innerText = cfg.alertBox.icon;
+      alertIcon.className = "material-symbols-outlined text-[20px] shrink-0 mt-0.5 " + cfg.alertBox.class;
+    }
+    if (alertDesc) alertDesc.innerText = cfg.alertBox.text;
+
+    // Desktop Primary Button
+    const mainBtn = document.getElementById('primary-attendance-btn');
+    const btnLabel = document.getElementById('btn-label');
+    const btnIcon = document.getElementById('btn-icon');
+    const btnSub = document.getElementById('btn-subtext');
+    if (mainBtn) {
+      mainBtn.className = "w-full h-14 rounded-xl font-label-lg text-headline-sm flex items-center justify-center gap-3 shadow-md transition-all " + cfg.btn.class;
+      mainBtn.disabled = cfg.btn.disabled;
+    }
+    if (btnLabel) btnLabel.innerText = cfg.btn.label;
+    if (btnIcon) btnIcon.innerText = cfg.btn.icon;
+    if (btnSub) btnSub.innerText = cfg.btn.sub;
+
+    // Mobile Companion Frame sync
+    const phoneGpsDot = document.getElementById('phone-gps-dot');
+    const phoneGpsText = document.getElementById('phone-gps-text');
+    const phoneWindowPill = document.getElementById('phone-window-pill');
+    const phoneCircleBtn = document.getElementById('phone-circle-btn');
+    const phoneBtnIcon = document.getElementById('phone-btn-icon');
+    const phoneBtnText = document.getElementById('phone-btn-text');
+    const phoneBtnSub = document.getElementById('phone-btn-sub');
+    const phoneNoteDesc = document.getElementById('phone-note-desc');
+    const phoneRing = document.getElementById('phone-ring');
+
+    if (phoneGpsDot) phoneGpsDot.className = "w-2.5 h-2.5 rounded-full " + cfg.gpsStatus.dotClass;
+    if (phoneGpsText) {
+      phoneGpsText.innerText = cfg.phone.gps;
+      phoneGpsText.className = "font-label-sm text-label-sm font-semibold " + cfg.phone.gpsClass;
+    }
+    if (phoneWindowPill) {
+      phoneWindowPill.innerText = cfg.phone.pill;
+      phoneWindowPill.className = "text-caption-tabular px-2 py-0.5 rounded font-semibold " + cfg.phone.pillClass;
+    }
+    if (phoneCircleBtn) {
+      phoneCircleBtn.className = "w-36 h-36 rounded-full flex flex-col items-center justify-center shadow-xl transition-transform " + cfg.phone.btnClass;
+      phoneCircleBtn.disabled = cfg.btn.disabled;
+    }
+    if (phoneBtnIcon) phoneBtnIcon.innerText = cfg.btn.icon;
+    if (phoneBtnText) phoneBtnText.innerText = cfg.phone.btnText;
+    if (phoneBtnSub) phoneBtnSub.innerText = cfg.phone.btnSub;
+    if (phoneNoteDesc) phoneNoteDesc.innerText = cfg.phone.note;
+    if (phoneRing) {
+      if (cfg.btn.disabled) {
+        phoneRing.classList.add('hidden');
+      } else {
+        phoneRing.classList.remove('hidden');
+      }
+    }
+  }
+
+  // Initialize with Default Normal State (State 1)
+  window.addEventListener('DOMContentLoaded', () => {
+    switchState(1);
+  });
+</script></main></div></body></html>

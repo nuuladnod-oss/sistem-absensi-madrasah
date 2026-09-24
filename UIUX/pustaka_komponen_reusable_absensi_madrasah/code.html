@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistem Desain Komponen Reusable — Absensi Madrasah</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            madrasah: {
+              50: '#f0fdf7',
+              100: '#dbf9eb',
+              200: '#b8f2d8',
+              300: '#7fe4bd',
+              400: '#41cd9d',
+              500: '#19b280',
+              600: '#13795b', /* Brand Primary */
+              700: '#0e5f48',
+              800: '#0c4c3b',
+              900: '#0a3f31',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .tabular-nums {
+      font-variant-numeric: tabular-nums;
+    }
+    /* Custom subtle scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen">
+
+  <!-- TOP APP BAR / HEADER DOKUMENTASI -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-9 h-9 rounded-lg bg-madrasah-600 text-white flex items-center justify-center font-bold text-lg shadow-sm">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+          </svg>
+        </div>
+        <div>
+          <h1 class="text-base font-bold text-slate-900 leading-tight">Pustaka Desain Komponen Reusable</h1>
+          <p class="text-xs text-slate-500">Sistem Absensi Madrasah (Geofencing & QR Code)</p>
+        </div>
+      </div>
+
+      <div class="flex items-center space-x-2">
+        <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 mr-1.5 animate-pulse"></span>
+          Periode Aktif: 2026/2027 Ganjil
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN WRAPPER -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+
+    <!-- INTRO & SPECIFICATION MAPPING NOTE -->
+    <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-xl font-bold text-slate-900">Sistem Desain Teruji: Desktop & Android Web</h2>
+          <p class="text-sm text-slate-600 mt-1 max-w-3xl">
+            Pustaka komponen ini dirancang minimalis, berdaya baca tinggi, dan tanpa dekorasi berlebih sesuai spesifikasi BRD v1.3 & FS v2.0. Memenuhi standar sentuhan Android (touch target minimal 44px) serta visual layout terstruktur di desktop.
+          </p>
+        </div>
+        <div class="flex items-center gap-2 text-xs font-medium text-slate-600 bg-slate-100 px-3 py-2 rounded-lg border border-slate-200 shrink-0">
+          <span class="w-2 h-2 rounded-full bg-madrasah-600"></span>
+          Primary Color: <code class="font-mono text-madrasah-600 font-semibold">#13795B</code>
+        </div>
+      </div>
+    </div>
+
+    <!-- 1. TYPOGRAPHY & SPACING TOKENS -->
+    <section class="space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+        <div>
+          <h3 class="text-lg font-bold text-slate-900">1. Tipografi & Skala Teks</h3>
+          <p class="text-xs text-slate-500">Keluarga Font: Plus Jakarta Sans untuk teks UI, JetBrains Mono untuk NIK/NISN/Jam.</p>
+        </div>
+        <span class="text-xs font-mono text-slate-400">Tokens: font-sans, font-mono</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Text Scale Card -->
+        <div class="bg-white border border-slate-200 rounded-xl p-6 space-y-4">
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-400">Hierarki Tipografi</h4>
+          
+          <div class="space-y-3">
+            <div class="border-b border-slate-100 pb-2">
+              <span class="text-xs font-mono text-slate-400 block mb-1">Page Title (text-2xl / font-bold / 24px)</span>
+              <p class="text-2xl font-bold text-slate-900">Presensi Harian Madrasah</p>
+            </div>
+            <div class="border-b border-slate-100 pb-2">
+              <span class="text-xs font-mono text-slate-400 block mb-1">Section Header (text-lg / font-semibold / 18px)</span>
+              <p class="text-lg font-semibold text-slate-900">Daftar Kehadiran Siswa Kelas IX-A</p>
+            </div>
+            <div class="border-b border-slate-100 pb-2">
+              <span class="text-xs font-mono text-slate-400 block mb-1">Card Header / Subhead (text-base / font-semibold / 16px)</span>
+              <p class="text-base font-semibold text-slate-800">Verifikasi Lokasi & Geofence GPS</p>
+            </div>
+            <div class="border-b border-slate-100 pb-2">
+              <span class="text-xs font-mono text-slate-400 block mb-1">Body Text / Label (text-sm / font-medium / 14px)</span>
+              <p class="text-sm font-medium text-slate-700">Pastikan izin lokasi pada perangkat Anda aktif dan memiliki akurasi di bawah 30 meter.</p>
+            </div>
+            <div>
+              <span class="text-xs font-mono text-slate-400 block mb-1">Caption / Timestamp / Hint (text-xs / font-normal / 12px)</span>
+              <p class="text-xs text-slate-500">Terakhir diperbarui: 23 September 2026, 07:14:02 WIB</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Numeric & Monospace Card -->
+        <div class="bg-white border border-slate-200 rounded-xl p-6 space-y-4">
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-400">Numerik & Tabular (Anti-Missread)</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Data identitas siswa (NISN), nomor induk guru (NIK), jam presensi, dan koordinat GPS menggunakan angka tabular yang tidak bergeser saat nilai berubah.
+          </p>
+
+          <div class="space-y-3 bg-slate-50 p-4 rounded-lg border border-slate-200">
+            <div class="flex items-center justify-between">
+              <span class="text-xs text-slate-600">Format NISN (QR Code):</span>
+              <span class="font-mono text-sm font-semibold text-slate-900 tabular-nums">0089234711</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs text-slate-600">Format NIK Guru:</span>
+              <span class="font-mono text-sm font-semibold text-slate-900 tabular-nums">3507198503120002</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs text-slate-600">Jam Datang Efektif:</span>
+              <span class="font-mono text-sm font-semibold text-madrasah-600 tabular-nums">07:00:00 WIB</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs text-slate-600">Koordinat Madrasah:</span>
+              <span class="font-mono text-xs text-slate-700 tabular-nums">-7.250445, 112.768845 (±12m)</span>
+            </div>
+          </div>
+
+          <div class="pt-2 text-xs text-slate-500 flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span>Memenuhi standar verifikasi manual kasat mata guru pemindai (BR-010).</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. PAGE HEADER PATTERN -->
+    <section class="space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+        <div>
+          <h3 class="text-lg font-bold text-slate-900">2. Page Header Pattern</h3>
+          <p class="text-xs text-slate-500">Pola header halaman yang adaptif untuk desktop dan Android.</p>
+        </div>
+        <span class="text-xs font-mono text-slate-400">&lt;PageHeader /&gt;</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- Desktop Header Preview -->
+        <div class="bg-white border border-slate-200 rounded-xl p-6 space-y-4">
+          <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+            <span class="text-xs font-semibold text-slate-500">Tampilan Desktop</span>
+            <span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">w-full</span>
+          </div>
+          
+          <!-- Component Desktop -->
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-4 border-b border-slate-100">
+            <div>
+              <div class="flex items-center gap-2">
+                <h2 class="text-2xl font-bold text-slate-900">Presensi Guru Mandiri</h2>
+                <span class="px-2 py-0.5 text-xs font-medium rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">Dalam Radius (48m)</span>
+              </div>
+              <p class="text-sm text-slate-500 mt-1">Jadwal hari ini: 07:00 – 14:00 WIB • Window Datang: Aktif s.d 09:00</p>
+            </div>
+            <div class="flex items-center gap-2 shrink-0">
+              <button class="inline-flex items-center px-3.5 py-2 text-sm font-medium rounded-lg border border-slate-300 text-slate-700 bg-white hover:bg-slate-50 transition">
+                <svg class="w-4 h-4 mr-1.5 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                </svg>
+                Perbarui GPS
+              </button>
+              <button class="inline-flex items-center px-4 py-2 text-sm font-semibold rounded-lg bg-madrasah-600 text-white hover:bg-madrasah-700 transition shadow-sm">
+                <svg class="w-4 h-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                </svg>
+                Ajukan Izin
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Android Mobile Header Preview -->
+        <div class="bg-white border border-slate-200 rounded-xl p-6 space-y-4">
+          <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+            <span class="text-xs font-semibold text-slate-500">Tampilan Android (Viewport Mobile 390px)</span>
+            <span class="text-xs bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded font-mono">max-w-[390px]</span>
+          </div>
+
+          <!-- Component Mobile in Frame -->
+          <div class="max-w-[370px] mx-auto bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-3">
+            <div class="flex items-start justify-between">
+              <div>
+                <p class="text-xs font-medium text-slate-500">Kamis, 24 Sep 2026</p>
+                <h2 class="text-lg font-bold text-slate-900 leading-tight">Presensi Mandiri</h2>
+              </div>
+              <span class="px-2 py-0.5 text-[11px] font-medium rounded-full bg-emerald-100 text-emerald-800">
+                ● 48m di lokasi
+              </span>
+            </div>
+            <div class="flex items-center gap-2">
+              <button class="flex-1 py-2 text-xs font-medium rounded-lg border border-slate-300 text-slate-700 bg-white shadow-xs">
+                Perbarui GPS
+              </button>
+              <button class="flex-1 py-2 text-xs font-semibold rounded-lg bg-madrasah-600 text-white shadow-xs">
+                + Ajukan Izin
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. BUTTON SYSTEM -->
+    <section class="space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+        <div>
+          <h3 class="text-lg font-bold text-slate-900">3. Tombol (Buttons)</h3>
+          <p class="text-xs text-slate-500">Hanya 3 varian esensial: Primary, Secondary, Text Button. Tinggi sentuhan nyaman (44px Android tap target).</p>
+        </div>
+        <span class="text-xs font-mono text-slate-400">Variants: primary | secondary | text</span>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-xl p-6 space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <!-- Primary Button -->
+          <div class="space-y-3">
+            <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">Primary Button</span>
+            <p class="text-xs text-slate-500">Digunakan untuk aksi utama seperti "Absen Datang", "Simpan Presensi", "Konfirmasi Siswa".</p>
+            
+            <div class="space-y-2 pt-2">
+              <button class="w-full h-11 px-4 inline-flex items-center justify-center rounded-lg bg-madrasah-600 text-white font-semibold text-sm hover:bg-madrasah-700 active:bg-madrasah-800 transition focus:outline-none focus:ring-2 focus:ring-madrasah-600/30">
+                <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                Absen Datang Sekarang
+              </button>
+
+              <button disabled class="w-full h-11 px-4 inline-flex items-center justify-center rounded-lg bg-slate-200 text-slate-400 font-semibold text-sm cursor-not-allowed">
+                Absen Datang (Dinonaktifkan)
+              </button>
+            </div>
+          </div>
+
+          <!-- Secondary Button -->
+          <div class="space-y-3">
+            <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">Secondary / Outline Button</span>
+            <p class="text-xs text-slate-500">Digunakan untuk aksi pendukung seperti "Batal", "Download Template", "Filter Tanggal".</p>
+            
+            <div class="space-y-2 pt-2">
+              <button class="w-full h-11 px-4 inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white text-slate-700 font-semibold text-sm hover:bg-slate-50 active:bg-slate-100 transition focus:outline-none focus:ring-2 focus:ring-slate-300">
+                <svg class="w-4 h-4 mr-2 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                Unduh Template Excel
+              </button>
+
+              <button class="w-full h-11 px-4 inline-flex items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-slate-400 font-medium text-sm cursor-not-allowed">
+                Batal (Disabled)
+              </button>
+            </div>
+          </div>
+
+          <!-- Text Button -->
+          <div class="space-y-3">
+            <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">Text Button</span>
+            <p class="text-xs text-slate-500">Digunakan untuk navigasi inline ringan seperti "Lihat Detail", "Ajukan Koreksi", "Reset".</p>
+            
+            <div class="space-y-2 pt-2">
+              <button class="w-full h-11 px-3 inline-flex items-center justify-center rounded-lg text-madrasah-600 hover:text-madrasah-700 hover:bg-madrasah-50 font-semibold text-sm transition">
+                <span>Lihat Detail Riwayat &rarr;</span>
+              </button>
+
+              <button class="w-full h-11 px-3 inline-flex items-center justify-center rounded-lg text-slate-500 hover:text-slate-800 hover:bg-slate-100 font-medium text-sm transition">
+                Kembali ke Beranda
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="bg-slate-50 p-4 rounded-lg border border-slate-200 text-xs text-slate-600 flex items-center gap-2">
+          <span class="font-bold text-madrasah-600">Pedoman Sentuhan:</span>
+          <span>Semua tombol memiliki tinggi minimum <code>h-11 (44px)</code> untuk menjamin kenyamanan sentuhan jari pada smartphone guru Android.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. FORM SYSTEM & INPUTS -->
+    <section class="space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+        <div>
+          <h3 class="text-lg font-bold text-slate-900">4. Form & Input Fields</h3>
+          <p class="text-xs text-slate-500">Label di atas input (non-floating), feedback error jelas, dukungan form presensi & perizinan.</p>
+        </div>
+        <span class="text-xs font-mono text-slate-400">Input | Select | Date | Textarea | Checkbox</span>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-xl p-6 space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <!-- Standard Text Input -->
+          <div class="space-y-1.5">
+            <label class="block text-xs font-semibold text-slate-700">
+              Nomor Induk Siswa Nasional (NISN) <span class="text-rose-500">*</span>
+            </label>
+            <input 
+              type="text" 
+              placeholder="Contoh: 0089123456" 
+              value="0089234711"
+              class="w-full h-11 px-3.5 rounded-lg border border-slate-300 text-sm font-mono text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-madrasah-600/20 focus:border-madrasah-600 transition"
+            />
+            <p class="text-xs text-slate-500">Otomatis terisi saat memindai QR Code statis siswa.</p>
+          </div>
+
+          <!-- Select Input -->
+          <div class="space-y-1.5">
+            <label class="block text-xs font-semibold text-slate-700">
+              Jenis Pengajuan Izin / Sakit <span class="text-rose-500">*</span>
+            </label>
+            <select class="w-full h-11 px-3.5 rounded-lg border border-slate-300 text-sm text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-madrasah-600/20 focus:border-madrasah-600 transition">
+              <option value="STUDENT_SAKIT">Sakit (Dengan Surat Keterangan)</option>
+              <option value="STUDENT_IZIN">Izin Keperluan Keluarga</option>
+              <option value="TEACHER_OFFICIAL_DUTY">Tugas Dinas / Luar Lembaga</option>
+              <option value="TEACHER_PERSONAL">Izin Keperluan Pribadi</option>
+            </select>
+            <p class="text-xs text-slate-500">Kategori leave request sesuai Data Model v1.0.</p>
+          </div>
+
+          <!-- Date Input -->
+          <div class="space-y-1.5">
+            <label class="block text-xs font-semibold text-slate-700">
+              Tanggal Mulai Presensi / Izin <span class="text-rose-500">*</span>
+            </label>
+            <input 
+              type="date" 
+              value="2026-09-24"
+              class="w-full h-11 px-3.5 rounded-lg border border-slate-300 text-sm text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-madrasah-600/20 focus:border-madrasah-600 transition"
+            />
+            <p class="text-xs text-slate-500">Mendukung tanggal lampau (BR-028).</p>
+          </div>
+
+          <!-- Textarea Input -->
+          <div class="space-y-1.5 md:col-span-2">
+            <label class="block text-xs font-semibold text-slate-700">
+              Keterangan Alasan Pengajuan <span class="text-slate-400 font-normal">(Opsional)</span>
+            </label>
+            <textarea 
+              rows="3" 
+              placeholder="Tuliskan keterangan pendukung jika diperlukan..."
+              class="w-full p-3 rounded-lg border border-slate-300 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-madrasah-600/20 focus:border-madrasah-600 transition"
+            >Mengikuti kegiatan lomba olimpiade sains tingkat kabupaten mewakili madrasah.</textarea>
+            <p class="text-xs text-slate-500">Sesuai BRD v1.3: alasan bersifat opsional untuk izin & koreksi presensi.</p>
+          </div>
+
+          <!-- Input With Validation Error State -->
+          <div class="space-y-1.5">
+            <label class="block text-xs font-semibold text-rose-700">
+              Radius Geofence (Meter) <span class="text-rose-500">*</span>
+            </label>
+            <input 
+              type="number" 
+              value="-50" 
+              class="w-full h-11 px-3.5 rounded-lg border border-rose-300 bg-rose-50/40 text-sm text-rose-900 placeholder-rose-400 focus:outline-none focus:ring-2 focus:ring-rose-500/20 focus:border-rose-600 transition"
+            />
+            <div class="flex items-center text-xs text-rose-600 gap-1 mt-1">
+              <svg class="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>Radius harus bernilai positif (default 200m).</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Checkbox & File Upload Field (Leave Attachment) -->
+        <div class="pt-4 border-t border-slate-100 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div class="flex items-start space-x-3">
+            <input 
+              id="confirm-box" 
+              type="checkbox" 
+              checked 
+              class="w-5 h-5 rounded border-slate-300 text-madrasah-600 focus:ring-madrasah-600/30 mt-0.5 cursor-pointer"
+            />
+            <label for="confirm-box" class="text-xs text-slate-700 leading-relaxed cursor-pointer select-none">
+              <span class="font-semibold text-slate-800">Verifikasi Kesesuaian Fisik Siswa (BR-010):</span><br/>
+              Saya telah memeriksa secara langsung bahwa QR Code sesuai dengan identitas siswa bersangkutan.
+            </label>
+          </div>
+
+          <div class="text-xs text-slate-500 bg-slate-50 p-2.5 rounded-lg border border-slate-200 shrink-0">
+            <span>Lampiran: Maks 1 file (PDF/JPG/PNG &le; 2MB)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. SIMPLE CARD & STATUS BADGES -->
+    <section class="space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+        <div>
+          <h3 class="text-lg font-bold text-slate-900">5. Simple Card & Status Badges</h3>
+          <p class="text-xs text-slate-500">Semua warna status presensi dan perizinan terstandarisasi sesuai Business Rules BR-039 s.d BR-043.</p>
+        </div>
+        <span class="text-xs font-mono text-slate-400">Card | Badge (7 Status Resmi)</span>
+      </div>
+
+      <!-- Badge Showcase Bar -->
+      <div class="bg-white border border-slate-200 rounded-xl p-6 space-y-4">
+        <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-400">Palet Status Resmi Sistem Absensi</h4>
+        
+        <div class="flex flex-wrap gap-2.5">
+          <!-- 1. Hadir -->
+          <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-emerald-50 text-emerald-800 border border-emerald-200">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 mr-2"></span>
+            Hadir (≤ 07:10)
+          </span>
+
+          <!-- 2. Terlambat -->
+          <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-amber-50 text-amber-800 border border-amber-200">
+            <span class="w-1.5 h-1.5 rounded-full bg-amber-600 mr-2"></span>
+            Terlambat (> 07:10)
+          </span>
+
+          <!-- 3. Pulang Cepat -->
+          <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-orange-50 text-orange-800 border border-orange-200">
+            <span class="w-1.5 h-1.5 rounded-full bg-orange-600 mr-2"></span>
+            Pulang Cepat (< 14:50)
+          </span>
+
+          <!-- 4. Belum Absen Pulang -->
+          <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-sky-50 text-sky-800 border border-sky-200">
+            <span class="w-1.5 h-1.5 rounded-full bg-sky-600 mr-2"></span>
+            Belum Absen Pulang
+          </span>
+
+          <!-- 5. Izin / Sakit -->
+          <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-purple-50 text-purple-800 border border-purple-200">
+            <span class="w-1.5 h-1.5 rounded-full bg-purple-600 mr-2"></span>
+            Izin / Sakit (Approved)
+          </span>
+
+          <!-- 6. Alpa -->
+          <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-rose-50 text-rose-800 border border-rose-200">
+            <span class="w-1.5 h-1.5 rounded-full bg-rose-600 mr-2"></span>
+            Alpa (Auto-Alpa)
+          </span>
+
+          <!-- 7. Izin Menunggu Approval -->
+          <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-slate-100 text-slate-700 border border-slate-300">
+            <span class="w-1.5 h-1.5 rounded-full bg-slate-400 mr-2"></span>
+            Izin Menunggu Approval
+          </span>
+        </div>
+      </div>
+
+      <!-- Card Patterns (Summary Card & Verification Card) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Card 1: Metric / Ringkasan Kehadiran -->
+        <div class="bg-white border border-slate-200 rounded-xl p-5 space-y-3 shadow-xs">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-medium text-slate-500">Kehadiran Hari Ini</span>
+            <span class="text-xs bg-emerald-50 text-emerald-700 font-semibold px-2 py-0.5 rounded">98.2%</span>
+          </div>
+          <div class="flex items-baseline gap-2">
+            <span class="text-3xl font-bold text-slate-900 tabular-nums">412</span>
+            <span class="text-xs text-slate-500">/ 420 Siswa Terdaftar</span>
+          </div>
+          <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600">
+            <span>Terlambat: <strong class="text-amber-700 font-mono">14</strong></span>
+            <span>Izin/Sakit: <strong class="text-purple-700 font-mono">6</strong></span>
+            <span>Alpa: <strong class="text-rose-700 font-mono">2</strong></span>
+          </div>
+        </div>
+
+        <!-- Card 2: Status GPS Guru Mandiri -->
+        <div class="bg-white border border-slate-200 rounded-xl p-5 space-y-3 shadow-xs">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-medium text-slate-500">Validasi Geofencing</span>
+            <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200">
+              Memenuhi Syarat
+            </span>
+          </div>
+          <div>
+            <div class="text-sm font-semibold text-slate-800">Radius Madrasah (200m)</div>
+            <p class="text-xs text-slate-500 mt-0.5">Jarak Anda: <strong class="font-mono text-madrasah-600">42.5 meter</strong> dari gerbang utama</p>
+          </div>
+          <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-mono">
+            <span>Akurasi GPS: 12m (&le; 30m)</span>
+            <span class="text-emerald-600 font-semibold">Valid ✓</span>
+          </div>
+        </div>
+
+        <!-- Card 3: Konfirmasi Siswa Scan QR (Manual Verification) -->
+        <div class="bg-white border border-slate-200 rounded-xl p-5 space-y-3 shadow-xs">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-medium text-slate-500">Hasil Pemindaian QR</span>
+            <span class="px-2 py-0.5 text-[11px] font-medium rounded bg-emerald-100 text-emerald-800">Scan Sukses</span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <div class="w-11 h-11 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center font-bold text-sm shrink-0">
+              AF
+            </div>
+            <div class="truncate">
+              <h5 class="text-sm font-bold text-slate-900 truncate">Ahmad Faiz Al-Habsyi</h5>
+              <p class="text-xs font-mono text-slate-500">NISN: 0089234711 • Kls IX-A</p>
+            </div>
+          </div>
+          <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="text-slate-500">Waktu: <strong class="font-mono text-slate-800">06:58 WIB</strong></span>
+            <span class="text-emerald-700 font-semibold">Tepat Waktu</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 6. TABLE COMPONENT -->
+    <section class="space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+        <div>
+          <h3 class="text-lg font-bold text-slate-900">6. Tabel Data (Table Style)</h3>
+          <p class="text-xs text-slate-500">Header ringkas dengan bg-slate-50/80, baris bersih divide-y, data numerik rapi, kolom aksi jelas.</p>
+        </div>
+        <span class="text-xs font-mono text-slate-400">&lt;Table /&gt;</span>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-xs">
+        <!-- Table Toolbar / Filter -->
+        <div class="p-4 border-b border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-slate-50/40">
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold text-slate-700">Daftar Presensi Harian</span>
+            <span class="text-xs bg-slate-200 text-slate-700 px-2 py-0.5 rounded-full font-semibold">4 Data Ditampilkan</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <input 
+              type="text" 
+              placeholder="Cari nama atau NISN..." 
+              class="h-9 px-3 text-xs rounded-lg border border-slate-300 focus:outline-none focus:ring-1 focus:ring-madrasah-600"
+            />
+            <button class="h-9 px-3 text-xs font-medium rounded-lg border border-slate-300 bg-white text-slate-700 hover:bg-slate-50">
+              Filter Kelas
+            </button>
+          </div>
+        </div>
+
+        <!-- Scrollable Table -->
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-sm text-slate-600">
+            <thead class="bg-slate-50 text-xs font-semibold uppercase tracking-wider text-slate-500 border-b border-slate-200">
+              <tr>
+                <th scope="col" class="py-3.5 px-4">Nama Siswa / Identitas</th>
+                <th scope="col" class="py-3.5 px-4">Kelas</th>
+                <th scope="col" class="py-3.5 px-4">Jam Datang</th>
+                <th scope="col" class="py-3.5 px-4">Jam Pulang</th>
+                <th scope="col" class="py-3.5 px-4">Status Akhir</th>
+                <th scope="col" class="py-3.5 px-4">Guru Scanner</th>
+                <th scope="col" class="py-3.5 px-4 text-right">Aksi</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 text-xs">
+              <!-- Row 1: Hadir -->
+              <tr class="hover:bg-slate-50/70 transition">
+                <td class="py-3 px-4">
+                  <div class="font-semibold text-slate-900">Ahmad Faiz Al-Habsyi</div>
+                  <div class="font-mono text-slate-400 text-[11px]">NISN: 0089234711</div>
+                </td>
+                <td class="py-3 px-4 font-medium text-slate-700">IX-A</td>
+                <td class="py-3 px-4 font-mono font-medium text-slate-800">06:58:12</td>
+                <td class="py-3 px-4 font-mono font-medium text-slate-800">14:05:30</td>
+                <td class="py-3 px-4">
+                  <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-emerald-50 text-emerald-800 border border-emerald-200">
+                    Hadir
+                  </span>
+                </td>
+                <td class="py-3 px-4 text-slate-500">M. Ridwan, S.Pd</td>
+                <td class="py-3 px-4 text-right">
+                  <button class="text-xs font-semibold text-madrasah-600 hover:text-madrasah-700">Detail</button>
+                </td>
+              </tr>
+
+              <!-- Row 2: Terlambat -->
+              <tr class="hover:bg-slate-50/70 transition">
+                <td class="py-3 px-4">
+                  <div class="font-semibold text-slate-900">Nurul Hidayah Putri</div>
+                  <div class="font-mono text-slate-400 text-[11px]">NISN: 0091384022</div>
+                </td>
+                <td class="py-3 px-4 font-medium text-slate-700">IX-A</td>
+                <td class="py-3 px-4 font-mono font-medium text-amber-700">07:18:40</td>
+                <td class="py-3 px-4 font-mono font-medium text-slate-800">14:02:11</td>
+                <td class="py-3 px-4">
+                  <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-amber-50 text-amber-800 border border-amber-200">
+                    Terlambat
+                  </span>
+                </td>
+                <td class="py-3 px-4 text-slate-500">M. Ridwan, S.Pd</td>
+                <td class="py-3 px-4 text-right">
+                  <button class="text-xs font-semibold text-madrasah-600 hover:text-madrasah-700">Detail</button>
+                </td>
+              </tr>
+
+              <!-- Row 3: Belum Absen Pulang -->
+              <tr class="hover:bg-slate-50/70 transition">
+                <td class="py-3 px-4">
+                  <div class="font-semibold text-slate-900">Muhammad Zaki</div>
+                  <div class="font-mono text-slate-400 text-[11px]">NISN: 0087451994</div>
+                </td>
+                <td class="py-3 px-4 font-medium text-slate-700">IX-A</td>
+                <td class="py-3 px-4 font-mono font-medium text-slate-800">07:02:15</td>
+                <td class="py-3 px-4 font-mono font-medium text-slate-400">—</td>
+                <td class="py-3 px-4">
+                  <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-sky-50 text-sky-800 border border-sky-200">
+                    Belum Absen Pulang
+                  </span>
+                </td>
+                <td class="py-3 px-4 text-slate-500">M. Ridwan, S.Pd</td>
+                <td class="py-3 px-4 text-right">
+                  <button class="text-xs font-semibold text-madrasah-600 hover:text-madrasah-700">Koreksi</button>
+                </td>
+              </tr>
+
+              <!-- Row 4: Sakit / Izin -->
+              <tr class="hover:bg-slate-50/70 transition">
+                <td class="py-3 px-4">
+                  <div class="font-semibold text-slate-900">Siti Aisyah Rahma</div>
+                  <div class="font-mono text-slate-400 text-[11px]">NISN: 0092837105</div>
+                </td>
+                <td class="py-3 px-4 font-medium text-slate-700">IX-A</td>
+                <td class="py-3 px-4 font-mono font-medium text-slate-400">—</td>
+                <td class="py-3 px-4 font-mono font-medium text-slate-400">—</td>
+                <td class="py-3 px-4">
+                  <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-purple-50 text-purple-800 border border-purple-200">
+                    Sakit (Surat Dokter)
+                  </span>
+                </td>
+                <td class="py-3 px-4 text-slate-400 italic">Wali Kelas Approved</td>
+                <td class="py-3 px-4 text-right">
+                  <button class="text-xs font-semibold text-madrasah-600 hover:text-madrasah-700">Detail</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="p-3 bg-slate-50/60 border-t border-slate-200 text-xs text-slate-500 flex items-center justify-between">
+          <span>Menampilkan 1-4 dari 32 siswa</span>
+          <div class="flex gap-1">
+            <button class="px-2.5 py-1 border border-slate-300 rounded bg-white text-slate-600 text-xs hover:bg-slate-50">Sebelumnya</button>
+            <button class="px-2.5 py-1 border border-slate-300 rounded bg-white text-slate-600 text-xs hover:bg-slate-50">Selanjutnya</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. ALERTS & NOTIFICATIONS -->
+    <section class="space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+        <div>
+          <h3 class="text-lg font-bold text-slate-900">7. Alerts & Feedback Banner</h3>
+          <p class="text-xs text-slate-500">In-app alert & guidance sesuai FS-NOTIF: GPS guidance, window time, dan status verifikasi.</p>
+        </div>
+        <span class="text-xs font-mono text-slate-400">&lt;Alert variant="success|warning|error|info" /&gt;</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        
+        <!-- Success Alert -->
+        <div class="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-900 flex items-start space-x-3">
+          <svg class="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <div class="text-xs space-y-1">
+            <p class="font-bold text-emerald-900 text-sm">Presensi Datang Berhasil Dicatat</p>
+            <p class="text-emerald-800 leading-relaxed">Waktu: 06:58:14 WIB • Status: Hadir • Akurasi GPS: 14m. Data tersimpan ke database madrasah.</p>
+          </div>
+        </div>
+
+        <!-- Warning / Guidance Alert (GPS Outside) -->
+        <div class="p-4 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 flex items-start space-x-3">
+          <svg class="w-5 h-5 text-amber-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+          </svg>
+          <div class="text-xs space-y-1">
+            <p class="font-bold text-amber-900 text-sm">Di Luar Radius Geofence (245m)</p>
+            <p class="text-amber-800 leading-relaxed">Jarak maksimum yang diizinkan adalah 200m. Silakan mendekat ke area gerbang madrasah dan coba lagi.</p>
+          </div>
+        </div>
+
+        <!-- Error Alert (GPS Permission Denied) -->
+        <div class="p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-900 flex items-start space-x-3">
+          <svg class="w-5 h-5 text-rose-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+          </svg>
+          <div class="text-xs space-y-1">
+            <p class="font-bold text-rose-900 text-sm">Izin Lokasi (GPS) Ditolak</p>
+            <p class="text-rose-800 leading-relaxed">Presensi mandiri memerlukan akses GPS. Buka pengaturan browser Android Anda dan aktifkan "Location Access".</p>
+          </div>
+        </div>
+
+        <!-- Info Alert (Schedule / Window) -->
+        <div class="p-4 rounded-xl bg-sky-50 border border-sky-200 text-sky-900 flex items-start space-x-3">
+          <svg class="w-5 h-5 text-sky-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <div class="text-xs space-y-1">
+            <p class="font-bold text-sky-900 text-sm">Jendela Presensi Pulang Dibuka</p>
+            <p class="text-sky-800 leading-relaxed">Jadwal pulang efektif hari ini: 14:00 WIB. Presensi pulang dapat dilakukan mulai pukul 12:00 hingga 17:00 WIB.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 8. TOAST NOTIFICATION & FEEDBACK -->
+    <section class="space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+        <div>
+          <h3 class="text-lg font-bold text-slate-900">8. Toast Notification</h3>
+          <p class="text-xs text-slate-500">Pesan umpan balik mengambang (in-app toast) yang muncul di sudut bawah layar pada mobile atau kanan atas di desktop.</p>
+        </div>
+        <span class="text-xs font-mono text-slate-400">&lt;Toast /&gt;</span>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-xl p-6 flex flex-wrap gap-4 items-center justify-around">
+        <!-- Toast 1: Success -->
+        <div class="flex items-center space-x-3 bg-slate-900 text-white px-4 py-3 rounded-lg shadow-lg max-w-sm">
+          <div class="w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center shrink-0">
+            <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <div class="text-xs">
+            <p class="font-semibold text-white">QR Code Berhasil Diverifikasi</p>
+            <p class="text-slate-300">Presensi Ahmad Faiz tercatat sebagai Hadir.</p>
+          </div>
+        </div>
+
+        <!-- Toast 2: Error Anti-Duplicate -->
+        <div class="flex items-center space-x-3 bg-slate-900 text-white px-4 py-3 rounded-lg shadow-lg max-w-sm">
+          <div class="w-6 h-6 rounded-full bg-rose-500 flex items-center justify-center shrink-0">
+            <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </div>
+          <div class="text-xs">
+            <p class="font-semibold text-white">Presensi Ditolak (Duplikasi)</p>
+            <p class="text-slate-300">Siswa ini telah tercatat hadir pada hari ini (BR-013).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. MODALS & CONFIRMATION DIALOG -->
+    <section class="space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+        <div>
+          <h3 class="text-lg font-bold text-slate-900">9. Modal & Dialog Konfirmasi</h3>
+          <p class="text-xs text-slate-500">Dialog terarah untuk tindakan kritis seperti approval izin, koreksi presensi oleh admin, atau peringatan pembatalan.</p>
+        </div>
+        <span class="text-xs font-mono text-slate-400">&lt;Modal /&gt; &amp; &lt;ConfirmDialog /&gt;</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- Confirmation Dialog 1: Approval Izin Siswa -->
+        <div class="bg-white border border-slate-200 rounded-xl p-6 space-y-4 shadow-sm">
+          <div class="flex items-start space-x-3">
+            <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div>
+              <h4 class="text-base font-bold text-slate-900">Setujui Pengajuan Izin Siswa?</h4>
+              <p class="text-xs text-slate-500 mt-1 leading-relaxed">
+                Anda akan menyetujui izin sakit untuk <strong>Ahmad Faiz Al-Habsyi (IX-A)</strong> periode 24–25 September 2026. Status kehadiran otomatis diperbarui menjadi "Sakit".
+              </p>
+            </div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-end space-x-2">
+            <button class="h-10 px-4 text-xs font-semibold rounded-lg border border-slate-300 text-slate-700 bg-white hover:bg-slate-50">
+              Tinjau Kembali
+            </button>
+            <button class="h-10 px-4 text-xs font-semibold rounded-lg bg-madrasah-600 text-white hover:bg-madrasah-700">
+              Ya, Setujui Izin
+            </button>
+          </div>
+        </div>
+
+        <!-- Confirmation Dialog 2: Destructive / Pembatalan Approval oleh Admin -->
+        <div class="bg-white border border-slate-200 rounded-xl p-6 space-y-4 shadow-sm">
+          <div class="flex items-start space-x-3">
+            <div class="w-10 h-10 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+            </div>
+            <div>
+              <h4 class="text-base font-bold text-slate-900">Batalkan Approval Izin?</h4>
+              <p class="text-xs text-slate-500 mt-1 leading-relaxed">
+                Sesuai BR-031 &amp; BR-032: Status akan dikembalikan ke <strong>Pending</strong> dan status presensi tanggal terkait menjadi <strong>Izin Menunggu Approval</strong>. Tindakan ini akan dicatat di audit trail.
+              </p>
+            </div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-end space-x-2">
+            <button class="h-10 px-4 text-xs font-semibold rounded-lg border border-slate-300 text-slate-700 bg-white hover:bg-slate-50">
+              Batal
+            </button>
+            <button class="h-10 px-4 text-xs font-semibold rounded-lg bg-rose-600 text-white hover:bg-rose-700">
+              Batalkan Approval
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 10. SYSTEM STATES (LOADING, EMPTY, ERROR) -->
+    <section class="space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+        <div>
+          <h3 class="text-lg font-bold text-slate-900">10. State Tampilan (Loading, Empty, Error)</h3>
+          <p class="text-xs text-slate-500">Pengalaman visual saat mengambil GPS, data presensi belum ada, atau koneksi terputus.</p>
+        </div>
+        <span class="text-xs font-mono text-slate-400">Loading | Empty | Error States</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Loading State -->
+        <div class="bg-white border border-slate-200 rounded-xl p-8 text-center space-y-3 flex flex-col items-center justify-center min-h-[220px]">
+          <div class="w-10 h-10 rounded-full border-3 border-slate-200 border-t-madrasah-600 animate-spin"></div>
+          <div class="space-y-1">
+            <h5 class="text-sm font-bold text-slate-800">Menghubungkan ke GPS...</h5>
+            <p class="text-xs text-slate-500 max-w-[200px]">Mengukur jarak dan akurasi lokasi madrasah saat ini.</p>
+          </div>
+        </div>
+
+        <!-- Empty State -->
+        <div class="bg-white border border-slate-200 rounded-xl p-8 text-center space-y-3 flex flex-col items-center justify-center min-h-[220px]">
+          <div class="w-12 h-12 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+            </svg>
+          </div>
+          <div class="space-y-1">
+            <h5 class="text-sm font-bold text-slate-800">Belum Ada Pengajuan Koreksi</h5>
+            <p class="text-xs text-slate-500 max-w-[220px]">Semua data presensi guru dan siswa tercatat tanpa sengketa.</p>
+          </div>
+          <button class="px-3 py-1.5 text-xs font-semibold text-madrasah-600 bg-madrasah-50 rounded-lg hover:bg-madrasah-100 transition">
+            Segarkan Halaman
+          </button>
+        </div>
+
+        <!-- Error State -->
+        <div class="bg-white border border-slate-200 rounded-xl p-8 text-center space-y-3 flex flex-col items-center justify-center min-h-[220px]">
+          <div class="w-12 h-12 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+          </div>
+          <div class="space-y-1">
+            <h5 class="text-sm font-bold text-slate-800">Gagal Mengambil Data</h5>
+            <p class="text-xs text-slate-500 max-w-[220px]">Koneksi internet madrasah terputus atau server tidak merespons.</p>
+          </div>
+          <button class="px-3.5 py-1.5 text-xs font-semibold text-white bg-madrasah-600 rounded-lg hover:bg-madrasah-700 transition">
+            Coba Lagi
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 11. MOBILE BOTTOM NAVIGATION (ANDRIOD SPECIFIC) -->
+    <section class="space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+        <div>
+          <h3 class="text-lg font-bold text-slate-900">11. Navigasi Mobile Android (Bottom Navigation Bar)</h3>
+          <p class="text-xs text-slate-500">Dikhususkan untuk akses cepat satu jempol guru di lapangan (Presensi Mandiri, Scan QR Siswa, Izin, Riwayat).</p>
+        </div>
+        <span class="text-xs font-mono text-slate-400">&lt;MobileNavigation /&gt;</span>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-xl p-6 flex flex-col items-center">
+        <div class="w-full max-w-sm bg-slate-900 text-slate-400 rounded-t-2xl p-2 pb-5 border-t border-slate-800 shadow-2xl">
+          <div class="grid grid-cols-4 gap-1">
+            
+            <!-- Item 1: Presensi (Active) -->
+            <button class="flex flex-col items-center py-2 px-1 rounded-xl text-madrasah-400 font-semibold">
+              <svg class="w-6 h-6 mb-1 text-madrasah-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span class="text-[10px] tracking-tight">Presensi</span>
+            </button>
+
+            <!-- Item 2: Scan QR Siswa -->
+            <button class="flex flex-col items-center py-2 px-1 rounded-xl text-slate-400 hover:text-white transition">
+              <div class="w-6 h-6 mb-1 relative flex items-center justify-center">
+                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
+                </svg>
+              </div>
+              <span class="text-[10px] tracking-tight">Scan QR</span>
+            </button>
+
+            <!-- Item 3: Perizinan -->
+            <button class="flex flex-col items-center py-2 px-1 rounded-xl text-slate-400 hover:text-white transition">
+              <svg class="w-6 h-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <span class="text-[10px] tracking-tight">Perizinan</span>
+            </button>
+
+            <!-- Item 4: Riwayat / Profil -->
+            <button class="flex flex-col items-center py-2 px-1 rounded-xl text-slate-400 hover:text-white transition">
+              <svg class="w-6 h-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+              <span class="text-[10px] tracking-tight">Akun Saya</span>
+            </button>
+
+          </div>
+        </div>
+        <p class="text-xs text-slate-500 mt-3 text-center">
+          Optimal untuk browser mobile Android Chrome: posisi tetap di dasar viewport (fixed bottom) dengan safe-area padding.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-white border-t border-slate-200 mt-16 py-6 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4">
+      Sistem Absensi Madrasah • Pustaka Desain Komponen UI Reusable (React &amp; Tailwind CSS) • Berdasarkan BRD v1.3 &amp; FS v2.0
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+# Supabase project configuration
+# This file maps the migration and config to the Supabase CLI.
+# The actual database lives in the cloud project at:
+# https://ibtbzlseurxhxinmpmsf.supabase.co
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public"]
+extra_search_path = ["public"]
+
+[db]
+port = 54322
+schema = "public"
+
+[studio]
+enabled = true
+port = 54323
+api_port = 54324
+
+[auth]
+enabled = true

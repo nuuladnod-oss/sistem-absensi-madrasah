@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+
+<html lang="id"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-primary":"#ffffff","secondary-container":"#8ed1fe","inverse-on-surface":"#eaf1ff","on-secondary":"#ffffff","surface-container-lowest":"#ffffff","tertiary":"#893c00","surface-container-highest":"#d9e3f6","primary":"#005e45","surface-variant":"#d9e3f6","on-secondary-fixed-variant":"#004c6c","primary-container":"#13795b","error":"#ba1a1a","on-tertiary-fixed":"#331200","secondary":"#0e658c","inverse-primary":"#7ed8b4","tertiary-container":"#ae4f03","surface-container-low":"#eff4ff","outline-variant":"#bec9c2","tertiary-fixed-dim":"#ffb68e","primary-fixed-dim":"#7ed8b4","background":"#f8f9ff","on-tertiary-fixed-variant":"#763300","outline":"#6e7a73","on-primary-container":"#a4fed9","on-surface":"#121c2a","on-error":"#ffffff","secondary-fixed":"#c7e7ff","on-error-container":"#93000a","on-background":"#121c2a","surface":"#f8f9ff","error-container":"#ffdad6","surface-bright":"#f8f9ff","on-primary-fixed":"#002116","on-tertiary-container":"#ffe8dd","primary-fixed":"#9af4cf","inverse-surface":"#27313f","on-primary-fixed-variant":"#00513b","on-secondary-container":"#005a80","tertiary-fixed":"#ffdbca","secondary-fixed-dim":"#8bcefb","surface-container":"#e6eeff","on-surface-variant":"#3e4944","surface-container-high":"#dee9fc","surface-tint":"#006c50","on-secondary-fixed":"#001e2e","surface-dim":"#d0dbed","on-tertiary":"#ffffff"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"gutter":"1rem","margin-desktop":"2rem","space-xs":"0.25rem","margin":"1rem","space-sm":"0.5rem","space-lg":"1.5rem","space-md":"1rem","space-xl":"2rem","gutter-desktop":"1.5rem"},fontFamily:{"headline-md":["Plus Jakarta Sans"],"title-md":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"caption-tabular":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"]},fontSize:{"headline-md":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"title-md":["16px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"600"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"22px","letterSpacing":"0em","fontWeight":"400"}],"display-lg":["30px",{"lineHeight":"38px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-sm":["13px",{"lineHeight":"20px","letterSpacing":"0.005em","fontWeight":"400"}],"caption-tabular":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"500"}],"label-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"display-lg-mobile":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"700"}],"headline-sm":["18px",{"lineHeight":"26px","letterSpacing":"-0.005em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"400"}],"label-md":["13px",{"lineHeight":"18px","letterSpacing":"0.01em","fontWeight":"500"}],"headline-lg-mobile":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}]}}}}</script></head><body class="bg-background font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest border-r border-outline-variant/30 z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col h-full overflow-hidden"><div class="h-16 px-space-md border-b border-outline-variant/30 flex items-center gap-space-sm bg-surface-container-lowest"><div class="w-9 h-9 rounded-lg bg-primary-container text-on-primary flex items-center justify-center shadow-sm"><span class="material-symbols-outlined text-[20px]">mosque</span></div><div class="flex flex-col min-w-0"><span class="font-title-md text-title-md text-primary tracking-tight truncate leading-tight">MAS Al-Hikmah</span><span class="font-caption-tabular text-caption-tabular text-on-surface-variant truncate">Presensi &amp; Administrasi</span></div></div><div class="flex-1 overflow-y-auto px-space-sm py-space-md space-y-space-md"><nav class="space-y-space-xs" data-active-classes="bg-primary-container text-on-primary font-semibold"><div class="px-space-sm py-space-xs"><span class="font-label-sm text-label-sm text-on-surface-variant/70 tracking-wider uppercase font-semibold">OPERASIONAL PRESENSI</span></div><a class="flex items-center gap-3 px-space-sm py-2 rounded-lg font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span><span>Dashboard</span></a><a class="flex items-center gap-3 px-space-sm py-2 rounded-lg font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="presensi-mandiri" href="#"><span class="material-symbols-outlined text-[20px]">fingerprint</span><span>Presensi Mandiri</span></a><a class="flex items-center gap-3 px-space-sm py-2 rounded-lg font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="scanner-qr-siswa" href="#"><span class="material-symbols-outlined text-[20px]">qr_code_scanner</span><span>Scanner QR Siswa</span></a><a class="flex items-center gap-3 px-space-sm py-2 rounded-lg font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="riwayat-koreksi-presensi" href="#"><span class="material-symbols-outlined text-[20px]">history_edu</span><span>Riwayat &amp; Koreksi</span></a></nav><nav class="space-y-space-xs" data-active-classes="bg-primary-container text-on-primary font-semibold"><div class="px-space-sm py-space-xs"><span class="font-label-sm text-label-sm text-on-surface-variant/70 tracking-wider uppercase font-semibold">ADMINISTRASI &amp; IZIN</span></div><a class="flex items-center gap-3 px-space-sm py-2 rounded-lg font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="perizinan-siswa" href="#"><span class="material-symbols-outlined text-[20px]">assignment_turned_in</span><span>Perizinan Siswa</span></a><a class="flex items-center gap-3 px-space-sm py-2 rounded-lg font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="perizinan-guru" href="#"><span class="material-symbols-outlined text-[20px]">badge</span><span>Perizinan Guru</span></a><a class="flex items-center gap-3 px-space-sm py-2 rounded-lg font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="koreksi-approval" href="#"><span class="material-symbols-outlined text-[20px]">approval</span><span>Koreksi &amp; Approval</span></a></nav><nav class="space-y-space-xs" data-active-classes="bg-primary-container text-on-primary font-semibold"><div class="px-space-sm py-space-xs"><span class="font-label-sm text-label-sm text-on-surface-variant/70 tracking-wider uppercase font-semibold">AUDIT &amp; LAPORAN</span></div><a class="flex items-center gap-3 px-space-sm py-2 rounded-lg font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="audit-trail-log" href="#"><span class="material-symbols-outlined text-[20px]">manage_search</span><span>Audit Trail &amp; Log</span></a><a class="flex items-center gap-3 px-space-sm py-2 rounded-lg font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="rekapitulasi-presensi" href="#"><span class="material-symbols-outlined text-[20px]">summarize</span><span>Rekapitulasi Presensi</span></a></nav><nav class="space-y-space-xs" data-active-classes="bg-primary-container text-on-primary font-semibold"><div class="px-space-sm py-space-xs"><span class="font-label-sm text-label-sm text-on-surface-variant/70 tracking-wider uppercase font-semibold">KONFIGURASI</span></div><a class="flex items-center gap-3 px-space-sm py-2 rounded-lg font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="periode-akademik" href="#"><span class="material-symbols-outlined text-[20px]">calendar_month</span><span>Periode Akademik</span></a><a class="flex items-center gap-3 px-space-sm py-2 rounded-lg font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="jadwal-jam-mengajar" href="#"><span class="material-symbols-outlined text-[20px]">schedule</span><span>Jadwal Jam Mengajar</span></a><a class="flex items-center gap-3 px-space-sm py-2 rounded-lg font-body-md text-body-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="master-data-madrasah" href="#"><span class="material-symbols-outlined text-[20px]">school</span><span>Master Data Madrasah</span></a></nav></div><div class="p-space-md border-t border-outline-variant/30 bg-surface-container-low/60"><div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-lowest border border-outline-variant/40"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span><div class="flex flex-col"><span class="font-label-sm text-label-sm font-semibold text-on-surface">Radius Geofence</span><span class="font-caption-tabular text-caption-tabular text-on-surface-variant">Aktif (200m)</span></div></div><span class="material-symbols-outlined text-primary text-[18px]">my_location</span></div></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/95 backdrop-blur-md border-b border-outline-variant/30 z-40 px-gutter-desktop flex items-center justify-between shadow-[0_1px_8px_rgba(0,0,0,0.02)]"><div class="flex items-center gap-3 min-w-0"><span class="font-title-md text-title-md text-on-surface tracking-tight truncate hidden sm:inline">MAS Al-Hikmah - Sistem Absensi Terpadu</span><div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary-fixed text-on-primary-fixed border border-primary-fixed-dim/60 font-caption-tabular text-caption-tabular font-medium shadow-xs"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span>2026/2027 Ganjil (Aktif)</span></div></div><div class="flex items-center gap-space-md"><button aria-label="Notifikasi Sistem" class="relative p-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full"></span></button><div class="h-6 w-px bg-outline-variant/40"></div><div class="flex items-center gap-3"><div class="flex flex-col text-right hidden md:flex"><span class="font-label-md text-label-md text-on-surface font-semibold leading-tight">Ahmad Fauzi</span><span class="font-caption-tabular text-caption-tabular text-on-surface-variant">Admin Utama &amp; Guru</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ring-2 ring-primary/20"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="relative pt-16 bg-background min-h-screen px-gutter-desktop py-space-lg"><div class="flex flex-col w-full">
+<!-- Breadcrumb & Top Bar -->
+<div class="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-outline-variant/30">
+<div class="flex flex-col gap-1">
+<nav aria-label="Breadcrumb" class="flex items-center gap-2 text-on-surface-variant text-caption-tabular font-caption-tabular">
+<a class="hover:text-primary transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[16px]">home</span>
+          Beranda
+        </a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span>Operasional Presensi</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-semibold">Koreksi &amp; Audit Presensi</span>
+</nav>
+<div class="flex items-center gap-3 mt-1">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
+          Alur Koreksi Presensi &amp; Jejak Audit (Audit Trail)
+        </h1>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">verified_user</span>
+          BR-018 - BR-024
+        </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-4xl">
+        Kelola permohonan koreksi jam kehadiran dari guru, bandingkan nilai sebelum vs sesudah dengan jelas, lakukan persetujuan atau edit langsung oleh admin, serta telusuri rekam jejak audit institusi.
+      </p>
+</div>
+<!-- Direct Action Privilege CTAs -->
+<div class="flex flex-wrap items-center gap-3">
+<button class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md shadow-sm border border-outline-variant/50 hover:bg-surface-container-low transition-all" id="btn-open-teacher-modal" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary">add_circle</span>
+<span>+ Ajukan Koreksi Guru</span>
+</button>
+<button class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md shadow-sm hover:bg-primary transition-all" id="btn-admin-direct-edit" type="button">
+<span class="material-symbols-outlined text-[18px]">edit_note</span>
+<span>Ubah Data Presensi Langsung (Admin)</span>
+</button>
+</div>
+</div>
+<!-- Stats Metric Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md py-6">
+<!-- Stat 1: Pending Queue -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-lowest p-5 shadow-sm border border-outline-variant/40 flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Antrean Review</span>
+<span class="font-display-lg text-display-lg text-tertiary mt-1 font-bold">3</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">pending_actions</span>
+</div>
+</div>
+<div class="mt-4 flex items-center gap-2 text-caption-tabular font-caption-tabular text-tertiary">
+<span class="inline-flex h-2 w-2 rounded-full bg-tertiary-container animate-pulse"></span>
+<span>Memerlukan respon Admin segera</span>
+</div>
+</div>
+<!-- Stat 2: Approved Monthly -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-lowest p-5 shadow-sm border border-outline-variant/40 flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Disetujui Bulan Ini</span>
+<span class="font-display-lg text-display-lg text-primary mt-1 font-bold">18</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-primary-fixed text-on-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">task_alt</span>
+</div>
+</div>
+<div class="mt-4 flex items-center gap-1.5 text-caption-tabular font-caption-tabular text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-primary">trending_up</span>
+<span>Sinkronisasi otomatis ke rekap bulanan</span>
+</div>
+</div>
+<!-- Stat 3: Rejected -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-lowest p-5 shadow-sm border border-outline-variant/40 flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Ditolak / Batal</span>
+<span class="font-display-lg text-display-lg text-error mt-1 font-bold">2</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-error-container text-on-error-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">cancel</span>
+</div>
+</div>
+<div class="mt-4 flex items-center gap-1 text-caption-tabular font-caption-tabular text-on-surface-variant">
+<span>Alasan tidak memenuhi bukti validasi</span>
+</div>
+</div>
+<!-- Stat 4: Audit Count -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-lowest p-5 shadow-sm border border-outline-variant/40 flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Total Jejak Audit</span>
+<span class="font-display-lg text-display-lg text-secondary mt-1 font-bold">142</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">manage_history</span>
+</div>
+</div>
+<div class="mt-4 flex items-center gap-1.5 text-caption-tabular font-caption-tabular text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-secondary">security</span>
+<span>Rekaman log permanen &amp; anti-manipulasi</span>
+</div>
+</div>
+</div>
+<!-- Interactive Tabs & Filter Section -->
+<div class="flex flex-col bg-surface-container-lowest rounded-xl border border-outline-variant/40 p-4 shadow-sm mt-2 mb-6 gap-4">
+<div class="flex flex-wrap items-center justify-between gap-3 border-b border-outline-variant/20 pb-3">
+<!-- Tabs -->
+<div class="flex items-center gap-2 overflow-x-auto">
+<button class="tab-btn active inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-semibold transition-colors shadow-xs" type="button">
+<span class="material-symbols-outlined text-[18px]">rule</span>
+<span>Persetujuan Koreksi</span>
+<span class="ml-1 px-1.5 py-0.2 rounded-full bg-on-primary/20 text-on-primary font-caption-tabular text-caption-tabular">3</span>
+</button>
+<button class="tab-btn inline-flex items-center gap-2 px-3.5 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-label-md text-label-md transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">post_add</span>
+<span>Ajukan Koreksi Guru (Form Mandiri)</span>
+</button>
+<button class="tab-btn inline-flex items-center gap-2 px-3.5 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-label-md text-label-md transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+<span>Riwayat Audit Trail Terverifikasi</span>
+<span class="material-symbols-outlined text-[14px] text-primary">lock</span>
+</button>
+</div>
+<!-- Quick Reset -->
+<button class="text-caption-tabular font-caption-tabular text-on-surface-variant hover:text-primary flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">restart_alt</span>
+        Reset Filter
+      </button>
+</div>
+<!-- Search & Filter Controls -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-3">
+<div class="md:col-span-5 relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface rounded-lg border border-outline-variant/60 text-on-surface font-body-md text-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary placeholder:text-outline" placeholder="Cari nama guru, siswa, tanggal, atau nomor tiket (#KOR-...)" type="text"/>
+</div>
+<div class="md:col-span-3">
+<div class="relative">
+<select aria-label="Pilih Periode Tanggal" class="w-full px-3 py-2 bg-surface rounded-lg border border-outline-variant/60 text-on-surface font-body-md text-body-md appearance-none focus:outline-none focus:border-primary">
+<option>September 2026 (Bulan Ini)</option>
+<option>Agustus 2026</option>
+<option>Kustom Rentang Tanggal...</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-2.5 pointer-events-none text-on-surface-variant text-[18px]">calendar_today</span>
+</div>
+</div>
+<div class="md:col-span-2">
+<div class="relative">
+<select aria-label="Filter Status Koreksi" class="w-full px-3 py-2 bg-surface rounded-lg border border-outline-variant/60 text-on-surface font-body-md text-body-md appearance-none focus:outline-none focus:border-primary">
+<option>Semua Status</option>
+<option selected="">Menunggu Review</option>
+<option>Disetujui Admin</option>
+<option>Ditolak</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-2.5 pointer-events-none text-on-surface-variant text-[18px]">arrow_drop_down</span>
+</div>
+</div>
+<div class="md:col-span-2">
+<div class="relative">
+<select aria-label="Filter Tipe Pengajuan" class="w-full px-3 py-2 bg-surface rounded-lg border border-outline-variant/60 text-on-surface font-body-md text-body-md appearance-none focus:outline-none focus:border-primary">
+<option>Semua Tipe (Guru/Siswa)</option>
+<option>Hanya Guru &amp; Tendik</option>
+<option>Hanya Siswa (Wali Kelas)</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-2.5 pointer-events-none text-on-surface-variant text-[18px]">filter_list</span>
+</div>
+</div>
+</div>
+</div>
+<!-- CENTERPIECE: Side-by-Side Before vs After Visual Comparison Panel -->
+<div class="mb-8 overflow-hidden rounded-xl bg-surface-container-lowest border-2 border-primary/20 shadow-md">
+<!-- Ticket Meta Header -->
+<div class="px-6 py-4 bg-surface-container-low/60 border-b border-outline-variant/30 flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<div class="relative">
+<img class="w-12 h-12 rounded-full object-cover border-2 border-primary-fixed shadow-xs" data-alt="Potret formal Ustadzah Nurul Hidayah guru Fiqih madrasah berhijab rapi dengan latar belakang hijau institusi madrasah yang tenang dan profesional." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7KwBLPWMUAQDjslcgH0OYGU8EAPXwMo4ELP9tkJG0IzOxK5_DXcK9Ytr2WBq6kUTBK64mnflo4nM1vX5gi_DAfQa1KM6jr3xvD6LWrthnwjLZfDCzPCyu8F88DcfkLlxWpIzF6eNZzGsK8RL44ClBAjLWr4XSk9x2pZPdqTSFU4B2Hgh2tElyEeyeSqnS0TDgXNFO0S3g0fBUBNIQeu8PxxxJ0pGRO_fNrvP5cSReWnRkq2Nx0tJJBQ"/>
+<span class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-tertiary-container rounded-full border-2 border-surface-container-lowest" title="Perlu Verifikasi"></span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md text-on-surface font-semibold">Ustadzah Nurul Hidayah, S.Pd</span>
+<span class="px-2 py-0.5 rounded text-caption-tabular font-caption-tabular bg-secondary-fixed text-on-secondary-fixed font-semibold">Guru Fiqih MTs</span>
+<span class="px-2 py-0.5 rounded text-caption-tabular font-caption-tabular bg-surface-container-high text-on-surface-variant">Wali Kelas VIII-B</span>
+</div>
+<div class="flex items-center gap-3 text-caption-tabular font-caption-tabular text-on-surface-variant mt-0.5">
+<span>NIP: 198904122015052003</span>
+<span>•</span>
+<span class="font-mono">Tiket: #KOR-2026-0042</span>
+<span>•</span>
+<span>Diajukan: 24 Sep 2026 - 07:35 WIB</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[16px]">hourglass_top</span>
+          Menunggu Persetujuan Admin
+        </span>
+</div>
+</div>
+<!-- Visual Comparison Core Area -->
+<div class="p-6">
+<div class="mb-4 flex items-center justify-between">
+<div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold">
+            Perbandingan Nilai Presensi: Sebelum vs Usulan Sesudah
+          </h3>
+<p class="font-caption-tabular text-caption-tabular text-on-surface-variant">
+            Target Presensi: <span class="font-semibold text-on-surface">Kamis, 24 September 2026 (Jam Datang / Kehadiran Pagi)</span>
+</p>
+</div>
+<div class="inline-flex items-center gap-1 text-caption-tabular font-caption-tabular bg-primary-fixed/40 text-on-primary-fixed-variant px-2.5 py-1 rounded">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+          Transparan &amp; Mematuhi FS-CORR
+        </div>
+</div>
+<!-- Comparison Columns -->
+<div class="grid grid-cols-1 lg:grid-cols-11 gap-4 items-stretch">
+<!-- LEFT: Current Condition (Before) -->
+<div class="lg:col-span-5 rounded-xl bg-error-container/20 border border-error-container p-5 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-3 border-b border-error-container/60 mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-[20px]">history</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold">Kondisi Saat Ini (Tercatat Sistem)</span>
+</div>
+<span class="px-2 py-0.5 rounded text-caption-tabular font-caption-tabular font-semibold bg-error-container text-on-error-container">
+                Status Asli
+              </span>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<span class="font-body-md text-body-md text-on-surface-variant">Jam Presensi Datang:</span>
+<div class="text-right">
+<span class="font-headline-sm text-headline-sm text-error font-bold font-mono">07:18:22 WIB</span>
+<div class="text-caption-tabular font-caption-tabular text-error">Terlambat (+8 Menit dari batas 07:10)</div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-body-md text-body-md text-on-surface-variant">Status Kehadiran:</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded bg-error/15 text-error font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+                  Terlambat (Late)
+                </span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-body-md text-body-md text-on-surface-variant">Lokasi &amp; Geofence:</span>
+<div class="text-right font-caption-tabular font-caption-tabular text-on-surface">
+<span class="font-medium">Pos Gerbang Utama Madrasah</span>
+<div class="text-on-surface-variant">Radius 42m (Aman &lt; 200m)</div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-body-md text-body-md text-on-surface-variant">Metode Pencatatan:</span>
+<span class="font-caption-tabular font-caption-tabular text-on-surface-variant bg-surface-container px-2 py-0.5 rounded">
+                  Presensi Mandiri GPS Mobile
+                </span>
+</div>
+</div>
+</div>
+<div class="mt-5 pt-3 border-t border-error-container/40 text-caption-tabular font-caption-tabular text-on-surface-variant italic">
+            Terekam oleh server presensi pada 24 Sep 2026 pukul 07:18 WIB.
+          </div>
+</div>
+<!-- CENTER: Arrow Connector -->
+<div class="lg:col-span-1 flex flex-col items-center justify-center py-2 lg:py-0">
+<div class="w-10 h-10 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[24px]">trending_flat</span>
+</div>
+<span class="font-caption-tabular text-caption-tabular text-on-surface-variant mt-1 font-semibold text-center">
+            Usulan Koreksi
+          </span>
+</div>
+<!-- RIGHT: Proposed Condition (After) -->
+<div class="lg:col-span-5 rounded-xl bg-primary-fixed/20 border border-primary-fixed-dim p-5 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-3 border-b border-primary-fixed-dim/60 mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">edit_calendar</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold">Usulan Perubahan Koreksi</span>
+</div>
+<span class="px-2 py-0.5 rounded text-caption-tabular font-caption-tabular font-semibold bg-primary-fixed text-on-primary-fixed">
+                Diajukan Guru
+              </span>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<span class="font-body-md text-body-md text-on-surface-variant">Usulan Jam Datang:</span>
+<div class="text-right">
+<span class="font-headline-sm text-headline-sm text-primary font-bold font-mono">06:55:00 WIB</span>
+<div class="text-caption-tabular font-caption-tabular text-primary font-semibold">Tepat Waktu (Sebelum 07:10)</div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-body-md text-body-md text-on-surface-variant">Usulan Status:</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded bg-primary text-on-primary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                  Hadir (Present)
+                </span>
+</div>
+<div class="flex flex-col gap-1 bg-surface-container-lowest/80 p-3 rounded-lg border border-outline-variant/30">
+<div class="flex items-center gap-1.5 font-label-sm text-label-sm text-on-surface font-semibold">
+<span class="material-symbols-outlined text-tertiary text-[16px]">notes</span>
+                  Alasan Guru (BR-021):
+                </div>
+<p class="font-body-sm text-body-sm text-on-surface leading-relaxed">
+                  “Kendala GPS perangkat sempat memuat ulang (blank/reboot) saat verifikasi di pos gerbang piket pukul 06:55 WIB. Saksi piket Ustadz Fauzi di lokasi dan sudah mendampingi tadarus pagi di musholla.”
+                </p>
+</div>
+</div>
+</div>
+<div class="mt-5 pt-3 border-t border-primary-fixed-dim/40 flex items-center justify-between text-caption-tabular font-caption-tabular text-primary">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+              Dukungan data saksi piket tersedia
+            </span>
+<span class="font-semibold">Perubahan Bersifat Definitif</span>
+</div>
+</div>
+</div>
+<!-- Admin Review & Action Box -->
+<div class="mt-6 pt-5 border-t border-outline-variant/30 flex flex-col gap-4">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-2" for="admin-review-note">
+<span>Catatan Review Admin / Alasan Keputusan</span>
+<span class="text-caption-tabular font-caption-tabular text-on-surface-variant font-normal">(Wajib diisi bila menolak, opsional bila menyetujui)</span>
+</label>
+<input class="w-full px-4 py-2.5 bg-surface rounded-lg border border-outline-variant/60 text-on-surface font-body-md text-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" id="admin-review-note" placeholder="Contoh: Terverifikasi oleh catatan buku piket gerbang &amp; Ustadz Fauzi." type="text"/>
+</div>
+<div class="flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center gap-2 text-caption-tabular font-caption-tabular text-on-surface-variant max-w-xl">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0">info</span>
+<span>
+<strong>Kepatuhan BR-022:</strong> Menyetujui koreksi akan otomatis memperbarui rekaman presensi tanggal terkait dan menuliskan jejak perubahan (Before/After) ke dalam Audit Trail permanen.
+            </span>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-4 py-2.5 rounded-lg border border-error text-error hover:bg-error-container/30 font-label-md text-label-md font-semibold transition-all inline-flex items-center gap-2" id="btn-reject-correction" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+<span>Tolak Koreksi</span>
+</button>
+<button class="px-5 py-2.5 rounded-lg bg-primary-container text-on-primary hover:bg-primary font-label-md text-label-md font-semibold transition-all inline-flex items-center gap-2 shadow-sm" id="btn-approve-correction" type="button">
+<span class="material-symbols-outlined text-[18px]">check</span>
+<span>Setujui Koreksi &amp; Terapkan Perubahan</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Data Table: Corrections Queue & History -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/40 shadow-sm overflow-hidden mb-8">
+<div class="px-6 py-4 border-b border-outline-variant/30 flex flex-wrap items-center justify-between gap-3">
+<div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold">Daftar Pengajuan Koreksi Presensi</h3>
+<p class="font-caption-tabular text-caption-tabular text-on-surface-variant">Menampilkan tiket pengajuan aktif, riwayat approval guru dan siswa.</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container text-on-surface font-caption-tabular text-caption-tabular hover:bg-surface-container-high transition-colors flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+          Ekspor Daftar (.xlsx)
+        </button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant text-caption-tabular font-caption-tabular uppercase tracking-wider font-semibold border-b border-outline-variant/30">
+<th class="py-3 px-4">Pegawai / Siswa</th>
+<th class="py-3 px-4">Tanggal &amp; Kategori</th>
+<th class="py-3 px-4">Nilai Tercatat → Usulan</th>
+<th class="py-3 px-4">Alasan Ringkas</th>
+<th class="py-3 px-4">Status Verifikasi</th>
+<th class="py-3 px-4 text-center">Aksi / Rincian</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20 text-body-md font-body-md text-on-surface">
+<!-- Row 1: Nurul Hidayah (Active Ticket) -->
+<tr class="hover:bg-primary-fixed/10 transition-colors bg-primary-fixed/5">
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center font-bold text-caption-tabular font-caption-tabular">
+                  NH
+                </div>
+<div>
+<div class="font-semibold text-on-surface">Ustadzah Nurul Hidayah, S.Pd</div>
+<div class="text-caption-tabular font-caption-tabular text-on-surface-variant font-mono">#KOR-2026-0042 • Guru MTs</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-4">
+<div class="font-medium">24 Sep 2026</div>
+<span class="text-caption-tabular font-caption-tabular text-primary font-semibold">Presensi Datang</span>
+</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-1 font-mono text-caption-tabular font-caption-tabular">
+<span class="text-error line-through">07:18</span>
+<span class="material-symbols-outlined text-[14px]">arrow_right_alt</span>
+<span class="text-primary font-bold">06:55</span>
+</div>
+</td>
+<td class="py-3 px-4 max-w-xs truncate text-caption-tabular font-caption-tabular text-on-surface-variant" title="Kendala GPS perangkat sempat memuat ulang saat verifikasi di pos gerbang piket...">
+              Kendala GPS perangkat saat verifikasi di gerbang...
+            </td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-caption-tabular text-caption-tabular font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                Menunggu Review
+              </span>
+</td>
+<td class="py-3 px-4 text-center">
+<button class="px-3 py-1 rounded bg-primary text-on-primary text-caption-tabular font-caption-tabular font-semibold hover:bg-primary/90 transition-colors" type="button">
+                Sedang Ditinjau
+              </button>
+</td>
+</tr>
+<!-- Row 2: M. Ridwan Hakim -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-bold text-caption-tabular font-caption-tabular">
+                  RH
+                </div>
+<div>
+<div class="font-semibold text-on-surface">Ustadz M. Ridwan Hakim, M.Pd</div>
+<div class="text-caption-tabular font-caption-tabular text-on-surface-variant font-mono">#KOR-2026-0041 • Guru MA</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-4">
+<div class="font-medium">23 Sep 2026</div>
+<span class="text-caption-tabular font-caption-tabular text-secondary font-semibold">Presensi Pulang</span>
+</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-1 font-mono text-caption-tabular font-caption-tabular">
+<span class="text-error">[KOSONG]</span>
+<span class="material-symbols-outlined text-[14px]">arrow_right_alt</span>
+<span class="text-primary font-bold">15:05</span>
+</div>
+</td>
+<td class="py-3 px-4 max-w-xs truncate text-caption-tabular font-caption-tabular text-on-surface-variant" title="Lupa absen kepulangan karena rapat wali santri hingga ashar.">
+              Lupa absen kepulangan karena rapat wali santri...
+            </td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-caption-tabular text-caption-tabular font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                Menunggu Review
+              </span>
+</td>
+<td class="py-3 px-4 text-center">
+<button class="px-3 py-1 rounded bg-surface-container-high text-on-surface text-caption-tabular font-caption-tabular font-semibold hover:bg-primary-container hover:text-on-primary transition-colors" type="button">
+                Tinjau Sekarang
+              </button>
+</td>
+</tr>
+<!-- Row 3: Siswa via Wali Kelas -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface flex items-center justify-center font-bold text-caption-tabular font-caption-tabular">
+                  AF
+                </div>
+<div>
+<div class="font-semibold text-on-surface">Ahmad Faiz Al-Habsyi</div>
+<div class="text-caption-tabular font-caption-tabular text-on-surface-variant">NISN: 008742910 • Kelas IX-A (via Wali)</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-4">
+<div class="font-medium">22 Sep 2026</div>
+<span class="text-caption-tabular font-caption-tabular text-on-surface-variant font-semibold">Harian Penuh</span>
+</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-1 font-mono text-caption-tabular font-caption-tabular">
+<span class="text-error">Alpa (A)</span>
+<span class="material-symbols-outlined text-[14px]">arrow_right_alt</span>
+<span class="text-secondary font-bold">Sakit (S)</span>
+</div>
+</td>
+<td class="py-3 px-4 max-w-xs truncate text-caption-tabular font-caption-tabular text-on-surface-variant" title="Surat dokter RSUD susulan diserahkan wali murid ke wali kelas.">
+              Surat dokter RSUD susulan diserahkan wali murid...
+            </td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-caption-tabular text-caption-tabular font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                Menunggu Review
+              </span>
+</td>
+<td class="py-3 px-4 text-center">
+<button class="px-3 py-1 rounded bg-surface-container-high text-on-surface text-caption-tabular font-caption-tabular font-semibold hover:bg-primary-container hover:text-on-primary transition-colors" type="button">
+                Tinjau Sekarang
+              </button>
+</td>
+</tr>
+<!-- Row 4: Approved Item -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface flex items-center justify-center font-bold text-caption-tabular font-caption-tabular">
+                  DS
+                </div>
+<div>
+<div class="font-semibold text-on-surface">Ustadzah Dewi Sartika</div>
+<div class="text-caption-tabular font-caption-tabular text-on-surface-variant">Guru Bahasa Arab • MTs</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-4">
+<div class="font-medium">21 Sep 2026</div>
+<span class="text-caption-tabular font-caption-tabular text-primary font-semibold">Presensi Datang</span>
+</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-1 font-mono text-caption-tabular font-caption-tabular">
+<span class="text-error line-through">07:22</span>
+<span class="material-symbols-outlined text-[14px]">arrow_right_alt</span>
+<span class="text-primary font-bold">Hadir Piket</span>
+</div>
+</td>
+<td class="py-3 px-4 max-w-xs truncate text-caption-tabular font-caption-tabular text-on-surface-variant" title="Tugas piket penyambutan santri di asrama putra sejak 06:30.">
+              Tugas piket penyambutan santri di asrama putra...
+            </td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-caption-tabular text-caption-tabular font-semibold">
+<span class="material-symbols-outlined text-[13px]">check</span>
+                Disetujui Admin
+              </span>
+</td>
+<td class="py-3 px-4 text-center">
+<button class="text-caption-tabular font-caption-tabular text-secondary font-semibold hover:underline flex items-center justify-center gap-1 mx-auto" type="button">
+<span class="material-symbols-outlined text-[14px]">receipt</span>
+                Log Audit
+              </button>
+</td>
+</tr>
+<!-- Row 5: Rejected Item -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-error-container/50 text-on-error-container flex items-center justify-center font-bold text-caption-tabular font-caption-tabular">
+                  ZK
+                </div>
+<div>
+<div class="font-semibold text-on-surface">Ustadz Zulkifli</div>
+<div class="text-caption-tabular font-caption-tabular text-on-surface-variant">Guru Sejarah Kebudayaan Islam</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-4">
+<div class="font-medium">20 Sep 2026</div>
+<span class="text-caption-tabular font-caption-tabular text-primary font-semibold">Presensi Datang</span>
+</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-1 font-mono text-caption-tabular font-caption-tabular">
+<span class="text-error">07:35</span>
+<span class="material-symbols-outlined text-[14px]">arrow_right_alt</span>
+<span class="text-on-surface line-through">07:00</span>
+</div>
+</td>
+<td class="py-3 px-4 max-w-xs truncate text-caption-tabular font-caption-tabular text-on-surface-variant" title="Macet jalan raya jembatan timur.">
+              Macet jalan raya jembatan timur...
+            </td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-error-container text-on-error-container font-caption-tabular text-caption-tabular font-semibold">
+<span class="material-symbols-outlined text-[13px]">close</span>
+                Ditolak
+              </span>
+</td>
+<td class="py-3 px-4 text-center">
+<button class="text-caption-tabular font-caption-tabular text-on-surface-variant hover:text-on-surface flex items-center justify-center gap-1 mx-auto" type="button">
+<span class="material-symbols-outlined text-[14px]">info</span>
+                Rincian
+              </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Business Audit Trail Log Section (BR-020 to BR-024) -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/40 shadow-sm p-6 mb-8">
+<div class="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-outline-variant/30">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[24px] text-secondary">manage_search</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">
+            Jejak Rekam Audit Bisnis (Business Audit Trail)
+          </h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Catatan kronologis immutable atas setiap aksi modifikasi, persetujuan, dan intervensi data presensi madrasah.
+        </p>
+</div>
+<!-- Access Badge (BR-023) -->
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-high border border-outline-variant/50">
+<span class="material-symbols-outlined text-tertiary text-[18px]">admin_panel_settings</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">
+          Hak Akses Terbatas: Hanya Admin &amp; Kepala Madrasah (BR-023)
+        </span>
+</div>
+</div>
+<!-- Regulatory Privacy Notice -->
+<div class="mt-4 mb-6 p-3.5 rounded-lg bg-secondary-fixed/20 border border-secondary-fixed flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-[20px] shrink-0 mt-0.5">privacy_tip</span>
+<div class="font-caption-tabular text-caption-tabular text-on-secondary-fixed-variant leading-relaxed">
+<strong>Kepatuhan Standar Audit &amp; Privasi:</strong> Audit trail mencatat pelaku (Actor ID &amp; Nama), stempel waktu absolut (Timestamp), aksi administratif, dan perbandingan nilai <em>Sebelum vs Sesudah</em>. Sesuai regulasi privasi data sekolah, detail hardware/perangkat fisik siswa/guru tidak diekspos ke publik laporan.
+      </div>
+</div>
+<!-- Audit Timeline List -->
+<div class="space-y-4">
+<!-- Item 1: Approval Action -->
+<div class="p-4 rounded-xl bg-surface-container-low/50 border border-outline-variant/30 flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-start gap-3.5">
+<div class="w-10 h-10 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">assignment_turned_in</span>
+</div>
+<div class="flex flex-col">
+<div class="flex flex-wrap items-center gap-2">
+<span class="font-label-md text-label-md text-on-surface font-bold">Approval Koreksi Jam Pulang</span>
+<span class="px-2 py-0.2 rounded text-caption-tabular font-caption-tabular bg-primary/10 text-primary font-semibold">SUCCESS</span>
+<span class="text-caption-tabular font-caption-tabular text-on-surface-variant font-mono">ID: #AUD-20260924-0091</span>
+</div>
+<div class="text-body-sm font-body-sm text-on-surface mt-1">
+<strong>Pelaku:</strong> Ahmad Fauzi (Admin Utama) • <strong>Entitas Target:</strong> Ustadz Ridwan Hakim (NIP: 198203112009121002)
+            </div>
+<div class="mt-2 flex flex-wrap items-center gap-2 text-caption-tabular font-caption-tabular">
+<span class="text-on-surface-variant">Perubahan Nilai:</span>
+<span class="px-2 py-0.5 rounded bg-error-container text-on-error-container font-mono">status: BELUM_ABSEN_PULANG</span>
+<span class="material-symbols-outlined text-[14px]">arrow_right_alt</span>
+<span class="px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-mono font-bold">status: HADIR (15:05:00 WIB)</span>
+</div>
+</div>
+</div>
+<div class="flex md:flex-col items-end justify-between md:justify-center text-right shrink-0 border-t md:border-t-0 pt-2 md:pt-0 border-outline-variant/30">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold font-mono">24 Sep 2026 • 08:30:14 WIB</span>
+<span class="text-caption-tabular font-caption-tabular text-on-surface-variant">Metode: Approval Tiket Koreksi</span>
+</div>
+</div>
+<!-- Item 2: Direct Edit Admin (BR-020) -->
+<div class="p-4 rounded-xl bg-surface-container-low/50 border border-outline-variant/30 flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-start gap-3.5">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">edit_calendar</span>
+</div>
+<div class="flex flex-col">
+<div class="flex flex-wrap items-center gap-2">
+<span class="font-label-md text-label-md text-on-surface font-bold">Direct Edit Presensi Admin (BR-020)</span>
+<span class="px-2 py-0.2 rounded text-caption-tabular font-caption-tabular bg-secondary/15 text-secondary font-semibold">ADMIN OVERRIDE</span>
+<span class="text-caption-tabular font-caption-tabular text-on-surface-variant font-mono">ID: #AUD-20260923-0044</span>
+</div>
+<div class="text-body-sm font-body-sm text-on-surface mt-1">
+<strong>Pelaku:</strong> Ahmad Fauzi (Admin Utama) • <strong>Entitas Target:</strong> Siswa Salman Al-Farisi (NISN: 0089412033 - X IPA 1)
+            </div>
+<div class="mt-2 flex flex-wrap items-center gap-2 text-caption-tabular font-caption-tabular">
+<span class="text-on-surface-variant">Perubahan Nilai:</span>
+<span class="px-2 py-0.5 rounded bg-error-container text-on-error-container font-mono">status: ALPA</span>
+<span class="material-symbols-outlined text-[14px]">arrow_right_alt</span>
+<span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-mono font-bold">status: IZIN_DISAHKAN</span>
+</div>
+<div class="text-caption-tabular font-caption-tabular text-on-surface-variant mt-1 italic">
+              Catatan Admin: “Koreksi langsung tanpa tiket mandiri, surat keterangan izin wali santri diserahkan fisik ke TU.”
+            </div>
+</div>
+</div>
+<div class="flex md:flex-col items-end justify-between md:justify-center text-right shrink-0 border-t md:border-t-0 pt-2 md:pt-0 border-outline-variant/30">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold font-mono">23 Sep 2026 • 16:15:02 WIB</span>
+<span class="text-caption-tabular font-caption-tabular text-on-surface-variant">Kewenangan: Super Admin TU</span>
+</div>
+</div>
+<!-- Item 3: Headmaster Approval Revoke -->
+<div class="p-4 rounded-xl bg-surface-container-low/50 border border-outline-variant/30 flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-start gap-3.5">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">gavel</span>
+</div>
+<div class="flex flex-col">
+<div class="flex flex-wrap items-center gap-2">
+<span class="font-label-md text-label-md text-on-surface font-bold">Approval Pembatalan Izin Tugas Luar</span>
+<span class="px-2 py-0.2 rounded text-caption-tabular font-caption-tabular bg-tertiary-container/20 text-tertiary font-semibold">REVOKED</span>
+<span class="text-caption-tabular font-caption-tabular text-on-surface-variant font-mono">ID: #AUD-20260922-0012</span>
+</div>
+<div class="text-body-sm font-body-sm text-on-surface mt-1">
+<strong>Pelaku:</strong> Drs. KH. Mansyur (Kepala Madrasah) • <strong>Entitas Target:</strong> Ustadz Fauzi (Wakasek Kurikulum)
+            </div>
+<div class="mt-2 flex flex-wrap items-center gap-2 text-caption-tabular font-caption-tabular">
+<span class="text-on-surface-variant">Perubahan Nilai:</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-mono">status: DINAS_LUAR</span>
+<span class="material-symbols-outlined text-[14px]">arrow_right_alt</span>
+<span class="px-2 py-0.5 rounded bg-tertiary-fixed text-on-tertiary-fixed font-mono font-bold">status: PENDING_REVIEW</span>
+</div>
+</div>
+</div>
+<div class="flex md:flex-col items-end justify-between md:justify-center text-right shrink-0 border-t md:border-t-0 pt-2 md:pt-0 border-outline-variant/30">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold font-mono">22 Sep 2026 • 09:10:45 WIB</span>
+<span class="text-caption-tabular font-caption-tabular text-on-surface-variant">Kewenangan: Kepala Madrasah</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Teacher Submission Guide & Form Preview (Instructional Card) -->
+<div class="bg-gradient-to-r from-surface-container-low to-surface-container-lowest rounded-xl border border-outline-variant/40 p-6 shadow-sm mb-6">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">help_center</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold">Panduan Sederhana: 3 Langkah Pengajuan Koreksi Mandiri Guru</h3>
+<p class="font-caption-tabular text-caption-tabular text-on-surface-variant">Dirancang ringkas agar mudah dipahami guru senior maupun staf tata usaha baru.</p>
+</div>
+</div>
+<span class="text-caption-tabular font-caption-tabular font-semibold text-primary">Sesuai BR-021</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<!-- Step 1 -->
+<div class="p-4 rounded-lg bg-surface-container-lowest border border-outline-variant/30 flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-primary-fixed text-on-primary-fixed font-caption-tabular text-caption-tabular font-bold flex items-center justify-center">1</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Pilih Tanggal &amp; Sesi</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Pilih tanggal presensi yang ingin dikoreksi serta tentukan kategorinya (Jam Datang atau Jam Kepulangan).
+        </p>
+</div>
+<!-- Step 2 -->
+<div class="p-4 rounded-lg bg-surface-container-lowest border border-outline-variant/30 flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-primary-fixed text-on-primary-fixed font-caption-tabular text-caption-tabular font-bold flex items-center justify-center">2</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Tentukan Usulan Waktu</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Masukkan jam kehadiran aktual yang benar atau usulkan perubahan status (misal: Terlambat → Hadir Tepat Waktu).
+        </p>
+</div>
+<!-- Step 3 -->
+<div class="p-4 rounded-lg bg-surface-container-lowest border border-outline-variant/30 flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-primary-fixed text-on-primary-fixed font-caption-tabular text-caption-tabular font-bold flex items-center justify-center">3</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Isi Alasan (Opsional)</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Tuliskan catatan singkat kendala (misal: GPS perangkat bermasalah, mati lampu, atau mendampingi santri piket).
+        </p>
+</div>
+</div>
+</div>
+<!-- MODAL 1: Form Pengajuan Koreksi Guru (Hidden by default, toggled via JS) -->
+<div class="fixed inset-0 z-50 bg-inverse-surface/40 backdrop-blur-xs hidden flex items-center justify-center p-4" id="modal-teacher-form">
+<div class="bg-surface-container-lowest rounded-xl max-w-lg w-full p-6 shadow-2xl border border-outline-variant/40 animate-in fade-in zoom-in-95 duration-150">
+<div class="flex items-center justify-between pb-3 border-b border-outline-variant/30">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-primary-fixed text-on-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">post_add</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold">Form Pengajuan Koreksi Presensi Guru</h3>
+<span class="text-caption-tabular font-caption-tabular text-on-surface-variant">Tiket Baru • Kepatuhan BR-021</span>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface p-1" id="btn-close-modal-teacher" type="button">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<form class="mt-4 space-y-4" id="form-submit-correction">
+<!-- Field 1: Tanggal & Sesi -->
+<div class="grid grid-cols-2 gap-3">
+<div>
+<label class="block font-label-md text-label-md text-on-surface font-semibold mb-1">Tanggal Presensi</label>
+<input class="w-full px-3 py-2 bg-surface rounded-lg border border-outline-variant/60 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary" type="date" value="2026-09-24"/>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface font-semibold mb-1">Sesi Presensi</label>
+<select class="w-full px-3 py-2 bg-surface rounded-lg border border-outline-variant/60 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary">
+<option>Jam Datang (Masuk)</option>
+<option>Jam Pulang</option>
+</select>
+</div>
+</div>
+<!-- Field 2: Jam Koreksi yang diusulkan -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface font-semibold mb-1">Usulan Jam Kehadiran yang Benar</label>
+<div class="relative">
+<input class="w-full px-3 py-2 bg-surface rounded-lg border border-outline-variant/60 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary font-mono" type="time" value="06:55"/>
+<span class="material-symbols-outlined absolute right-3 top-2.5 pointer-events-none text-on-surface-variant text-[18px]">schedule</span>
+</div>
+<span class="text-caption-tabular font-caption-tabular text-on-surface-variant mt-1 block">Waktu tercatat saat ini: 07:18 WIB (Terlambat)</span>
+</div>
+<!-- Field 3: Usulan Status -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface font-semibold mb-1">Usulan Status Akhir</label>
+<select class="w-full px-3 py-2 bg-surface rounded-lg border border-outline-variant/60 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary">
+<option selected="">Hadir (Tepat Waktu)</option>
+<option>Tugas Luar / Dinas</option>
+<option>Izin Dinas</option>
+</select>
+</div>
+<!-- Field 4: Catatan / Alasan (BR-021) -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface font-semibold mb-1">
+            Alasan Pengajuan Koreksi
+            <span class="text-caption-tabular font-caption-tabular text-on-surface-variant font-normal">(Opsional - BR-021)</span>
+</label>
+<textarea class="w-full px-3 py-2 bg-surface rounded-lg border border-outline-variant/60 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary" placeholder="Jelaskan secara ringkas kendala atau saksi yang ada saat kehadiran..." rows="3"></textarea>
+</div>
+<!-- Notification banner inside modal -->
+<div class="p-3 rounded-lg bg-surface-container-low text-caption-tabular font-caption-tabular text-on-surface-variant flex items-start gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary shrink-0 mt-0.5">info</span>
+<span>Pengajuan akan masuk ke antrean admin dan Kepala Madrasah. Data tidak akan berubah sampai disetujui.</span>
+</div>
+<!-- Modal Actions -->
+<div class="flex items-center justify-end gap-2 pt-2 border-t border-outline-variant/30">
+<button class="px-4 py-2 rounded-lg border border-outline-variant/60 text-on-surface font-label-md text-label-md hover:bg-surface-container transition-colors" id="btn-cancel-modal-teacher" type="button">
+            Batal
+          </button>
+<button class="px-4 py-2 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md font-semibold hover:bg-primary transition-colors flex items-center gap-1.5 shadow-sm" type="submit">
+<span class="material-symbols-outlined text-[18px]">send</span>
+            Kirim Pengajuan Koreksi ke Admin
+          </button>
+</div>
+</form>
+</div>
+</div>
+<!-- MODAL 2: Admin Direct Edit Modal (BR-020) -->
+<div class="fixed inset-0 z-50 bg-inverse-surface/40 backdrop-blur-xs hidden flex items-center justify-center p-4" id="modal-admin-edit">
+<div class="bg-surface-container-lowest rounded-xl max-w-lg w-full p-6 shadow-2xl border-2 border-secondary/30 animate-in fade-in zoom-in-95 duration-150">
+<div class="flex items-center justify-between pb-3 border-b border-outline-variant/30">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">admin_panel_settings</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold">Ubah Data Presensi Langsung (Admin Direct Edit)</h3>
+<span class="text-caption-tabular font-caption-tabular text-secondary font-semibold">Kewenangan Khusus: BR-020</span>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface p-1" id="btn-close-modal-admin" type="button">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="mt-4 space-y-4">
+<div class="p-3 rounded-lg bg-secondary-fixed/20 text-caption-tabular font-caption-tabular text-on-secondary-fixed-variant">
+          Tindakan ini langsung memperbarui database kehadiran tanpa memerlukan pengajuan mandiri dari guru/siswa. Seluruh data lama dan baru wajib tercatat dalam audit log.
+        </div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface font-semibold mb-1">Cari Guru atau Siswa Target</label>
+<input class="w-full px-3 py-2 bg-surface rounded-lg border border-outline-variant/60 font-body-md text-body-md text-on-surface" placeholder="Ketik nama atau NIP/NISN..." type="text" value="Salman Al-Farisi (NISN: 0089412033)"/>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div>
+<label class="block font-label-md text-label-md text-on-surface font-semibold mb-1">Pilih Tanggal</label>
+<input class="w-full px-3 py-2 bg-surface rounded-lg border border-outline-variant/60 font-body-md text-body-md text-on-surface" type="date" value="2026-09-23"/>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface font-semibold mb-1">Ubah Status Menjadi</label>
+<select class="w-full px-3 py-2 bg-surface rounded-lg border border-outline-variant/60 font-body-md text-body-md text-on-surface">
+<option>Hadir</option>
+<option selected="">Izin Disahkan (Surat Fisik)</option>
+<option>Sakit (Surat Dokter)</option>
+<option>Tugas Dinas</option>
+</select>
+</div>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface font-semibold mb-1">Alasan Koreksi Langsung (Wajib)</label>
+<textarea class="w-full px-3 py-2 bg-surface rounded-lg border border-outline-variant/60 font-body-md text-body-md text-on-surface" placeholder="Surat keterangan diserahkan wali santri langsung ke Tata Usaha..." rows="2"></textarea>
+</div>
+<div class="flex items-center justify-end gap-2 pt-2 border-t border-outline-variant/30">
+<button class="px-4 py-2 rounded-lg border border-outline-variant/60 text-on-surface font-label-md text-label-md hover:bg-surface-container transition-colors" id="btn-cancel-modal-admin" type="button">
+            Batal
+          </button>
+<button class="px-4 py-2 rounded-lg bg-secondary text-on-secondary font-label-md text-label-md font-semibold hover:bg-secondary/90 transition-colors flex items-center gap-1.5" id="btn-save-admin-direct" type="button">
+<span class="material-symbols-outlined text-[18px]">save</span>
+            Simpan Perubahan &amp; Catat Audit
+          </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Toast Notification Feedback Area -->
+<div class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none" id="action-toast">
+<div class="bg-inverse-surface text-inverse-on-surface px-5 py-3 rounded-xl shadow-xl flex items-center gap-3 border border-outline/30">
+<span class="material-symbols-outlined text-primary-fixed text-[22px]" id="toast-icon">check_circle</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold" id="toast-title">Berhasil</span>
+<span class="font-caption-tabular text-caption-tabular opacity-90" id="toast-desc">Tindakan telah berhasil diproses ke database dan log audit.</span>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Simple interactive handling for modal display, approval actions, and feedback
+  const teacherModal = document.getElementById('modal-teacher-form');
+  const adminModal = document.getElementById('modal-admin-edit');
+  const toast = document.getElementById('action-toast');
+  const toastTitle = document.getElementById('toast-title');
+  const toastDesc = document.getElementById('toast-desc');
+  const toastIcon = document.getElementById('toast-icon');
+
+  function showToast(title, desc, icon = 'check_circle', iconColor = 'text-primary-fixed') {
+    if (!toast) return;
+    toastTitle.textContent = title;
+    toastDesc.textContent = desc;
+    toastIcon.textContent = icon;
+    toastIcon.className = `material-symbols-outlined text-[22px] ${iconColor}`;
+    
+    toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+    setTimeout(() => {
+      toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+    }, 4000);
+  }
+
+  // Teacher modal triggers
+  document.getElementById('btn-open-teacher-modal')?.addEventListener('click', () => {
+    teacherModal?.classList.remove('hidden');
+  });
+  document.getElementById('btn-close-modal-teacher')?.addEventListener('click', () => {
+    teacherModal?.classList.add('hidden');
+  });
+  document.getElementById('btn-cancel-modal-teacher')?.addEventListener('click', () => {
+    teacherModal?.classList.add('hidden');
+  });
+
+  // Admin Direct Edit triggers
+  document.getElementById('btn-admin-direct-edit')?.addEventListener('click', () => {
+    adminModal?.classList.remove('hidden');
+  });
+  document.getElementById('btn-close-modal-admin')?.addEventListener('click', () => {
+    adminModal?.classList.add('hidden');
+  });
+  document.getElementById('btn-cancel-modal-admin')?.addEventListener('click', () => {
+    adminModal?.classList.add('hidden');
+  });
+
+  // Save Direct Edit
+  document.getElementById('btn-save-admin-direct')?.addEventListener('click', () => {
+    adminModal?.classList.add('hidden');
+    showToast('Direct Edit Berhasil', 'Data presensi diperbarui & terekam di Audit Trail (BR-020).', 'admin_panel_settings', 'text-secondary-fixed');
+  });
+
+  // Form submit correction simulation
+  document.getElementById('form-submit-correction')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    teacherModal?.classList.add('hidden');
+    showToast('Pengajuan Terkirim', 'Tiket #KOR-2026-0043 telah dibuat dan masuk antrean persetujuan admin.', 'mark_email_read');
+  });
+
+  // Centerpiece Approval / Rejection actions
+  document.getElementById('btn-approve-correction')?.addEventListener('click', () => {
+    showToast('Koreksi Disetujui!', 'Presensi Ustadzah Nurul Hidayah kini: 06:55 WIB (Hadir). Audit log dibuat.', 'verified', 'text-primary-fixed');
+  });
+
+  document.getElementById('btn-reject-correction')?.addEventListener('click', () => {
+    const note = document.getElementById('admin-review-note')?.value;
+    if (!note) {
+      alert('Mohon isi catatan review admin terlebih dahulu bila menolak pengajuan.');
+      document.getElementById('admin-review-note')?.focus();
+      return;
+    }
+    showToast('Koreksi Ditolak', 'Tiket ditandai ditolak dengan catatan yang tersimpan.', 'cancel', 'text-error');
+  });
+
+  // Interactive Tab visual switcher
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabBtns.forEach(b => {
+        b.classList.remove('bg-primary', 'text-on-primary', 'font-semibold', 'shadow-xs');
+        b.classList.add('text-on-surface-variant');
+      });
+      btn.classList.remove('text-on-surface-variant');
+      btn.classList.add('bg-primary', 'text-on-primary', 'font-semibold', 'shadow-xs');
+    });
+  });
+</script></main></div></body></html>

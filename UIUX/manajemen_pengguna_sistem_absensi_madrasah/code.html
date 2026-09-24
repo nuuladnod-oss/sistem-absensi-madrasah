@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>App Shell &amp; Sistem Navigasi Responsif — Sistem Absensi Madrasah</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#ebf7f2',
+              100: '#d1efe3',
+              500: '#13795b',
+              600: '#0e6249',
+              700: '#0b4e3a',
+              900: '#06291e',
+            },
+            surface: {
+              canvas: '#f8fafc',
+              card: '#ffffff',
+              border: '#e2e8f0',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Custom scrollbar for clean shallow navigation */
+    ::-webkit-scrollbar { width: 5px; height: 5px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+  </style>
+<meta content="web_dashboard" name="shell-type"/></head>
+<body class="bg-slate-100 text-slate-800 font-sans antialiased min-h-screen p-4 md:p-8">
+<!-- TOP BAR KONTROL SWITCHER PREVIEW PERAN -->
+<header class="max-w-7xl mx-auto mb-8 bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-brand-500 text-white flex items-center justify-center font-bold text-lg shadow-sm">
+          M
+        </div>
+<div>
+<div class="flex items-center gap-2">
+<h1 class="text-xl font-bold text-slate-900 tracking-tight">Sistem Absensi Madrasah — Desain App Shell</h1>
+<span class="text-xs font-semibold px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200">Production Shell Spec</span>
+</div>
+<p class="text-xs text-slate-500 mt-0.5">Spesifikasi App Shell Responsif (Desktop Sidebar, Top Bar, Periode Akademik Aktif &amp; Navigasi Mobile Android)</p>
+</div>
+</div>
+<!-- Quick Role Toggle Buttons -->
+<div class="flex flex-wrap items-center gap-2 bg-slate-50 p-1.5 rounded-xl border border-slate-200">
+<span class="text-xs font-semibold text-slate-500 px-2">Lihat Peran:</span>
+<button class="role-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-brand-500 text-white shadow-xs" id="btn-admin" onclick="switchRole('admin')">Admin</button>
+<button class="role-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200" id="btn-guru" onclick="switchRole('guru')">Guru</button>
+<button class="role-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200" id="btn-walikelas" onclick="switchRole('walikelas')">Wali Kelas</button>
+<button class="role-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200" id="btn-siswa" onclick="switchRole('siswa')">Siswa</button>
+<button class="role-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200" id="btn-kepala" onclick="switchRole('kepala')">Kepala Madrasah</button>
+</div>
+</div>
+<!-- Active Metadata & Constraint Notes -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-4 text-xs">
+<div class="flex items-center gap-2 text-slate-600">
+<svg class="w-4 h-4 text-brand-500 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span>Periode Aktif: <strong class="text-slate-800 font-semibold">2026/2027 Ganjil</strong></span>
+</div>
+<div class="flex items-center gap-2 text-slate-600">
+<svg class="w-4 h-4 text-emerald-600 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span>Geofence Madrasah: <strong class="text-slate-800 font-semibold">200m (Radius Aman)</strong></span>
+</div>
+<div class="flex items-center gap-2 text-slate-600">
+<svg class="w-4 h-4 text-indigo-500 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span>Android Optimasi: <strong class="text-slate-800 font-semibold">Min 44px Touch Target</strong></span>
+</div>
+<div class="flex items-center gap-2 text-slate-600">
+<svg class="w-4 h-4 text-amber-500 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span>Navigasi Dangkal: <strong class="text-slate-800 font-semibold">Strict 0-Nesting (1-Click)</strong></span>
+</div>
+</div>
+</header>
+<!-- MAIN DUAL VIEW: DESKTOP SHELL + ANDROID MOBILE SHELL -->
+<main class="max-w-7xl mx-auto space-y-12"><div class="flex flex-col w-full font-body-md text-on-surface">
+<!-- TOP HEADER CONTEXT BAR -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-surface-container-lowest p-6 rounded-xl shadow-sm mb-6">
+<div class="space-y-1">
+<div class="flex flex-wrap items-center gap-3">
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Manajemen Pengguna &amp; Hak Akses</h2>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-primary text-base">calendar_month</span>
+          Periode: 2026/2027 Ganjil
+        </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-2xl">
+        Kelola akun pengguna madrasah, penetapan peran ganda (multi-role), serta status aktivasi login sistem absensi.
+      </p>
+</div>
+<div class="flex items-center gap-3 shrink-0">
+<button class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-lg text-label-lg shadow-sm transition" onclick="alert('Buka dialog unduh template dan import file Excel (.xlsx).')">
+<span class="material-symbols-outlined text-lg">upload_file</span>
+<span>Import Akun (Excel)</span>
+</button>
+<button class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-primary-container hover:bg-primary text-on-primary font-label-lg text-label-lg shadow-sm transition" onclick="document.getElementById('modal-add-user').classList.remove('hidden')">
+<span class="material-symbols-outlined text-lg">person_add</span>
+<span>+ Tambah Pengguna Baru</span>
+</button>
+</div>
+</div>
+<!-- STATS OVERVIEW CARDS (SIMPLE BENTO) -->
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+<div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm flex items-center justify-between">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Total Akun</p>
+<p class="font-headline-lg text-headline-lg text-on-surface mt-1">454</p>
+</div>
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl">groups</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm flex items-center justify-between">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Guru &amp; Staf</p>
+<p class="font-headline-lg text-headline-lg text-on-surface mt-1">38 <span class="font-body-sm text-body-sm text-on-surface-variant font-normal">Aktif</span></p>
+</div>
+<div class="w-12 h-12 rounded-xl bg-secondary-fixed flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-2xl">school</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm flex items-center justify-between">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Wali Kelas</p>
+<p class="font-headline-lg text-headline-lg text-on-surface mt-1">12 <span class="font-body-sm text-body-sm text-on-surface-variant font-normal">Rombel</span></p>
+</div>
+<div class="w-12 h-12 rounded-xl bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl">assignment_ind</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm flex items-center justify-between">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Akun Nonaktif</p>
+<p class="font-headline-lg text-headline-lg text-tertiary mt-1">3</p>
+</div>
+<div class="w-12 h-12 rounded-xl bg-tertiary-fixed flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-2xl">person_off</span>
+</div>
+</div>
+</div>
+<!-- SEARCH & FILTER TOOLBAR -->
+<div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm mb-6 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
+<div class="flex-1 relative">
+<span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-11 pr-4 py-2.5 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:bg-surface-container-lowest focus:shadow-sm outline-none transition" id="search-input" placeholder="Cari nama, email, NIK, atau NISN pengguna..." type="text"/>
+</div>
+<div class="flex flex-wrap items-center gap-3">
+<div class="relative">
+<select class="appearance-none bg-surface-container-low text-on-surface font-label-md text-label-md px-4 py-2.5 pr-9 rounded-lg outline-none cursor-pointer" id="filter-role">
+<option value="">Semua Peran (Role)</option>
+<option value="Admin">Administrator</option>
+<option value="Guru">Guru</option>
+<option value="Wali Kelas">Wali Kelas</option>
+<option value="Siswa">Siswa</option>
+<option value="Kepala">Kepala Madrasah</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-lg">expand_more</span>
+</div>
+<div class="relative">
+<select class="appearance-none bg-surface-container-low text-on-surface font-label-md text-label-md px-4 py-2.5 pr-9 rounded-lg outline-none cursor-pointer" id="filter-status">
+<option value="">Semua Status</option>
+<option value="Aktif">Aktif</option>
+<option value="Nonaktif">Nonaktif</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-lg">expand_more</span>
+</div>
+<div class="text-right pl-2 hidden sm:block">
+<span class="font-caption-tabular text-caption-tabular text-on-surface-variant font-mono">
+          Menampilkan <strong class="text-on-surface font-bold">6</strong> dari 454 Akun
+        </span>
+</div>
+</div>
+</div>
+<!-- SPLIT VIEW: DESKTOP TABULAR VIEW + ANDROID PREVIEW -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-8 items-start mb-8">
+<!-- DESKTOP DATA TABLE CONTAINER (8 COLS ON XL) -->
+<div class="xl:col-span-8 flex flex-col space-y-4">
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<div class="p-4 bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">table_chart</span>
+<h3 class="font-title-md text-title-md text-on-surface">Daftar Akun Pengguna</h3>
+</div>
+<span class="px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">
+            Tersinkronisasi Emis/Kemenag
+          </span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-high/60 text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-3 px-4">Pengguna &amp; Identitas</th>
+<th class="py-3 px-4">Peran (Multi-Role)</th>
+<th class="py-3 px-4">Kontak / WhatsApp</th>
+<th class="py-3 px-4 text-center">Status Akun</th>
+<th class="py-3 px-4 text-right">Aksi</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md text-on-surface divide-y-0" id="user-table-body">
+<!-- USER 1: ADMIN -->
+<tr class="hover:bg-surface-container-low/50 transition">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary font-bold flex items-center justify-center font-label-lg shrink-0">
+                      AF
+                    </div>
+<div class="min-w-0">
+<p class="font-title-md text-title-md font-bold text-on-surface truncate">Ahmad Fauzi, S.Kom</p>
+<p class="font-caption-tabular text-caption-tabular text-on-surface-variant truncate font-mono">ahmad.fauzi@alhikmah.sch.id</p>
+<p class="font-label-sm text-label-sm text-outline font-mono">NIK: 3507198503120002</p>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-wrap gap-1.5">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-inverse-surface text-inverse-on-surface font-label-sm text-label-sm shadow-xs">
+<span class="material-symbols-outlined text-xs">shield_person</span>
+                      Admin (Utama)
+                    </span>
+</div>
+</td>
+<td class="py-3.5 px-4 font-mono font-caption-tabular text-caption-tabular text-on-surface">
+                  +62 812-3344-9001
+                </td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                    Aktif
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="inline-flex items-center justify-end gap-1">
+<button class="p-1.5 hover:bg-surface-container-high rounded-lg text-on-surface transition" onclick="openRoleModal('Ahmad Fauzi, S.Kom', ['Admin (Utama)'])" title="Edit Peran">
+<span class="material-symbols-outlined text-lg">tune</span>
+</button>
+<button class="p-1.5 hover:bg-surface-container-high rounded-lg text-secondary transition" onclick="alert('Tautan reset password terkirim ke email!')" title="Reset Kata Sandi">
+<span class="material-symbols-outlined text-lg">lock_reset</span>
+</button>
+<button class="p-1.5 hover:bg-surface-container-high rounded-lg text-tertiary transition" onclick="toggleStatus(this)" title="Nonaktifkan Akun">
+<span class="material-symbols-outlined text-lg">power_settings_new</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- USER 2: GURU + WALI KELAS (MULTI ROLE) -->
+<tr class="bg-surface-container-low/30 hover:bg-surface-container-low/60 transition">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary text-on-secondary font-bold flex items-center justify-center font-label-lg shrink-0">
+                      MR
+                    </div>
+<div class="min-w-0">
+<p class="font-title-md text-title-md font-bold text-on-surface truncate">M. Ridwan, S.Pd</p>
+<p class="font-caption-tabular text-caption-tabular text-on-surface-variant truncate font-mono">m.ridwan@alhikmah.sch.id</p>
+<p class="font-label-sm text-label-sm text-outline font-mono">NIK: 3507198004150001</p>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-wrap gap-1.5">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-xs">school</span>
+                      Guru
+                    </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-xs">supervisor_account</span>
+                      Wali Kelas IX-A
+                    </span>
+</div>
+</td>
+<td class="py-3.5 px-4 font-mono font-caption-tabular text-caption-tabular text-on-surface">
+                  +62 856-7890-1234
+                </td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                    Aktif
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="inline-flex items-center justify-end gap-1">
+<button class="p-1.5 hover:bg-surface-container-high rounded-lg text-on-surface transition" onclick="openRoleModal('M. Ridwan, S.Pd', ['Guru', 'Wali Kelas IX-A'])" title="Edit Peran">
+<span class="material-symbols-outlined text-lg">tune</span>
+</button>
+<button class="p-1.5 hover:bg-surface-container-high rounded-lg text-secondary transition" onclick="alert('Tautan reset password terkirim ke email!')" title="Reset Kata Sandi">
+<span class="material-symbols-outlined text-lg">lock_reset</span>
+</button>
+<button class="p-1.5 hover:bg-surface-container-high rounded-lg text-tertiary transition" onclick="toggleStatus(this)" title="Nonaktifkan Akun">
+<span class="material-symbols-outlined text-lg">power_settings_new</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- USER 3: KEPALA MADRASAH -->
+<tr class="hover:bg-surface-container-low/50 transition">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-tertiary-container text-on-tertiary font-bold flex items-center justify-center font-label-lg shrink-0">
+                      SM
+                    </div>
+<div class="min-w-0">
+<p class="font-title-md text-title-md font-bold text-on-surface truncate">Hj. Siti Maryam, M.Pd</p>
+<p class="font-caption-tabular text-caption-tabular text-on-surface-variant truncate font-mono">kepala@alhikmah.sch.id</p>
+<p class="font-label-sm text-label-sm text-outline font-mono">NIK: 3507197501010003</p>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-wrap gap-1.5">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-xs">verified_user</span>
+                      Kepala Madrasah
+                    </span>
+</div>
+</td>
+<td class="py-3.5 px-4 font-mono font-caption-tabular text-caption-tabular text-on-surface">
+                  +62 811-9876-5432
+                </td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                    Aktif
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="inline-flex items-center justify-end gap-1">
+<button class="p-1.5 hover:bg-surface-container-high rounded-lg text-on-surface transition" onclick="openRoleModal('Hj. Siti Maryam, M.Pd', ['Kepala Madrasah'])" title="Edit Peran">
+<span class="material-symbols-outlined text-lg">tune</span>
+</button>
+<button class="p-1.5 hover:bg-surface-container-high rounded-lg text-secondary transition" onclick="alert('Tautan reset password terkirim ke email!')" title="Reset Kata Sandi">
+<span class="material-symbols-outlined text-lg">lock_reset</span>
+</button>
+<button class="p-1.5 hover:bg-surface-container-high rounded-lg text-tertiary transition" onclick="toggleStatus(this)" title="Nonaktifkan Akun">
+<span class="material-symbols-outlined text-lg">power_settings_new</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- USER 4: GURU ONLY -->
+<tr class="bg-surface-container-low/30 hover:bg-surface-container-low/60 transition">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary text-on-secondary font-bold flex items-center justify-center font-label-lg shrink-0">
+                      HK
+                    </div>
+<div class="min-w-0">
+<p class="font-title-md text-title-md font-bold text-on-surface truncate">Hendra Kusuma, S.Pd</p>
+<p class="font-caption-tabular text-caption-tabular text-on-surface-variant truncate font-mono">hendra.k@alhikmah.sch.id</p>
+<p class="font-label-sm text-label-sm text-outline font-mono">NIK: 3507198807200004</p>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-wrap gap-1.5">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-xs">school</span>
+                      Guru
+                    </span>
+</div>
+</td>
+<td class="py-3.5 px-4 font-mono font-caption-tabular text-caption-tabular text-on-surface">
+                  +62 822-4567-8910
+                </td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                    Aktif
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="inline-flex items-center justify-end gap-1">
+<button class="p-1.5 hover:bg-surface-container-high rounded-lg text-on-surface transition" onclick="openRoleModal('Hendra Kusuma, S.Pd', ['Guru'])" title="Edit Peran">
+<span class="material-symbols-outlined text-lg">tune</span>
+</button>
+<button class="p-1.5 hover:bg-surface-container-high rounded-lg text-secondary transition" onclick="alert('Tautan reset password terkirim ke email!')" title="Reset Kata Sandi">
+<span class="material-symbols-outlined text-lg">lock_reset</span>
+</button>
+<button class="p-1.5 hover:bg-surface-container-high rounded-lg text-tertiary transition" onclick="toggleStatus(this)" title="Nonaktifkan Akun">
+<span class="material-symbols-outlined text-lg">power_settings_new</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- USER 5: SISWA -->
+<tr class="hover:bg-surface-container-low/50 transition">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest text-on-surface font-bold flex items-center justify-center font-label-lg shrink-0">
+                      FA
+                    </div>
+<div class="min-w-0">
+<p class="font-title-md text-title-md font-bold text-on-surface truncate">Ahmad Faiz Al-Habsyi</p>
+<p class="font-caption-tabular text-caption-tabular text-on-surface-variant truncate font-mono">faiz.habsyi@siswa.alhikmah.sch.id</p>
+<p class="font-label-sm text-label-sm text-outline font-mono">NISN: 0089234711</p>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-wrap gap-1.5">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-surface-container-high text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-xs">badge</span>
+                      Siswa - IX-A
+                    </span>
+</div>
+</td>
+<td class="py-3.5 px-4 font-mono font-caption-tabular text-caption-tabular text-on-surface-variant">
+                  +62 899-0123-4567 <span class="text-xs text-outline">(Wali)</span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                    Aktif
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="inline-flex items-center justify-end gap-1">
+<button class="p-1.5 hover:bg-surface-container-high rounded-lg text-on-surface transition" onclick="openRoleModal('Ahmad Faiz Al-Habsyi', ['Siswa - IX-A'])" title="Edit Peran">
+<span class="material-symbols-outlined text-lg">tune</span>
+</button>
+<button class="p-1.5 hover:bg-surface-container-high rounded-lg text-secondary transition" onclick="alert('Tautan reset password terkirim ke email!')" title="Reset Kata Sandi">
+<span class="material-symbols-outlined text-lg">lock_reset</span>
+</button>
+<button class="p-1.5 hover:bg-surface-container-high rounded-lg text-tertiary transition" onclick="toggleStatus(this)" title="Nonaktifkan Akun">
+<span class="material-symbols-outlined text-lg">power_settings_new</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- USER 6: GURU NONAKTIF -->
+<tr class="bg-surface-container-low/30 hover:bg-surface-container-low/60 transition opacity-80">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-dim text-on-surface-variant font-bold flex items-center justify-center font-label-lg shrink-0">
+                      FZ
+                    </div>
+<div class="min-w-0">
+<p class="font-title-md text-title-md font-bold text-on-surface truncate">Dra. Fatimah Zahra</p>
+<p class="font-caption-tabular text-caption-tabular text-on-surface-variant truncate font-mono">fatimah.z@alhikmah.sch.id</p>
+<p class="font-label-sm text-label-sm text-outline font-mono">NIK: 3507197003050005</p>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-wrap gap-1.5">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-xs">school</span>
+                      Guru
+                    </span>
+</div>
+</td>
+<td class="py-3.5 px-4 font-mono font-caption-tabular text-caption-tabular text-on-surface-variant">
+                  +62 813-2233-4455
+                </td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                    Nonaktif (Cuti)
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="inline-flex items-center justify-end gap-1">
+<button class="p-1.5 hover:bg-surface-container-high rounded-lg text-on-surface transition" onclick="openRoleModal('Dra. Fatimah Zahra', ['Guru'])" title="Edit Peran">
+<span class="material-symbols-outlined text-lg">tune</span>
+</button>
+<button class="p-1.5 hover:bg-surface-container-high rounded-lg text-secondary transition" onclick="alert('Tautan reset password terkirim ke email!')" title="Reset Kata Sandi">
+<span class="material-symbols-outlined text-lg">lock_reset</span>
+</button>
+<button class="p-1.5 hover:bg-surface-container-high rounded-lg text-primary transition" onclick="toggleStatus(this)" title="Aktifkan Akun">
+<span class="material-symbols-outlined text-lg">toggle_on</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- PAGINATION BAR -->
+<div class="p-4 bg-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-3 text-on-surface-variant font-label-sm text-label-sm">
+<p>Halaman 1 dari 76</p>
+<div class="flex items-center gap-1">
+<button class="px-3 py-1 rounded-md bg-surface-container-lowest text-on-surface font-semibold shadow-xs">1</button>
+<button class="px-3 py-1 rounded-md hover:bg-surface-container-high text-on-surface">2</button>
+<button class="px-3 py-1 rounded-md hover:bg-surface-container-high text-on-surface">3</button>
+<span class="px-1">...</span>
+<button class="px-3 py-1 rounded-md hover:bg-surface-container-high text-on-surface">76</button>
+</div>
+</div>
+</div>
+<!-- IN-APP GUIDANCE CARD FOR BEGINNER ADMIN -->
+<div class="bg-primary-fixed/40 p-4 rounded-xl flex items-start gap-3.5">
+<span class="material-symbols-outlined text-primary text-2xl shrink-0 mt-0.5">info</span>
+<div class="space-y-1">
+<h4 class="font-title-md text-title-md font-bold text-on-primary-fixed">Panduan Singkat Hak Akses Multi-Role</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            • <strong>Akun Nonaktif:</strong> Pengguna tidak dapat melakukan presensi mandiri via GPS maupun membuka portal administrasi.<br/>
+            • <strong>Multi-Role:</strong> Seorang guru yang ditugaskan sebagai <em>Wali Kelas</em> secara otomatis menerima akses menu approval/validasi izin sakit siswa di kelasnya tanpa perlu membuat akun ganda.
+          </p>
+</div>
+</div>
+</div>
+<!-- PREVIEW MOBILE ANDROID SHELL (4 COLS ON XL) -->
+<div class="xl:col-span-4 flex flex-col items-center">
+<div class="w-full max-w-[390px] bg-surface-container-lowest rounded-3xl shadow-xl p-4 flex flex-col space-y-4">
+<!-- PHONE HEADER SIMULATION -->
+<div class="flex items-center justify-between pb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-base">android</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">Tampilan Android (Admin Mobile)</span>
+</div>
+<span class="text-xs font-mono text-outline">390×844</span>
+</div>
+<!-- SEARCH MINI -->
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-base">search</span>
+<input class="w-full pl-9 pr-3 py-2 bg-surface-container-low rounded-lg text-body-sm text-on-surface placeholder:text-outline outline-none" placeholder="Cari pengguna..." type="text"/>
+</div>
+<!-- MOBILE CARDS LIST -->
+<div class="space-y-3 overflow-y-auto max-h-[520px] pr-1">
+<!-- MOBILE CARD 1 (GURU + WALI KELAS) -->
+<div class="p-3.5 bg-surface-container-lowest rounded-xl shadow-sm space-y-2.5">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-9 h-9 rounded-full bg-secondary text-on-secondary font-bold flex items-center justify-center font-label-md shrink-0">
+                  MR
+                </div>
+<div class="min-w-0">
+<h4 class="font-title-md text-title-md font-bold text-on-surface truncate">M. Ridwan, S.Pd</h4>
+<p class="font-caption-tabular text-caption-tabular text-on-surface-variant truncate">m.ridwan@alhikmah.sch.id</p>
+</div>
+</div>
+<button class="p-1 text-outline hover:text-on-surface">
+<span class="material-symbols-outlined text-lg">more_vert</span>
+</button>
+</div>
+<!-- ROLES BADGES -->
+<div class="flex flex-wrap gap-1">
+<span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm">Guru</span>
+<span class="px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">Wali Kelas IX-A</span>
+</div>
+<div class="flex items-center justify-between pt-1 font-label-sm text-label-sm">
+<span class="text-outline font-mono text-xs">NIK: 350719800415...</span>
+<div class="flex items-center gap-1.5">
+<span class="text-primary font-bold">Aktif</span>
+<!-- TOGGLE SWITCH -->
+<div class="w-9 h-5 bg-primary rounded-full p-0.5 flex items-center justify-end cursor-pointer">
+<div class="w-4 h-4 rounded-full bg-white shadow-xs"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- MOBILE CARD 2 (ADMIN) -->
+<div class="p-3.5 bg-surface-container-lowest rounded-xl shadow-sm space-y-2.5">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-9 h-9 rounded-full bg-primary-container text-on-primary font-bold flex items-center justify-center font-label-md shrink-0">
+                  AF
+                </div>
+<div class="min-w-0">
+<h4 class="font-title-md text-title-md font-bold text-on-surface truncate">Ahmad Fauzi, S.Kom</h4>
+<p class="font-caption-tabular text-caption-tabular text-on-surface-variant truncate">ahmad.fauzi@alhikmah.sch.id</p>
+</div>
+</div>
+<button class="p-1 text-outline hover:text-on-surface">
+<span class="material-symbols-outlined text-lg">more_vert</span>
+</button>
+</div>
+<div class="flex flex-wrap gap-1">
+<span class="px-2 py-0.5 rounded bg-inverse-surface text-inverse-on-surface font-label-sm text-label-sm">Admin (Utama)</span>
+</div>
+<div class="flex items-center justify-between pt-1 font-label-sm text-label-sm">
+<span class="text-outline font-mono text-xs">NIK: 350719850312...</span>
+<div class="flex items-center gap-1.5">
+<span class="text-primary font-bold">Aktif</span>
+<div class="w-9 h-5 bg-primary rounded-full p-0.5 flex items-center justify-end cursor-pointer">
+<div class="w-4 h-4 rounded-full bg-white shadow-xs"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- MOBILE CARD 3 (SISWA) -->
+<div class="p-3.5 bg-surface-container-lowest rounded-xl shadow-sm space-y-2.5">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-9 h-9 rounded-full bg-surface-container-highest text-on-surface font-bold flex items-center justify-center font-label-md shrink-0">
+                  FA
+                </div>
+<div class="min-w-0">
+<h4 class="font-title-md text-title-md font-bold text-on-surface truncate">Ahmad Faiz Al-Habsyi</h4>
+<p class="font-caption-tabular text-caption-tabular text-on-surface-variant truncate">faiz.habsyi@siswa...</p>
+</div>
+</div>
+<button class="p-1 text-outline hover:text-on-surface">
+<span class="material-symbols-outlined text-lg">more_vert</span>
+</button>
+</div>
+<div class="flex flex-wrap gap-1">
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm">Siswa - IX-A</span>
+</div>
+<div class="flex items-center justify-between pt-1 font-label-sm text-label-sm">
+<span class="text-outline font-mono text-xs">NISN: 0089234711</span>
+<div class="flex items-center gap-1.5">
+<span class="text-primary font-bold">Aktif</span>
+<div class="w-9 h-5 bg-primary rounded-full p-0.5 flex items-center justify-end cursor-pointer">
+<div class="w-4 h-4 rounded-full bg-white shadow-xs"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- MOBILE CARD 4 (NONAKTIF) -->
+<div class="p-3.5 bg-surface-container-low/40 rounded-xl space-y-2.5 opacity-75">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-9 h-9 rounded-full bg-surface-dim text-on-surface-variant font-bold flex items-center justify-center font-label-md shrink-0">
+                  FZ
+                </div>
+<div class="min-w-0">
+<h4 class="font-title-md text-title-md font-bold text-on-surface truncate">Dra. Fatimah Zahra</h4>
+<p class="font-caption-tabular text-caption-tabular text-on-surface-variant truncate">fatimah.z@alhikmah...</p>
+</div>
+</div>
+<button class="p-1 text-outline hover:text-on-surface">
+<span class="material-symbols-outlined text-lg">more_vert</span>
+</button>
+</div>
+<div class="flex flex-wrap gap-1">
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">Guru</span>
+</div>
+<div class="flex items-center justify-between pt-1 font-label-sm text-label-sm">
+<span class="text-tertiary font-bold text-xs">Nonaktif (Cuti)</span>
+<div class="flex items-center gap-1.5">
+<!-- INACTIVE TOGGLE -->
+<div class="w-9 h-5 bg-outline rounded-full p-0.5 flex items-center justify-start cursor-pointer">
+<div class="w-4 h-4 rounded-full bg-white shadow-xs"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text-center pt-2">
+<p class="font-caption-tabular text-caption-tabular text-outline">Target sentuh Android: Min. 44px</p>
+</div>
+</div>
+</div>
+</div>
+<!-- MODAL: EDIT PERAN (ROLE MANAGEMENT) -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-inverse-surface/40 backdrop-blur-xs hidden p-4" id="modal-edit-role">
+<div class="bg-surface-container-lowest rounded-2xl shadow-xl max-w-md w-full p-6 space-y-5">
+<div class="flex items-start justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Tetapkan Peran Pengguna</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant font-semibold mt-0.5" id="modal-role-username"></p>
+</div>
+<button class="p-1 text-outline hover:text-on-surface rounded-lg" onclick="closeRoleModal()">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+<div class="space-y-3">
+<label class="block font-label-md text-label-md text-on-surface">Pilih Peran Sistem (Dapat Lebih dari Satu):</label>
+<label class="flex items-center gap-3 p-3 rounded-lg bg-surface-container-low hover:bg-surface-container cursor-pointer transition">
+<input class="w-4 h-4 accent-primary rounded" id="role-chk-guru" type="checkbox"/>
+<div>
+<p class="font-title-md text-title-md text-on-surface font-bold">Guru Pengajar</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Dapat melakukan presensi mandiri dan scan QR siswa.</p>
+</div>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-lg bg-surface-container-low hover:bg-surface-container cursor-pointer transition">
+<input class="w-4 h-4 accent-primary rounded" id="role-chk-wali" type="checkbox"/>
+<div class="flex-1">
+<p class="font-title-md text-title-md text-on-surface font-bold">Wali Kelas</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Memvalidasi izin/sakit siswa kelas perwalian.</p>
+<select class="mt-2 text-xs bg-surface-container-lowest px-2 py-1 rounded outline-none w-full">
+<option>Pilih Rombel: IX-A</option>
+<option>Pilih Rombel: IX-B</option>
+<option>Pilih Rombel: VIII-A</option>
+</select>
+</div>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-lg bg-surface-container-low hover:bg-surface-container cursor-pointer transition">
+<input class="w-4 h-4 accent-primary rounded" id="role-chk-admin" type="checkbox"/>
+<div>
+<p class="font-title-md text-title-md text-on-surface font-bold">Administrator Madrasah</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Akses penuh pengaturan data master dan periode.</p>
+</div>
+</label>
+</div>
+<div class="flex items-center justify-end gap-3 pt-2">
+<button class="px-4 py-2 rounded-lg bg-surface-container-high text-on-surface font-label-md text-label-md" onclick="closeRoleModal()">
+          Batal
+        </button>
+<button class="px-4 py-2 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md shadow-xs" onclick="saveRoleModal()">
+          Simpan Peran
+        </button>
+</div>
+</div>
+</div>
+<!-- MODAL: TAMBAH PENGGUNA BARU (SIMULASI FORM) -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-inverse-surface/40 backdrop-blur-xs hidden p-4" id="modal-add-user">
+<div class="bg-surface-container-lowest rounded-2xl shadow-xl max-w-lg w-full p-6 space-y-4">
+<div class="flex items-start justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Tambah Pengguna Baru</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Isi data akun madrasah untuk didaftarkan ke sistem.</p>
+</div>
+<button class="p-1 text-outline hover:text-on-surface rounded-lg" onclick="document.getElementById('modal-add-user').classList.add('hidden')">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+<div class="space-y-3 text-left">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface font-semibold mb-1">Nama Lengkap &amp; Gelar</label>
+<input class="w-full px-3.5 py-2 rounded-lg bg-surface-container-low text-body-sm outline-none" placeholder="Contoh: Nurul Hidayat, S.Pd" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface font-semibold mb-1">Nomor Identitas (NIK/NISN)</label>
+<input class="w-full px-3.5 py-2 rounded-lg bg-surface-container-low text-body-sm outline-none font-mono" placeholder="16 digit NIK" type="text"/>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface font-semibold mb-1">Nomor WhatsApp</label>
+<input class="w-full px-3.5 py-2 rounded-lg bg-surface-container-low text-body-sm outline-none font-mono" placeholder="+62 8..." type="text"/>
+</div>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface font-semibold mb-1">Alamat Email Madrasah</label>
+<input class="w-full px-3.5 py-2 rounded-lg bg-surface-container-low text-body-sm outline-none" placeholder="nama@alhikmah.sch.id" type="email"/>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface font-semibold mb-1">Peran Awal</label>
+<select class="w-full px-3.5 py-2 rounded-lg bg-surface-container-low text-body-sm outline-none">
+<option>Guru</option>
+<option>Wali Kelas</option>
+<option>Siswa</option>
+<option>Administrator</option>
+</select>
+</div>
+</div>
+<div class="flex items-center justify-end gap-3 pt-3">
+<button class="px-4 py-2 rounded-lg bg-surface-container-high text-on-surface font-label-md text-label-md" onclick="document.getElementById('modal-add-user').classList.add('hidden')">
+          Batal
+        </button>
+<button class="px-4 py-2 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md shadow-xs" onclick="alert('Pengguna baru berhasil ditambahkan!'); document.getElementById('modal-add-user').classList.add('hidden')">
+          Simpan Akun
+        </button>
+</div>
+</div>
+</div>
+<!-- CLIENT-SIDE LOGIC FOR SEARCH & ROLE EDIT -->
+<script>
+    function openRoleModal(userName, currentRoles) {
+      document.getElementById('modal-role-username').textContent = 'Pengguna: ' + userName;
+      document.getElementById('role-chk-guru').checked = currentRoles.some(r => r.includes('Guru'));
+      document.getElementById('role-chk-wali').checked = currentRoles.some(r => r.includes('Wali Kelas'));
+      document.getElementById('role-chk-admin').checked = currentRoles.some(r => r.includes('Admin'));
+      document.getElementById('modal-edit-role').classList.remove('hidden');
+    }
+
+    function closeRoleModal() {
+      document.getElementById('modal-edit-role').classList.add('hidden');
+    }
+
+    function saveRoleModal() {
+      alert('Peran pengguna berhasil diperbarui!');
+      closeRoleModal();
+    }
+
+    function toggleStatus(btn) {
+      const row = btn.closest('tr');
+      const statusBadge = row.querySelector('td:nth-child(4) span');
+      if (statusBadge.textContent.includes('Aktif')) {
+        statusBadge.className = 'inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm';
+        statusBadge.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-outline"></span> Nonaktif';
+        btn.innerHTML = '<span class="material-symbols-outlined text-lg">toggle_on</span>';
+        btn.className = 'p-1.5 hover:bg-surface-container-high rounded-lg text-primary transition';
+        btn.title = 'Aktifkan Akun';
+      } else {
+        statusBadge.className = 'inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm';
+        statusBadge.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span> Aktif';
+        btn.innerHTML = '<span class="material-symbols-outlined text-lg">power_settings_new</span>';
+        btn.className = 'p-1.5 hover:bg-surface-container-high rounded-lg text-tertiary transition';
+        btn.title = 'Nonaktifkan Akun';
+      }
+    }
+
+    // Quick filter script
+    document.getElementById('search-input')?.addEventListener('input', function(e) {
+      const query = e.target.value.toLowerCase();
+      const rows = document.querySelectorAll('#user-table-body tr');
+      rows.forEach(r => {
+        const text = r.innerText.toLowerCase();
+        r.style.display = text.includes(query) ? '' : 'none';
+      });
+    });
+  </script>
+</div></main>
+<!-- ROLE DEFINITIONS AND INTERACTIVE SCRIPT -->
+<script>
+    const rolesData = {
+      admin: {
+        roleName: "Administrator Madrasah",
+        userFullName: "Ahmad Fauzi, S.Kom",
+        userBadge: "Admin Utama",
+        userInitials: "AF",
+        pageTitle: "Dashboard Ringkasan Admin",
+        pageCode: "FS-DASH-ADM",
+        pageDesc: "Monitoring presensi madrasah, status GPS geofencing, dan rekapitulasi harian.",
+        headerAction: "+ Buat Periode",
+        sidebarHeading: "Menu Utama (Admin)",
+        desktopItems: [
+          { name: "Dashboard", active: true, icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" },
+          { name: "Master Data", icon: "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" },
+          { name: "Periode Akademik", icon: "M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" },
+          { name: "Jadwal", icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" },
+          { name: "Presensi", icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" },
+          { name: "Izin", icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" },
+          { name: "Koreksi", icon: "M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" },
+          { name: "Audit", icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" },
+          { name: "Import Excel", icon: "M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" },
+          { name: "Laporan", icon: "M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" }
+        ],
+        mobileBottomItems: [
+          { name: "Dashboard", active: true, icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" },
+          { name: "Presensi", icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" },
+          { name: "Koreksi", icon: "M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" },
+          { name: "Menu", isDrawer: true, icon: "M4 6h16M4 12h16M4 18h16" }
+        ],
+        mobileQuick: [
+          { label: "Data Presensi", desc: "Pantau absensi", icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" },
+          { label: "Koreksi Kehadiran", desc: "Approval koreksi", icon: "M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5" },
+          { label: "Master Guru/Siswa", desc: "Kelola data", icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" },
+          { label: "Audit Perubahan", desc: "Log aktivitas", icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" }
+        ]
+      },
+      guru: {
+        roleName: "Guru Pengajar",
+        userFullName: "M. Ridwan, S.Pd",
+        userBadge: "Guru Aktif",
+        userInitials: "MR",
+        pageTitle: "Presensi Mandiri Guru",
+        pageCode: "FS-ATT-G",
+        pageDesc: "Presensi mandiri datang & pulang guru berbasis lokasi GPS Geofence (radius 200m).",
+        headerAction: "Absen Datang",
+        sidebarHeading: "Menu Guru",
+        desktopItems: [
+          { name: "Dashboard", icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" },
+          { name: "Presensi Saya", active: true, icon: "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" },
+          { name: "Scan Siswa", icon: "M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" },
+          { name: "Riwayat", icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" },
+          { name: "Izin Saya", icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" },
+          { name: "Koreksi", icon: "M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" },
+          { name: "Panduan", icon: "M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" }
+        ],
+        mobileBottomItems: [
+          { name: "Presensi", active: true, icon: "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" },
+          { name: "Scan Siswa", icon: "M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" },
+          { name: "Izin Saya", icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" },
+          { name: "Menu", isDrawer: true, icon: "M4 6h16M4 12h16M4 18h16" }
+        ],
+        mobileQuick: [
+          { label: "Presensi Mandiri", desc: "Datang / Pulang GPS", icon: "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" },
+          { label: "Scan QR Siswa", desc: "Verifikasi visual", icon: "M12 4v1m6 11h2m-6 0h-2v4m0-11v3" },
+          { label: "Riwayat Presensi", desc: "Data kehadiran", icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" },
+          { label: "Ajukan Koreksi", desc: "Koreksi jam/status", icon: "M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5" }
+        ]
+      },
+      walikelas: {
+        roleName: "Wali Kelas (Kelas IX-A)",
+        userFullName: "Siti Aminah, M.Pd",
+        userBadge: "Wali Kelas IX-A",
+        userInitials: "SA",
+        pageTitle: "Persetujuan Izin Siswa Kelas IX-A",
+        pageCode: "FS-APP-S",
+        pageDesc: "Daftar permohonan izin/sakit siswa perwalian yang memerlukan persetujuan wali kelas.",
+        headerAction: "Approval Massal",
+        sidebarHeading: "Menu Wali Kelas",
+        desktopItems: [
+          { name: "Dashboard", icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" },
+          { name: "Presensi Kelas", icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" },
+          { name: "Siswa", icon: "M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" },
+          { name: "Approval Izin", active: true, icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" },
+          { name: "Izin Saya", icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" },
+          { name: "Panduan", icon: "M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" }
+        ],
+        mobileBottomItems: [
+          { name: "Presensi", icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" },
+          { name: "Approval", active: true, icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" },
+          { name: "Siswa", icon: "M12 4.354a4 4 0 110 5.292" },
+          { name: "Menu", isDrawer: true, icon: "M4 6h16M4 12h16M4 18h16" }
+        ],
+        mobileQuick: [
+          { label: "Approval Izin Siswa", desc: "4 menunggu", icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" },
+          { label: "Presensi Kelas", desc: "32 siswa IX-A", icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" },
+          { label: "Daftar Siswa", desc: "Status NISN/QR", icon: "M12 4.354a4 4 0 110 5.292" },
+          { label: "Izin Saya", desc: "Form izin pribadi", icon: "M9 12h6m-6 4h6" }
+        ]
+      },
+      siswa: {
+        roleName: "Siswa Madrasah",
+        userFullName: "Ahmad Faiz Al-Habsyi",
+        userBadge: "Kelas IX-A • 0089234711",
+        userInitials: "AF",
+        pageTitle: "Kartu QR Presensi Siswa",
+        pageCode: "FS-QR-S",
+        pageDesc: "Tunjukkan QR statis kepada guru piket / pengajar untuk dicatat kehadirannya.",
+        headerAction: "Unduh QR Card",
+        sidebarHeading: "Menu Siswa",
+        desktopItems: [
+          { name: "Dashboard", icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" },
+          { name: "Presensi Saya", icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" },
+          { name: "Izin Saya", icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" },
+          { name: "QR Saya", active: true, icon: "M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" },
+          { name: "Panduan", icon: "M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" }
+        ],
+        mobileBottomItems: [
+          { name: "QR Saya", active: true, icon: "M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" },
+          { name: "Presensi", icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" },
+          { name: "Izin Saya", icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" },
+          { name: "Panduan", icon: "M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" }
+        ],
+        mobileQuick: [
+          { label: "Buka QR Siswa", desc: "Tunjukkan ke guru", icon: "M12 4v1m6 11h2m-6 0h-2v4" },
+          { label: "Ajukan Izin", desc: "Sakit / Surat Dokter", icon: "M9 12h6m-6 4h6" },
+          { label: "Riwayat Presensi", desc: "Rekap kehadiran", icon: "M9 5H7a2 2 0 00-2 2v12" },
+          { label: "Panduan Siswa", desc: "Aturan absensi", icon: "M13 16h-1v-4h-1" }
+        ]
+      },
+      kepala: {
+        roleName: "Kepala Madrasah",
+        userFullName: "Drs. H. Maimun, M.Ag",
+        userBadge: "Kepala Madrasah",
+        userInitials: "HM",
+        pageTitle: "Monitoring Kehadiran Madrasah",
+        pageCode: "FS-MON-KM",
+        pageDesc: "Tinjauan tingkat kehadiran real-time guru & siswa serta approval izin dinas guru.",
+        headerAction: "Unduh Rekap",
+        sidebarHeading: "Menu Eksekutif",
+        desktopItems: [
+          { name: "Dashboard", icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" },
+          { name: "Monitoring Presensi", active: true, icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" },
+          { name: "Approval Izin Guru", icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" },
+          { name: "Laporan", icon: "M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" },
+          { name: "Audit", icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" }
+        ],
+        mobileBottomItems: [
+          { name: "Monitoring", active: true, icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10" },
+          { name: "Approval Guru", icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" },
+          { name: "Laporan", icon: "M9 17v-2m3 2v-4m3 4v-6" },
+          { name: "Audit", icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944" }
+        ],
+        mobileQuick: [
+          { label: "Approval Izin Guru", desc: "2 permohonan", icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" },
+          { label: "Monitoring Harian", desc: "98.2% hadir", icon: "M9 19v-6a2 2 0 00-2-2H5" },
+          { label: "Audit Presensi", desc: "Log koreksi admin", icon: "M9 12l2 2 4-4m5.618-4.016" },
+          { label: "Rekap Bulanan", desc: "Export XLSX/PDF", icon: "M9 17v-2m3 2v-4" }
+        ]
+      }
+    };
+
+    let currentRole = 'admin';
+
+    function switchRole(roleKey) {
+      currentRole = roleKey;
+      const data = rolesData[roleKey];
+      if (!data) return;
+
+      // Update button styling
+      document.querySelectorAll('.role-btn').forEach(btn => {
+        btn.className = "role-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200";
+      });
+      const activeBtn = document.getElementById(`btn-${roleKey}`);
+      if (activeBtn) {
+        activeBtn.className = "role-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-brand-500 text-white shadow-xs";
+      }
+
+      // Update Desktop Shell Texts
+      document.getElementById('desktop-role-label').textContent = data.roleName;
+      document.getElementById('desktop-user-name').textContent = data.userFullName;
+      document.getElementById('desktop-user-badge').textContent = data.userBadge;
+      document.getElementById('desktop-user-avatar').textContent = data.userInitials;
+      document.getElementById('desktop-page-title').textContent = data.pageTitle;
+      document.getElementById('desktop-page-code').textContent = data.pageCode;
+      document.getElementById('desktop-page-desc').textContent = data.pageDesc;
+      document.getElementById('desktop-header-action').innerHTML = `<span>${data.headerAction}</span>`;
+      document.getElementById('sidebar-role-heading').textContent = data.sidebarHeading;
+
+      // Render Desktop Navigation List
+      const desktopNavContainer = document.getElementById('desktop-nav-items');
+      desktopNavContainer.innerHTML = '';
+      data.desktopItems.forEach(item => {
+        const itemEl = document.createElement('a');
+        itemEl.href = '#';
+        if (item.active) {
+          itemEl.className = 'flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs font-semibold bg-brand-500 text-white shadow-xs transition';
+        } else {
+          itemEl.className = 'flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition';
+        }
+        itemEl.innerHTML = `
+          <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${item.icon}" />
+          </svg>
+          <span class="truncate">${item.name}</span>
+        `;
+        desktopNavContainer.appendChild(itemEl);
+      });
+
+      // Update Mobile Shell Texts
+      document.getElementById('mobile-role-tag').textContent = `ROLE: ${roleKey.toUpperCase()}`;
+      document.getElementById('mobile-page-title').textContent = data.pageTitle;
+      document.getElementById('mobile-user-avatar').textContent = data.userInitials;
+      document.getElementById('mobile-user-desc').textContent = `${data.userFullName} (${data.roleName})`;
+      document.getElementById('drawer-title').textContent = `Menu Lengkap (${data.roleName})`;
+
+      // Render Mobile Quick Actions
+      const quickContainer = document.getElementById('mobile-quick-actions');
+      quickContainer.innerHTML = '';
+      data.mobileQuick.forEach(act => {
+        const card = document.createElement('div');
+        card.className = 'p-2.5 bg-slate-50 border border-slate-200 rounded-lg text-left hover:border-brand-500 transition cursor-pointer';
+        card.innerHTML = `
+          <div class="w-6 h-6 rounded-md bg-white border border-slate-200 text-brand-600 flex items-center justify-center mb-1.5">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${act.icon}" />
+            </svg>
+          </div>
+          <div class="text-[11px] font-bold text-slate-800 leading-tight">${act.label}</div>
+          <div class="text-[9px] text-slate-500 mt-0.5">${act.desc}</div>
+        `;
+        quickContainer.appendChild(card);
+      });
+
+      // Render Mobile Bottom Navigation
+      const bottomNavContainer = document.getElementById('mobile-bottom-nav');
+      bottomNavContainer.innerHTML = '';
+      data.mobileBottomItems.forEach(navItem => {
+        const btn = document.createElement('button');
+        if (navItem.isDrawer) {
+          btn.onclick = toggleMobileDrawer;
+        }
+        btn.className = `flex flex-col items-center justify-center flex-1 h-full py-1 text-center min-w-[60px] ${
+          navItem.active ? 'text-brand-600 font-bold' : 'text-slate-500 hover:text-slate-800'
+        }`;
+        btn.innerHTML = `
+          <div class="w-6 h-6 flex items-center justify-center mb-0.5">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${navItem.icon}" />
+            </svg>
+          </div>
+          <span class="text-[10px] tracking-tight leading-none">${navItem.name}</span>
+        `;
+        bottomNavContainer.appendChild(btn);
+      });
+
+      // Render Drawer Full Items (all desktop items)
+      const drawerContainer = document.getElementById('mobile-drawer-items');
+      drawerContainer.innerHTML = '';
+      data.desktopItems.forEach(item => {
+        const drawerLink = document.createElement('a');
+        drawerLink.href = '#';
+        drawerLink.onclick = () => { toggleMobileDrawer(); };
+        drawerLink.className = `flex items-center gap-3 px-3 py-2 rounded-lg text-xs font-medium ${
+          item.active ? 'bg-brand-50 text-brand-700 font-semibold' : 'text-slate-700 hover:bg-slate-50'
+        }`;
+        drawerLink.innerHTML = `
+          <svg class="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${item.icon}" />
+          </svg>
+          <span>${item.name}</span>
+        `;
+        drawerContainer.appendChild(drawerLink);
+      });
+    }
+
+    function toggleMobileDrawer() {
+      const drawer = document.getElementById('mobile-drawer');
+      if (drawer.classList.contains('hidden')) {
+        drawer.classList.remove('hidden');
+      } else {
+        drawer.classList.add('hidden');
+      }
+    }
+
+    // Initialize Default Role (Admin)
+    window.addEventListener('DOMContentLoaded', () => {
+      switchRole('admin');
+    });
+  </script>
+</body></html>
